@@ -1885,7 +1885,7 @@ growthfunction         &lt;growth function&gt;
 </ul>
 <div id="subsec:growth1" class="section level3">
 <h3>MULTSPEC Growth Function</h3>
-<p>This growth function is a simplified “MULTSPEC” growth equation, with the increase in length for each length group of the stock given by equation <a href="#eq:growth1l" reference-type="ref" reference="eq:growth1l"><span class="math display">\[eq:growth1l\]</span></a>, and the corresponding increase in weight of the stock given by equation <a href="#eq:growth1w" reference-type="ref" reference="eq:growth1w"><span class="math display">\[eq:growth1w\]</span></a> below:</p>
+<p>This growth function is a simplified “MULTSPEC” growth equation, with the increase in length for each length group of the stock given by equation <a href="#eq:growth1l" reference-type="ref" reference="eq:growth1l">eq:growth1l</a>, and the corresponding increase in weight of the stock given by equation <a href="#eq:growth1w" reference-type="ref" reference="eq:growth1w">eq:growth1w</a> below:</p>
 <p><span class="math display">\[\label{eq:growth1l}
 \Delta L_{i} = \Delta t p_{0} {L_{i}}^{p_{1}} \psi (p_{2} T + p_{3})\]</span></p>
 <p><span class="math display">\[\label{eq:growth1w}
@@ -1897,7 +1897,7 @@ growthfunction         &lt;growth function&gt;
 </div>
 <div id="subsec:growth3" class="section level3">
 <h3>WeightVB Growth Function</h3>
-<p>This growth function is a form of the Von Bertalanffy growth equation, extended to introduce the concept of starvation to the growth function. The increase in the weight for each length group the stock is given by equation <a href="#eq:growth3w" reference-type="ref" reference="eq:growth3w"><span class="math display">\[eq:growth3w\]</span></a>, and the corresponding increase in the length of the stock is given by equation <a href="#eq:growth3lc" reference-type="ref" reference="eq:growth3lc"><span class="math display">\[eq:growth3lc\]</span></a> below:</p>
+<p>This growth function is a form of the Von Bertalanffy growth equation, extended to introduce the concept of starvation to the growth function. The increase in the weight for each length group the stock is given by equation <a href="#eq:growth3w" reference-type="ref" reference="eq:growth3w">eq:growth3w</a>, and the corresponding increase in the length of the stock is given by equation <a href="#eq:growth3lc" reference-type="ref" reference="eq:growth3lc">eq:growth3lc</a> below:</p>
 <p><span class="math display">\[\label{eq:growth3w}
 \Delta W_{i} = \Delta t q_{0} e^{q_{1} T} \left( \left( \frac{W_{i}}{q_{2}} \right)^{q_{4}} - \left( \frac{W_{i}}{q_{3}} \right)^{q_{5}} \right)\]</span></p>
 <p><span class="math display">\[\label{eq:growth3la}
@@ -1913,7 +1913,7 @@ p_{3} + p_{4}x &amp; \textrm{otherwise}
 \Delta L_{i} = \frac{\Delta W_{i}} {p_{6} p_{7} l^{p_{7} - 1}} f(r)\]</span></p>
 <p>where: <span class="math inline">\(&lt;\Delta t&gt;\)</span> is the length of the timestep <span class="math inline">\(&lt;\)</span> T <span class="math inline">\(&gt;\)</span> is the temperature <span class="math inline">\(&lt;W_{ref}&gt;\)</span> is the reference weight</p>
 
-<p>Comparing the weight to the reference weight (by using equations <a href="#eq:growth3la" reference-type="ref" reference="eq:growth3la"><span class="math display">\[eq:growth3la\]</span></a> and <a href="#eq:growth3lb" reference-type="ref" reference="eq:growth3lb"><span class="math display">\[eq:growth3lb\]</span></a>) introduces the concept of starvation to the Gadget model. When the weight of the population is less than a function of the reference weight, there is no length increase (ensuring that the growth only has an effect on the weight).</p>
+<p>Comparing the weight to the reference weight (by using equations <a href="#eq:growth3la" reference-type="ref" reference="eq:growth3la">eq:growth3la</a> and <a href="#eq:growth3lb" reference-type="ref" reference="eq:growth3lb">eq:growth3lb</a>) introduces the concept of starvation to the Gadget model. When the weight of the population is less than a function of the reference weight, there is no length increase (ensuring that the growth only has an effect on the weight).</p>
 
 <p>There are 6 parameters for the equation for increase of the weight, and a further 9 parameters for the increase in length. These are declared in 2 vectors, as shown below:</p>
 <pre><code>wgrowthparameters      &lt;weight parameters vector&gt;
@@ -1921,7 +1921,7 @@ lgrowthparameters      &lt;length parameters vector&gt;</code></pre>
 </div>
 <div id="subsec:growth4" class="section level3">
 <h3>WeightJones Growth Function</h3>
-<p>This growth function is a form of the Jones growth equation, extended to introduce the concept of starvation to the growth function. The increase in the weight for each length group the stock is given by equation <a href="#eq:growth4w" reference-type="ref" reference="eq:growth4w"><span class="math display">\[eq:growth4w\]</span></a>, and the corresponding increase in the length of the stock is given by equation <a href="#eq:growth4lc" reference-type="ref" reference="eq:growth4lc"><span class="math display">\[eq:growth4lc\]</span></a> below:</p>
+<p>This growth function is a form of the Jones growth equation, extended to introduce the concept of starvation to the growth function. The increase in the weight for each length group the stock is given by equation <a href="#eq:growth4w" reference-type="ref" reference="eq:growth4w">eq:growth4w</a>, and the corresponding increase in the length of the stock is given by equation <a href="#eq:growth4lc" reference-type="ref" reference="eq:growth4lc">eq:growth4lc</a> below:</p>
 <p><span class="math display">\[\label{eq:growth4w}
 \Delta W_{i} = \Delta t \left( \frac{C}{q_{0} W_{i}^{q_{1}}} - q_{2} W_{i}^{q_{3}} e^{(q_{4} T + q_{5})} \right)\]</span></p>
 <p><span class="math display">\[\label{eq:growth4la}
@@ -1943,7 +1943,7 @@ lgrowthparameters      &lt;length parameters vector&gt;</code></pre>
 </div>
 <div id="subsec:growth5" class="section level3">
 <h3>WeightVBExpanded Growth Function</h3>
-<p>This growth function is an expanded form of the Von Bertalanffy growth equation, with additional information to allow for differing growth depending on the year, timestep and area. The increase in the weight of the stock is given by equation <a href="#eq:growth5w" reference-type="ref" reference="eq:growth5w"><span class="math display">\[eq:growth5w\]</span></a> below, and the corresponding increase in the length of the stock is identical to that for WeightVB growth function (see section <a href="#subsec:growth3" reference-type="ref" reference="subsec:growth3">4.3.2</a>) given by equation <a href="#eq:growth3lc" reference-type="ref" reference="eq:growth3lc"><span class="math display">\[eq:growth3lc\]</span></a>:</p>
+<p>This growth function is an expanded form of the Von Bertalanffy growth equation, with additional information to allow for differing growth depending on the year, timestep and area. The increase in the weight of the stock is given by equation <a href="#eq:growth5w" reference-type="ref" reference="eq:growth5w">eq:growth5w</a> below, and the corresponding increase in the length of the stock is identical to that for WeightVB growth function (see section <a href="#subsec:growth3" reference-type="ref" reference="subsec:growth3">4.3.2</a>) given by equation <a href="#eq:growth3lc" reference-type="ref" reference="eq:growth3lc">eq:growth3lc</a>:</p>
 <p><span class="math display">\[\label{eq:growth5w}
 \Delta W_{i} = \Delta t Y_{y} S_{s} A_{a} q_{0} e^{q_{1}T} \left( \left( \frac{W_{i}}{q_{2}} \right)^{q_{4}} - \left( \frac{W_{i}}{q_{3}} \right)^{q_{5}} \right)\]</span></p>
 <p>where: <span class="math inline">\(&lt;\Delta t&gt;\)</span> is the length of the timestep <span class="math inline">\(&lt;\)</span> T <span class="math inline">\(&gt;\)</span> is the temperature <span class="math inline">\(&lt;Y_{y}&gt;\)</span> is a multiplier for year y <span class="math inline">\(&lt;S_{s}&gt;\)</span> is a multiplier for step s <span class="math inline">\(&lt;A_{a}&gt;\)</span> is a multiplier for area a</p>
@@ -1958,7 +1958,7 @@ areaeffect             &lt;area effect vector&gt;</code></pre>
 </div>
 <div id="subsec:growth6" class="section level3">
 <h3>LengthVB Growth Function</h3>
-<p>This growth function is a simplified form of the Von Bertalanffy growth equation. The increase in the length for each length group the stock is given by equation <a href="#eq:growth6" reference-type="ref" reference="eq:growth6"><span class="math display">\[eq:growth6\]</span></a>, with the corresponding increase in the weight of the stock read in from a data file:</p>
+<p>This growth function is a simplified form of the Von Bertalanffy growth equation. The increase in the length for each length group the stock is given by equation <a href="#eq:growth6" reference-type="ref" reference="eq:growth6">eq:growth6</a>, with the corresponding increase in the weight of the stock read in from a data file:</p>
 <p><span class="math display">\[\label{eq:growth6}
 \Delta L_{i} = \left( L_{\infty} - L_{i} \right) \left( 1 - e^{-\kappa \Delta t} \right)\]</span></p>
 <p>where: <span class="math inline">\(&lt;\Delta t&gt;\)</span> is the length of the timestep</p>
@@ -1966,14 +1966,14 @@ areaeffect             &lt;area effect vector&gt;</code></pre>
 <p>There are a total of 2 parameters for the equation for increase in length. These are declared in a single vector, as shown below:</p>
 <pre><code>growthparameters       &lt;linf&gt; &lt;kappa&gt;
 weightgrowthfile       &lt;weight data file&gt;</code></pre>
-<p>It is important to note that if the value of <span class="math inline">\(L_{\infty}\)</span> is less than the mean length of a length group, then the length increase calculated by equation <a href="#eq:growth6" reference-type="ref" reference="eq:growth6"><span class="math display">\[eq:growth6\]</span></a> would be negative for that length group, which will result in Gadget printing a warning message. To avoid this, the user should ensure that the value of <span class="math inline">\(L_{\infty}\)</span> is always greater than the mean length of the largest length group.</p>
+<p>It is important to note that if the value of <span class="math inline">\(L_{\infty}\)</span> is less than the mean length of a length group, then the length increase calculated by equation <a href="#eq:growth6" reference-type="ref" reference="eq:growth6">eq:growth6</a> would be negative for that length group, which will result in Gadget printing a warning message. To avoid this, the user should ensure that the value of <span class="math inline">\(L_{\infty}\)</span> is always greater than the mean length of the largest length group.</p>
 
 <p>The weight data file consists of a list of the year, timestep, area and length group label, followed by the mean increase in weight for that timestep/area/length combination. The length group label used must match those specified in the growthandeatlengths length aggregation file. The format of this file is shown below:</p>
 <pre><code>&lt;year&gt;  &lt;step&gt;  &lt;area&gt;  &lt;length group&gt;  &lt;number&gt;</code></pre>
 </div>
 <div id="subsec:growth7" class="section level3">
 <h3>LengthPower Growth Function</h3>
-<p>This growth function uses a simple power-based growth equation to calculate the increase in length. The increase in the length for each length group the stock is given by equation <a href="#eq:growth7" reference-type="ref" reference="eq:growth7"><span class="math display">\[eq:growth7\]</span></a>, with the corresponding increase in the weight of the stock read in from a data file:</p>
+<p>This growth function uses a simple power-based growth equation to calculate the increase in length. The increase in the length for each length group the stock is given by equation <a href="#eq:growth7" reference-type="ref" reference="eq:growth7">eq:growth7</a>, with the corresponding increase in the weight of the stock read in from a data file:</p>
 <p><span class="math display">\[\label{eq:growth7}
 \Delta L_{i} = L_{i}^{q_{0}} e^{q_{1} \Delta t}\]</span></p>
 <p>where: <span class="math inline">\(&lt;\Delta t&gt;\)</span> is the length of the timestep</p>
@@ -1986,7 +1986,7 @@ weightgrowthfile       &lt;weight data file&gt;</code></pre>
 </div>
 <div id="subsec:growth8" class="section level3">
 <h3>LengthVBSimple Growth Function</h3>
-<p>This growth function is a simplified form of the Von Bertalanffy growth equation. The increase in the length for each length group the stock is given by equation <a href="#eq:growth8l" reference-type="ref" reference="eq:growth8l"><span class="math display">\[eq:growth8l\]</span></a>, and the corresponding increase in the weight of the stock is given by equation <a href="#eq:growth8w" reference-type="ref" reference="eq:growth8w"><span class="math display">\[eq:growth8w\]</span></a> below:</p>
+<p>This growth function is a simplified form of the Von Bertalanffy growth equation. The increase in the length for each length group the stock is given by equation <a href="#eq:growth8l" reference-type="ref" reference="eq:growth8l">eq:growth8l</a>, and the corresponding increase in the weight of the stock is given by equation <a href="#eq:growth8w" reference-type="ref" reference="eq:growth8w">eq:growth8w</a> below:</p>
 <p><span class="math display">\[\label{eq:growth8l}
 \Delta L_{i} = \left( L_{\infty} - L_{i} \right) \left( 1 - e^{-\kappa \Delta t} \right)\]</span></p>
 <p><span class="math display">\[\label{eq:growth8w}
@@ -1995,7 +1995,7 @@ weightgrowthfile       &lt;weight data file&gt;</code></pre>
 
 <p>There are a total of 4 parameters for the equation for increase in length and weight. These are declared in a single vector, as shown below:</p>
 <pre><code>growthparameters       &lt;linf&gt; &lt;kappa&gt; &lt;alpha&gt; &lt;beta&gt;</code></pre>
-<p>It is important to note that if the value of <span class="math inline">\(L_{\infty}\)</span> is less than the mean length of a length group, then the length increase calculated by equation <a href="#eq:growth8l" reference-type="ref" reference="eq:growth8l"><span class="math display">\[eq:growth8l\]</span></a> would be negative for that length group, which will result in Gadget printing a warning message. To avoid this, the user should ensure that the value of <span class="math inline">\(L_{\infty}\)</span> is always greater than the mean length of the largest length group.</p>
+<p>It is important to note that if the value of <span class="math inline">\(L_{\infty}\)</span> is less than the mean length of a length group, then the length increase calculated by equation <a href="#eq:growth8l" reference-type="ref" reference="eq:growth8l">eq:growth8l</a> would be negative for that length group, which will result in Gadget printing a warning message. To avoid this, the user should ensure that the value of <span class="math inline">\(L_{\infty}\)</span> is always greater than the mean length of the largest length group.</p>
 </div>
 </div>
 <div id="sec:stockgrowthimplement" class="section level2">
@@ -2008,21 +2008,21 @@ weightgrowthfile       &lt;weight data file&gt;</code></pre>
 <p>This method uses a statistical distribution to govern the implementation of fish growth. The statistical distribution chosen is the beta-binomial, an extension of the binomial distribution with the flexibility to produce non-symmetrical distributions, which is defined for integers, x = 0, …, n as:</p>
 <p><span class="math display">\[\label{eq:betabin1}
 {n \choose x} p^x (1 - p)^{n - x} = \frac{\Gamma(n + 1)}{\Gamma(x + 1)\Gamma(n - x + 1)} p^x (1 - p)^{n - x}\]</span></p>
-<p>For more flexibility, this can be re-arranged by calculating the parameter <span class="math inline">\(&lt;\)</span>p<span class="math inline">\(&gt;\)</span> from a second beta-binomial distribution, leading to equation <a href="#eq:betabin2" reference-type="ref" reference="eq:betabin2"><span class="math display">\[eq:betabin2\]</span></a> shown below, which is defined for 0 <span class="math inline">\(\le\)</span> p <span class="math inline">\(\le\)</span> 1:</p>
+<p>For more flexibility, this can be re-arranged by calculating the parameter <span class="math inline">\(&lt;\)</span>p<span class="math inline">\(&gt;\)</span> from a second beta-binomial distribution, leading to equation <a href="#eq:betabin2" reference-type="ref" reference="eq:betabin2">eq:betabin2</a> shown below, which is defined for 0 <span class="math inline">\(\le\)</span> p <span class="math inline">\(\le\)</span> 1:</p>
 <p><span class="math display">\[\label{eq:betabin2}
 f(p) = \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha) \Gamma(\beta)}p^{\alpha - 1}(1 - p)^{\beta - 1}\]</span> <span class="math display">\[\label{eq:betabin3}
 \alpha = \frac{\beta \Delta L}{n - \Delta L}\]</span></p>
 <p>The distribution is governed by three parameters; the mean length growth computed by the growth function scaled by dividing by the width of the length groups (<span class="math inline">\(&lt;\Delta\)</span>L <span class="math inline">\(&gt;\)</span>), a fixed limit on the number of length groups (<span class="math inline">\(&lt;\)</span> n <span class="math inline">\(&gt;\)</span>), and a value for beta. This distribution was chosen because it provides a high degree of flexibility resulting from changing a single estimated parameter, beta. To define the distribution data using a beta-binomial distribution the following data is required in the main stock file:</p>
 <pre><code>beta                   &lt;beta&gt;
 maxlengthgroupgrowth   &lt;max length group growth&gt;</code></pre>
-<p>The parameter <span class="math inline">\(&lt;\)</span>beta<span class="math inline">\(&gt;\)</span> is the parameter that Gadget can estimate in the optimisation routines, in order to tune the distribution to best fit the data. High values of beta produce a narrow distribution, whilst lower values produce a more dispersed distribution with a larger right-hand tail. Note that very low values of beta (which lead to <span class="math inline">\(\alpha\)</span> &lt; 1 in equation <a href="#eq:betabin3" reference-type="ref" reference="eq:betabin3"><span class="math display">\[eq:betabin3\]</span></a>) can lead to unexpected results and should be avoided.</p>
+<p>The parameter <span class="math inline">\(&lt;\)</span>beta<span class="math inline">\(&gt;\)</span> is the parameter that Gadget can estimate in the optimisation routines, in order to tune the distribution to best fit the data. High values of beta produce a narrow distribution, whilst lower values produce a more dispersed distribution with a larger right-hand tail. Note that very low values of beta (which lead to <span class="math inline">\(\alpha\)</span> &lt; 1 in equation <a href="#eq:betabin3" reference-type="ref" reference="eq:betabin3">eq:betabin3</a>) can lead to unexpected results and should be avoided.</p>
 
 <p>The <span class="math inline">\(&lt;\)</span>max length group growth<span class="math inline">\(&gt;\)</span> value is the maximum number of length categories a fish is permitted to grow in a single timestep within the model. This should be set to be several length groups larger than any fish can be reasonably expected to grow in a time step, in order to provide the beta-binomial distribution with sufficient flexibility to produce a distribution around the mean.</p>
 </div>
 </div>
 <div id="sec:stocknatmort" class="section level2">
 <h2>Natural Mortality</h2>
-<p>The natural mortality is a measure of how much of the stock will be removed from the model due to additional natural causes that are not modelled as part of other processes (for example predation). In Gadget, this is simply modelled as the proportion of the stock that is removed due to these additional causes (the residual mortality) from each age group, on each timestep, as shown in equation <a href="#eq:natmort" reference-type="ref" reference="eq:natmort"><span class="math display">\[eq:natmort\]</span></a> below:</p>
+<p>The natural mortality is a measure of how much of the stock will be removed from the model due to additional natural causes that are not modelled as part of other processes (for example predation). In Gadget, this is simply modelled as the proportion of the stock that is removed due to these additional causes (the residual mortality) from each age group, on each timestep, as shown in equation <a href="#eq:natmort" reference-type="ref" reference="eq:natmort">eq:natmort</a> below:</p>
 <p><span class="math display">\[\label{eq:natmort}
 N_{a} = e^{-m_{a} \Delta t}\]</span></p>
 <p>where: <span class="math inline">\(&lt;\Delta t&gt;\)</span> is the length of the timestep</p>
@@ -2053,7 +2053,7 @@ halffeedingvalue       &lt;half feeding value&gt;</code></pre>
 </div>
 <div id="sec:consumption" class="section level2">
 <h2>Consumption</h2>
-<p>The consumption determines how much of a given prey is consumed by the predator. This will result in the population of the prey being reduced, and can also affect the growth of the predator, depending on the growth function selected. The consumption of a prey is dependant on the length of both the predator and the prey, and the amount of the prey available, as a proportion of the total amount of food available. The consumption of prey <span class="math inline">\(p\)</span> is given by equation <a href="#eq:totalcons" reference-type="ref" reference="eq:totalcons"><span class="math display">\[eq:totalcons\]</span></a> below:</p>
+<p>The consumption determines how much of a given prey is consumed by the predator. This will result in the population of the prey being reduced, and can also affect the growth of the predator, depending on the growth function selected. The consumption of a prey is dependant on the length of both the predator and the prey, and the amount of the prey available, as a proportion of the total amount of food available. The consumption of prey <span class="math inline">\(p\)</span> is given by equation <a href="#eq:totalcons" reference-type="ref" reference="eq:totalcons">eq:totalcons</a> below:</p>
 <p><span class="math display">\[\label{eq:totalcons}
 C_{p}(l, L) = \frac{N_{L} M_{L} \psi_{L} F_{p}(l, L)}{\displaystyle \sum_{\it preys} F_{p}(l, L)}\]</span></p>
 <p><span class="math display">\[\label{eq:preycons}
@@ -2064,18 +2064,18 @@ M_{L} = m_{0} \Delta t e^{(m_{1}T - m_{2}T^3)} L^{m_{3}}\]</span></p>
 \psi_{L} = \frac{\displaystyle \sum_{\it preys} F_{p}(l, L)}{H \Delta t + \displaystyle \sum_{\it preys} F_{p}(l, L)}\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> L <span class="math inline">\(&gt;\)</span> is the length of the predator <span class="math inline">\(&lt;\)</span> l <span class="math inline">\(&gt;\)</span> is the length of the prey <span class="math inline">\(&lt;\)</span> H <span class="math inline">\(&gt;\)</span> is the half feeding value <span class="math inline">\(&lt;\)</span> d <span class="math inline">\(&gt;\)</span> is the preference of the predator for the prey <span class="math inline">\(&lt;\)</span> E <span class="math inline">\(&gt;\)</span> is the energy content of the prey (see section <a href="#sec:stockprey" reference-type="ref" reference="sec:stockprey">4.6</a>) <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the number of prey in the length cell <span class="math inline">\(&lt;\)</span> W <span class="math inline">\(&gt;\)</span> is the mean weight of the prey in the length cell <span class="math inline">\(&lt;\)</span> S <span class="math inline">\(&gt;\)</span> is the suitability function (see section <a href="#sec:suitability" reference-type="ref" reference="sec:suitability">4.9</a>) <span class="math inline">\(&lt;\Delta t&gt;\)</span> is the length of the timestep <span class="math inline">\(&lt;\)</span> T <span class="math inline">\(&gt;\)</span> is the temperature of the area that the feeding takes place on</p>
 
-<p>In equation <a href="#eq:totalcons" reference-type="ref" reference="eq:totalcons"><span class="math display">\[eq:totalcons\]</span></a>, the parameter <span class="math inline">\(&lt;\)</span> F <span class="math inline">\(&gt;\)</span> gives the amount of a given prey that is consumed by the predator, given by multiplying the biomass of the prey by the suitability (see section <a href="#sec:suitability" reference-type="ref" reference="sec:suitability">4.9</a>), as shown in equation <a href="#eq:preycons" reference-type="ref" reference="eq:preycons"><span class="math display">\[eq:preycons\]</span></a>. The summation over preys is over all preys that the predator consumes, including non-modelled prey, given as “otherfood” in section <a href="#chap:other" reference-type="ref" reference="chap:other">6</a>. The value of <span class="math inline">\(&lt;\)</span> C <span class="math inline">\(&gt;\)</span> can have an affect on the growth of the predator when the growth function has been set to “WeightJones”.</p>
+<p>In equation <a href="#eq:totalcons" reference-type="ref" reference="eq:totalcons">eq:totalcons</a>, the parameter <span class="math inline">\(&lt;\)</span> F <span class="math inline">\(&gt;\)</span> gives the amount of a given prey that is consumed by the predator, given by multiplying the biomass of the prey by the suitability (see section <a href="#sec:suitability" reference-type="ref" reference="sec:suitability">4.9</a>), as shown in equation <a href="#eq:preycons" reference-type="ref" reference="eq:preycons">eq:preycons</a>. The summation over preys is over all preys that the predator consumes, including non-modelled prey, given as “otherfood” in section <a href="#chap:other" reference-type="ref" reference="chap:other">6</a>. The value of <span class="math inline">\(&lt;\)</span> C <span class="math inline">\(&gt;\)</span> can have an affect on the growth of the predator when the growth function has been set to “WeightJones”.</p>
 
-<p>In equation <a href="#eq:preycons" reference-type="ref" reference="eq:preycons"><span class="math display">\[eq:preycons\]</span></a>, the parameter <span class="math inline">\(&lt;\)</span> d <span class="math inline">\(&gt;\)</span> gives the preference of the predator for the prey, controlling the form of the functional response that is used to model the predation. Setting this parameter to 1 will ensure that a Type II functional response is used (note that this is always used when modelling the predation by the fleets, see section <a href="#chap:fleet" reference-type="ref" reference="chap:fleet">7</a>). Any other value will mean that a Type III functional response is used. The prey preference parameter is specified by listing the names of the prey and the associated preference value, as shown in the example below:</p>
+<p>In equation <a href="#eq:preycons" reference-type="ref" reference="eq:preycons">eq:preycons</a>, the parameter <span class="math inline">\(&lt;\)</span> d <span class="math inline">\(&gt;\)</span> gives the preference of the predator for the prey, controlling the form of the functional response that is used to model the predation. Setting this parameter to 1 will ensure that a Type II functional response is used (note that this is always used when modelling the predation by the fleets, see section <a href="#chap:fleet" reference-type="ref" reference="chap:fleet">7</a>). Any other value will mean that a Type III functional response is used. The prey preference parameter is specified by listing the names of the prey and the associated preference value, as shown in the example below:</p>
 <pre><code>...
 preference
 &lt;name of prey 1&gt;       &lt;preference for prey 1&gt;
 &lt;name of prey 2&gt;       &lt;preference for prey 2&gt;
 maxconsumption         &lt;maximum consumption vector&gt;
 ...</code></pre>
-<p>In equation <a href="#eq:maxcons" reference-type="ref" reference="eq:maxcons"><span class="math display">\[eq:maxcons\]</span></a>, the parameter <span class="math inline">\(&lt;\)</span> M <span class="math inline">\(&gt;\)</span> gives the maximum possible consumption for the predator on the current timestep. This is a function of temperature and the length of the predator, using the 4 parameters specified by the <span class="math inline">\(&lt;\)</span>maximum consumption<span class="math inline">\(&gt;\)</span> vector in the input file. Note that the maximum consumption should be specified in kilojoules per month.</p>
+<p>In equation <a href="#eq:maxcons" reference-type="ref" reference="eq:maxcons">eq:maxcons</a>, the parameter <span class="math inline">\(&lt;\)</span> M <span class="math inline">\(&gt;\)</span> gives the maximum possible consumption for the predator on the current timestep. This is a function of temperature and the length of the predator, using the 4 parameters specified by the <span class="math inline">\(&lt;\)</span>maximum consumption<span class="math inline">\(&gt;\)</span> vector in the input file. Note that the maximum consumption should be specified in kilojoules per month.</p>
 
-<p>In equation <a href="#eq:feedlevel" reference-type="ref" reference="eq:feedlevel"><span class="math display">\[eq:feedlevel\]</span></a>, the parameter <span class="math inline">\(&lt;\psi&gt;\)</span> gives the “feeding level” which denotes the fraction of the available food that the predator is consuming. This is governed by the total amount of prey available and the <span class="math inline">\(&lt;\)</span>half feeding<span class="math inline">\(&gt;\)</span> value which is specified in the input file. The <span class="math inline">\(&lt;\)</span>half feeding<span class="math inline">\(&gt;\)</span> value is the biomass of prey required to allow the predator to consume prey at half the maximum consumption level. The value of <span class="math inline">\(&lt;\psi&gt;\)</span> can have an affect on the growth of the predator (ie. when there isn’t sufficient food available) when the growth function has been set to “MULTSPEC” or “WeightJones”.</p>
+<p>In equation <a href="#eq:feedlevel" reference-type="ref" reference="eq:feedlevel">eq:feedlevel</a>, the parameter <span class="math inline">\(&lt;\psi&gt;\)</span> gives the “feeding level” which denotes the fraction of the available food that the predator is consuming. This is governed by the total amount of prey available and the <span class="math inline">\(&lt;\)</span>half feeding<span class="math inline">\(&gt;\)</span> value which is specified in the input file. The <span class="math inline">\(&lt;\)</span>half feeding<span class="math inline">\(&gt;\)</span> value is the biomass of prey required to allow the predator to consume prey at half the maximum consumption level. The value of <span class="math inline">\(&lt;\psi&gt;\)</span> can have an affect on the growth of the predator (ie. when there isn’t sufficient food available) when the growth function has been set to “MULTSPEC” or “WeightJones”.</p>
 </div>
 <div id="sec:suitability" class="section level2">
 <h2>Suitability</h2>
@@ -2196,7 +2196,7 @@ sdev                   &lt;standard deviation multiplier&gt;
 <h3>Normal Parametric Distribution</h3>
 <p>To specify an initial stock with the lengths given by a Normal distribution, and using a weight-length relationship to generate the weights, the main stock file needs to specify the name of a datafile containing the information about the Normal distribution, as shown below:</p>
 <pre><code>normalparamfile        &lt;name of the initial stock data file&gt;</code></pre>
-<p>The initial stock file contains all the information that Gadget requires to construct an initial population of the stock. Gadget will construct a population of 10,000 fish for each age group, with the length groups for these age groups having a Normal distribution about a specified mean length with a specified standard deviation. The mean weight for this initial population is then calculated from the standard weight-length relationship, as given in equation <a href="#eq:wlen" reference-type="ref" reference="eq:wlen"><span class="math display">\[eq:wlen\]</span></a> below:</p>
+<p>The initial stock file contains all the information that Gadget requires to construct an initial population of the stock. Gadget will construct a population of 10,000 fish for each age group, with the length groups for these age groups having a Normal distribution about a specified mean length with a specified standard deviation. The mean weight for this initial population is then calculated from the standard weight-length relationship, as given in equation <a href="#eq:wlen" reference-type="ref" reference="eq:wlen">eq:wlen</a> below:</p>
 <p><span class="math display">\[\label{eq:wlen}
 W = \alpha L^{\beta}\]</span></p>
 
@@ -2286,7 +2286,7 @@ maturityfile           &lt;name of the maturity data file&gt;</code></pre>
 <p>The maturity functions calculate the proportion of the fish in each age-length group that will become mature, and then move these fish from the age-length group for the current stock into the corresponding age-length group for the mature stock. Note that there is a check to ensure that the corresponding age-length group exists for the mature stock, and if it doesn’t then the fish don’t become mature and will stay in the immature stock.</p>
 <div id="constant-maturity-function" class="section level3">
 <h3>Constant Maturity Function</h3>
-<p>This maturity function calculates the proportion of an age-length group of an immature stock that becomes mature according to the maturity equation <a href="#eq:mat3" reference-type="ref" reference="eq:mat3"><span class="math display">\[eq:mat3\]</span></a> given below:</p>
+<p>This maturity function calculates the proportion of an age-length group of an immature stock that becomes mature according to the maturity equation <a href="#eq:mat3" reference-type="ref" reference="eq:mat3">eq:mat3</a> given below:</p>
 <p><span class="math display">\[\label{eq:mat3}
 P(l, a) = \frac{1}{ 1 + e^{-\alpha(l - l_{50}) -\beta(a - a_{50})}}\]</span></p>
 <p>The maturity term is a function of <span class="math inline">\(l_{50}\)</span> and <span class="math inline">\(a_{50}\)</span>, which are the length and age where 50% of the stock are mature. For this maturation function, it is assumed that maturation is an annual event, taking place on the same timesteps in each year. The file format for this maturity function is the similar to that for the Continuous maturity function, and is shown below:</p>
@@ -2297,7 +2297,7 @@ maturitysteps               &lt;vector of timesteps&gt;</code></pre>
 </div>
 <div id="constantweight-maturity-function" class="section level3">
 <h3>ConstantWeight Maturity Function</h3>
-<p>This maturity function is an extension to the Constant maturity function, with the maturity proportion being calculated according to the maturity equation <a href="#eq:mat4" reference-type="ref" reference="eq:mat4"><span class="math display">\[eq:mat4\]</span></a> given below:</p>
+<p>This maturity function is an extension to the Constant maturity function, with the maturity proportion being calculated according to the maturity equation <a href="#eq:mat4" reference-type="ref" reference="eq:mat4">eq:mat4</a> given below:</p>
 <p><span class="math display">\[\label{eq:mat4}
 P(l, a) = \frac{1}{ 1 + e^{-\alpha(l - l_{50}) -\beta(a - a_{50}) -\gamma(k - k_{50})}}\]</span></p>
 <p>The maturity function has been extended to include the relative condition of the stock (calculated by dividing the current weight by the reference weight) and <span class="math inline">\(k_{50}\)</span> which is the relative condition where 50% of the stock is mature. The file format for this maturity function is the similar to that for the Constant maturity function, and is shown below:</p>
@@ -2307,7 +2307,7 @@ maturitysteps               &lt;vector of timesteps&gt;</code></pre>
 </div>
 <div id="fixedlength-maturity-function" class="section level3">
 <h3>FixedLength Maturity Function</h3>
-<p>This maturity function takes a different approach, and bases the proportion of the immature stock that matures on the length of the immature stock, as the length varies through the year. This is approach assumes that the maturation process is the same for each year. The proportion of the immature stock that matures is given by the equation <a href="#eq:mat2" reference-type="ref" reference="eq:mat2"><span class="math display">\[eq:mat2\]</span></a> below:</p>
+<p>This maturity function takes a different approach, and bases the proportion of the immature stock that matures on the length of the immature stock, as the length varies through the year. This is approach assumes that the maturation process is the same for each year. The proportion of the immature stock that matures is given by the equation <a href="#eq:mat2" reference-type="ref" reference="eq:mat2">eq:mat2</a> below:</p>
 <p><span class="math display">\[\label{eq:mat2}
 P(l, a) =
 \begin{cases}
@@ -2322,7 +2322,7 @@ maturitylengths             &lt;vector of lengths&gt;</code></pre>
 </div>
 <div id="continuous-maturity-function" class="section level3">
 <h3>Continuous Maturity Function</h3>
-<p>This maturity function calculates the proportion of an age-length group of an immature stock that becomes mature according to the maturity equations <a href="#eq:mat1a" reference-type="ref" reference="eq:mat1a"><span class="math display">\[eq:mat1a\]</span></a> and <a href="#eq:mat1b" reference-type="ref" reference="eq:mat1b"><span class="math display">\[eq:mat1b\]</span></a> given below:</p>
+<p>This maturity function calculates the proportion of an age-length group of an immature stock that becomes mature according to the maturity equations <a href="#eq:mat1a" reference-type="ref" reference="eq:mat1a">eq:mat1a</a> and <a href="#eq:mat1b" reference-type="ref" reference="eq:mat1b">eq:mat1b</a> given below:</p>
 <p><span class="math display">\[\label{eq:mat1a}
 P(l, a) = {\frac{1}{1 - M}}{\frac{dM}{dt}}\]</span></p>
 <p><span class="math display">\[\label{eq:mat1b}
@@ -2392,14 +2392,14 @@ dl                     &lt;step size for the recruits&gt;
 <p>If the stock does not spawn, then the following sections don’t apply, and the next section of the input file is the straying information, given in section <a href="#sec:stockstray" reference-type="ref" reference="sec:stockstray">4.17</a> below. If the stock does spawn, then further information is required about the spawning data. This is given in a separate file, so the format for the spawning data, in the main stock file, is given below:</p>
 <pre><code>doesspawn              1
 spawnfile              &lt;name of the spawning data file&gt;</code></pre>
-<p>The spawning data file defines what happens to the stock as it spawns. The spawning is length-dependent, and the affect that spawning has on each length group of the mature stock is given by the spawning equations <a href="#eq:spawn1" reference-type="ref" reference="eq:spawn1"><span class="math display">\[eq:spawn1\]</span></a> and <a href="#eq:spawn2" reference-type="ref" reference="eq:spawn2"><span class="math display">\[eq:spawn2\]</span></a> below:</p>
+<p>The spawning data file defines what happens to the stock as it spawns. The spawning is length-dependent, and the affect that spawning has on each length group of the mature stock is given by the spawning equations <a href="#eq:spawn1" reference-type="ref" reference="eq:spawn1">eq:spawn1</a> and <a href="#eq:spawn2" reference-type="ref" reference="eq:spawn2">eq:spawn2</a> below:</p>
 <p><span class="math display">\[\label{eq:spawn1}
 N = N {\left(1 + P {(e^{-m} - 1)}\right)}\]</span></p>
 <p><span class="math display">\[\label{eq:spawn2}
 W = W \frac{\left(1 + P {((2 - w)e^{-m} - 1)}\right)}{\left(1 + P {(2e^{-m} - 1)}\right)}\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the population of the age-length group <span class="math inline">\(&lt;\)</span> W <span class="math inline">\(&gt;\)</span> is the mean weight of the population of the age-length group <span class="math inline">\(&lt;\)</span> P <span class="math inline">\(&gt;\)</span> is the proportion of the length group that will spawn <span class="math inline">\(&lt;m&gt;\)</span> is the spawning mortality for that length group <span class="math inline">\(&lt;w&gt;\)</span> is the spawning weight loss for that length group</p>
 
-<p>In equation <a href="#eq:spawn1" reference-type="ref" reference="eq:spawn1"><span class="math display">\[eq:spawn1\]</span></a>, the population of the age-length cell of the mature stock is reduced due to the spawning mortality of the fish that spawn. In equation <a href="#eq:spawn2" reference-type="ref" reference="eq:spawn2"><span class="math display">\[eq:spawn2\]</span></a>, the mean weight of the population in the age-length cell is adjusted to take the reduction in weight of the fish that spawn, and the change in population, into account.</p>
+<p>In equation <a href="#eq:spawn1" reference-type="ref" reference="eq:spawn1">eq:spawn1</a>, the population of the age-length cell of the mature stock is reduced due to the spawning mortality of the fish that spawn. In equation <a href="#eq:spawn2" reference-type="ref" reference="eq:spawn2">eq:spawn2</a>, the mean weight of the population in the age-length cell is adjusted to take the reduction in weight of the fish that spawn, and the change in population, into account.</p>
 
 <p>Spawning is considered to be an annual event, that takes place on the same timestep and the same area in each year that the spawning occurs. To model the spawning process as it affects the parent (without the creation of a child stock), it is necessary to specify the timestep and area that the spawning will take place on, and the length selection functions to determine proportion of each length group that will spawn, and the spawning mortality and weight loss of those that spawn. This is done in the spawning data file, as shown below:</p>
 <pre><code>spawnsteps             &lt;vector of timesteps&gt;
@@ -2412,7 +2412,7 @@ mortalityfunction      &lt;see Length Selection&gt;
 weightlossfunction     &lt;see Length Selection&gt;</code></pre>
 <p>The optional &lt;firstspawnyear&gt; and &lt;lastspawnyear&gt; values define the first and last years on which the spawning process will take place. This means that it is possible to define recruits (see section <a href="#sec:stockrenew" reference-type="ref" reference="sec:stockrenew">4.14</a> above) for some years in the model and use a spawning process in other years in the model. If these are not specified in the input file, then it assumed that the spawning process will take place on all years in the simulation, and these will default to the first year and last year in the simulation.</p>
 
-<p>Alternatively, it is possible to consider the spawning process as part of a through life-cycle model, and so the spawning process can create recruits to be added to one or more stocks (in a similar manner to the renewal data, given in section <a href="#sec:stockrenew" reference-type="ref" reference="sec:stockrenew">4.14</a> above). The total number of recruits given by the spawning process is added to the youngest age group of the spawned stock at the start of the following timestep. The lengths of the spawned stock are distributed with a Normal distribution about a specified mean length <span class="math inline">\(&lt;\)</span>mean<span class="math inline">\(&gt;\)</span> with a standard deviation <span class="math inline">\(&lt;\)</span>stddev<span class="math inline">\(&gt;\)</span>. The mean weight of the fish in these age length cells is given from equation <a href="#eq:wlen" reference-type="ref" reference="eq:wlen"><span class="math display">\[eq:wlen\]</span></a>, with <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> specified in the spawning data file. Hence, if the spawning process is to calculate a number of recruits to the model, the format for the spawning data file is shown below:</p>
+<p>Alternatively, it is possible to consider the spawning process as part of a through life-cycle model, and so the spawning process can create recruits to be added to one or more stocks (in a similar manner to the renewal data, given in section <a href="#sec:stockrenew" reference-type="ref" reference="sec:stockrenew">4.14</a> above). The total number of recruits given by the spawning process is added to the youngest age group of the spawned stock at the start of the following timestep. The lengths of the spawned stock are distributed with a Normal distribution about a specified mean length <span class="math inline">\(&lt;\)</span>mean<span class="math inline">\(&gt;\)</span> with a standard deviation <span class="math inline">\(&lt;\)</span>stddev<span class="math inline">\(&gt;\)</span>. The mean weight of the fish in these age length cells is given from equation <a href="#eq:wlen" reference-type="ref" reference="eq:wlen">eq:wlen</a>, with <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> specified in the spawning data file. Hence, if the spawning process is to calculate a number of recruits to the model, the format for the spawning data file is shown below:</p>
 <pre><code>spawnsteps             &lt;vector of timesteps&gt;
 spawnareas             &lt;vector of areas&gt;
 firstspawnyear         &lt;first year that the spawning occurs&gt;
@@ -2447,7 +2447,7 @@ R = \mu S\]</span></p>
 </div>
 <div id="ricker-recruitment-function" class="section level3">
 <h3>Ricker Recruitment Function</h3>
-<p>This recruitment function calculates the number of recruits to be added to the spawned stock, as a function of the spawning stock biomass (see equation <a href="#eq:ssb" reference-type="ref" reference="eq:ssb"><span class="math display">\[eq:ssb\]</span></a>), based on the Ricker recruitment relationship given by the following equation:</p>
+<p>This recruitment function calculates the number of recruits to be added to the spawned stock, as a function of the spawning stock biomass (see equation <a href="#eq:ssb" reference-type="ref" reference="eq:ssb">eq:ssb</a>), based on the Ricker recruitment relationship given by the following equation:</p>
 <p><span class="math display">\[\label{eq:rec3}
 R = \mu S e ^{-\lambda S}\]</span></p>
 <p>Hence, to specify this recruitment function, the file format required is:</p>
@@ -2455,7 +2455,7 @@ R = \mu S e ^{-\lambda S}\]</span></p>
 </div>
 <div id="bevertonholt-recruitment-function" class="section level3">
 <h3>BevertonHolt Recruitment Function</h3>
-<p>This recruitment function calculates the number of recruits to be added to the spawned stock, as a function of the spawning stock biomass (see equation <a href="#eq:ssb" reference-type="ref" reference="eq:ssb"><span class="math display">\[eq:ssb\]</span></a>), based on the Beverton Holt recruitment relationship given by the following equation:</p>
+<p>This recruitment function calculates the number of recruits to be added to the spawned stock, as a function of the spawning stock biomass (see equation <a href="#eq:ssb" reference-type="ref" reference="eq:ssb">eq:ssb</a>), based on the Beverton Holt recruitment relationship given by the following equation:</p>
 <p><span class="math display">\[\label{eq:rec4}
 R = \frac{\mu S}{\lambda + S}\]</span></p>
 <p>Hence, to specify this recruitment function, the file format required is:</p>
@@ -2463,7 +2463,7 @@ R = \frac{\mu S}{\lambda + S}\]</span></p>
 </div>
 <div id="hockey-stick-recruitment-function" class="section level3">
 <h3>Hockey stick Recruitment Function</h3>
-<p>This recruitment function calculates the number of recruits to be added to the spawned stock, as a function of the spawning stock biomass (see equation <a href="#eq:ssb" reference-type="ref" reference="eq:ssb"><span class="math display">\[eq:ssb\]</span></a>), based on the Hockey stick recruitment relationship given by the following equation:</p>
+<p>This recruitment function calculates the number of recruits to be added to the spawned stock, as a function of the spawning stock biomass (see equation <a href="#eq:ssb" reference-type="ref" reference="eq:ssb">eq:ssb</a>), based on the Hockey stick recruitment relationship given by the following equation:</p>
 <p><span class="math display">\[\label{eq:rec5}
 R =  \begin{cases}
 R_0,&amp;\text{If } B_{lim} \leq S \\
@@ -2543,7 +2543,7 @@ numbers                &lt;see Tagging Numbers&gt;</code></pre>
 
 <p>The optional <span class="math inline">\(&lt;\)</span>endyear<span class="math inline">\(&gt;\)</span> value is used to define the end of a tagging experiment, and should be set to the year of the last expected recapture from the tagging experiment. This can be used to reduce the calculation time. If this is not specified, then it is assumed that the tagging experiment will run until the end of the simulation.</p>
 
-<p>The <span class="math inline">\(&lt;\)</span>tagloss<span class="math inline">\(&gt;\)</span> value is used to remove tagged fish from the model. For each time step, a number of tags can be lost from the tagging experiment. The number of tagged fish that remain in the tagging experiment is given by the equation <a href="#eq:tagloss" reference-type="ref" reference="eq:tagloss"><span class="math display">\[eq:tagloss\]</span></a> below:</p>
+<p>The <span class="math inline">\(&lt;\)</span>tagloss<span class="math inline">\(&gt;\)</span> value is used to remove tagged fish from the model. For each time step, a number of tags can be lost from the tagging experiment. The number of tagged fish that remain in the tagging experiment is given by the equation <a href="#eq:tagloss" reference-type="ref" reference="eq:tagloss">eq:tagloss</a> below:</p>
 <p><span class="math display">\[\label{eq:tagloss}
 N = N (e^{-t})\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the number of tagged fish in an age-length group <span class="math inline">\(&lt;t&gt;\)</span> is the proportion of tagged fish that are lost, as specified in the input file</p>
@@ -2595,7 +2595,7 @@ fleetfiles             &lt;names of the fleet files&gt;</code></pre>
 <p>TotalFleet NumberFleet LinearFleet EffortFleet QuotaFleet</p>
 <div id="sec:totalfleet" class="section level2">
 <h2>TotalFleet</h2>
-<p>The fleet type used that creates a predator based on the landings data (by biomass) for the fleet is called “TotalFleet”. This total amount landed is then split between the various stocks, and length groups of the stocks, according to equation <a href="#eq:tcons" reference-type="ref" reference="eq:tcons"><span class="math display">\[eq:tcons\]</span></a> below:</p>
+<p>The fleet type used that creates a predator based on the landings data (by biomass) for the fleet is called “TotalFleet”. This total amount landed is then split between the various stocks, and length groups of the stocks, according to equation <a href="#eq:tcons" reference-type="ref" reference="eq:tcons">eq:tcons</a> below:</p>
 <p><span class="math display">\[\label{eq:tcons}
 C_{s}(l) = \frac{E S_{s}(l) N_{sl} W_{sl}}{\displaystyle \sum_{\it stocks} \sum_{\it lengths} S_{s}(l) N_{sl} W_{sl}}\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> E <span class="math inline">\(&gt;\)</span> is the biomass caught by the fleet <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the number of stock in the length cell <span class="math inline">\(&lt;\)</span> W <span class="math inline">\(&gt;\)</span> is the mean weight of the stock in the length cell <span class="math inline">\(&lt;\)</span> S <span class="math inline">\(&gt;\)</span> is the suitability function (see section <a href="#sec:fleetsuit" reference-type="ref" reference="sec:fleetsuit">7.6</a>)</p>
@@ -2613,7 +2613,7 @@ amount                 &lt;see Fleet Amounts&gt;</code></pre>
 </div>
 <div id="sec:numberfleet" class="section level2">
 <h2>NumberFleet</h2>
-<p>The fleet type used that creates a predator based on the number of the stock landed (not the biomass) is called “NumberFleet”. This total number caught is then split between the various stocks, and length groups of the stocks, according to equation <a href="#eq:ncons" reference-type="ref" reference="eq:ncons"><span class="math display">\[eq:ncons\]</span></a> below:</p>
+<p>The fleet type used that creates a predator based on the number of the stock landed (not the biomass) is called “NumberFleet”. This total number caught is then split between the various stocks, and length groups of the stocks, according to equation <a href="#eq:ncons" reference-type="ref" reference="eq:ncons">eq:ncons</a> below:</p>
 <p><span class="math display">\[\label{eq:ncons}
 C_{s}(l) = \frac{E S_{s}(l) N_{sl}}{\displaystyle \sum_{\it stocks} \sum_{\it lengths} S_{s}(l) N_{sl}}\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> E <span class="math inline">\(&gt;\)</span> is the number caught by the fleet <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the number of stock in the length cell <span class="math inline">\(&lt;\)</span> S <span class="math inline">\(&gt;\)</span> is the suitability function (see section <a href="#sec:fleetsuit" reference-type="ref" reference="sec:fleetsuit">7.6</a>)</p>
@@ -2631,7 +2631,7 @@ amount                 &lt;see Fleet Amounts&gt;</code></pre>
 </div>
 <div id="sec:linearfleet" class="section level2">
 <h2>LinearFleet</h2>
-<p>The fleet type used that creates a predator that removes the caught fish based on the available biomass of the stock multiplied by a scaling factor is called “LinearFleet”. The biomass caught is then split between the various stocks, and length groups of the stocks, according to equation <a href="#eq:lcons" reference-type="ref" reference="eq:lcons"><span class="math display">\[eq:lcons\]</span></a> below:</p>
+<p>The fleet type used that creates a predator that removes the caught fish based on the available biomass of the stock multiplied by a scaling factor is called “LinearFleet”. The biomass caught is then split between the various stocks, and length groups of the stocks, according to equation <a href="#eq:lcons" reference-type="ref" reference="eq:lcons">eq:lcons</a> below:</p>
 <p><span class="math display">\[\label{eq:lcons}
 C_{s}(l) = E \Delta t S_{s}(l) N_{sl} W_{sl}\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> E <span class="math inline">\(&gt;\)</span> is the scaling factor for the stock that is to be caught, per month <span class="math inline">\(&lt;\Delta t&gt;\)</span> is the length of the timestep <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the number of stock in the length cell <span class="math inline">\(&lt;\)</span> W <span class="math inline">\(&gt;\)</span> is the mean weight of the stock in the length cell <span class="math inline">\(&lt;\)</span> S <span class="math inline">\(&gt;\)</span> is the suitability function (see section <a href="#sec:fleetsuit" reference-type="ref" reference="sec:fleetsuit">7.6</a>)</p>
@@ -2651,7 +2651,7 @@ amount                 &lt;see Fleet Amounts&gt;</code></pre>
 </div>
 <div id="sec:effortfleet" class="section level2">
 <h2>EffortFleet</h2>
-<p>The fleet type used that creates a predator that removes the caught fish based on the available biomass of the stock multiplied by a scaling factor and a ‘catchability’ parameter for that stock is called “EffortFleet”. The biomass caught is then split between the various stocks, and length groups of the stocks, according to equation <a href="#eq:econs" reference-type="ref" reference="eq:econs"><span class="math display">\[eq:econs\]</span></a> below:</p>
+<p>The fleet type used that creates a predator that removes the caught fish based on the available biomass of the stock multiplied by a scaling factor and a ‘catchability’ parameter for that stock is called “EffortFleet”. The biomass caught is then split between the various stocks, and length groups of the stocks, according to equation <a href="#eq:econs" reference-type="ref" reference="eq:econs">eq:econs</a> below:</p>
 <p><span class="math display">\[\label{eq:econs}
 C_{s}(l) = E q_{s} \Delta t S_{s}(l) N_{sl} W_{sl}\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> E <span class="math inline">\(&gt;\)</span> is the scaling factor for the stock that is to be caught, per month <span class="math inline">\(&lt;\)</span> q <span class="math inline">\(&gt;\)</span> is the catchability parameter for that stock <span class="math inline">\(&lt;\Delta t&gt;\)</span> is the length of the timestep <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the number of stock in the length cell <span class="math inline">\(&lt;\)</span> W <span class="math inline">\(&gt;\)</span> is the mean weight of the stock in the length cell <span class="math inline">\(&lt;\)</span> S <span class="math inline">\(&gt;\)</span> is the suitability function (see section <a href="#sec:fleetsuit" reference-type="ref" reference="sec:fleetsuit">7.6</a>)</p>
@@ -2678,7 +2678,7 @@ amount
 </div>
 <div id="sec:quotafleet" class="section level2">
 <h2>QuotaFleet</h2>
-<p>The fleet type used that creates a predator that removes the caught fish based on the available biomass of the stock multiplied by a scaling factor set according to a simple harvest control rule is called “QuotaFleet”. The biomass caught is then split between the various stocks, and length groups of the stocks, according to equation <a href="#eq:lcons" reference-type="ref" reference="eq:lcons"><span class="math display">\[eq:lcons\]</span></a> (see section <a href="#sec:linearfleet" reference-type="ref" reference="sec:linearfleet">7.3</a> above). The scaling factor (the parameter “E” in the equation above) is set according to a simple harvest control rule.</p>
+<p>The fleet type used that creates a predator that removes the caught fish based on the available biomass of the stock multiplied by a scaling factor set according to a simple harvest control rule is called “QuotaFleet”. The biomass caught is then split between the various stocks, and length groups of the stocks, according to equation <a href="#eq:lcons" reference-type="ref" reference="eq:lcons">eq:lcons</a> (see section <a href="#sec:linearfleet" reference-type="ref" reference="sec:linearfleet">7.3</a> above). The scaling factor (the parameter “E” in the equation above) is set according to a simple harvest control rule.</p>
 
 <p>This fleet type is defined by specifying the fleet name and areas it operates on, along with a suitability function for each stock that the fleet will catch, a simple harvest control rule and a data file listing the proportion of each stock that the fleet will catch. The file format for the QuotaFleet is given below:</p>
 <pre><code>[component]
@@ -2764,7 +2764,7 @@ name                 &lt;name for the likelihood component&gt;
 weight               &lt;weight for the likelihood component&gt;
 type                 penalty
 datafile             &lt;name for the datafile&gt;</code></pre>
-<p>The datafile defines the penalty that is to be applied to the parameter when it exceeds the bounds, as given by equation <a href="#eq:bound" reference-type="ref" reference="eq:bound"><span class="math display">\[eq:bound\]</span></a> below:</p>
+<p>The datafile defines the penalty that is to be applied to the parameter when it exceeds the bounds, as given by equation <a href="#eq:bound" reference-type="ref" reference="eq:bound">eq:bound</a> below:</p>
 <p><span class="math display">\[\label{eq:bound}
 \ell_{i} =
 \begin{cases}
@@ -2837,51 +2837,51 @@ stocknames           &lt;vector of the names of the stocks&gt;</code></pre>
 <p>where <span class="math inline">\(&lt;\)</span>number<span class="math inline">\(&gt;\)</span> is the number of samples for the timestep/area/age/length combination.</p>
 <div id="sum-of-squares-function" class="section level3">
 <h3>Sum of Squares Function</h3>
-<p>The sum of squares function calculates the likelihood component from equation <a href="#eq:catchdist4" reference-type="ref" reference="eq:catchdist4"><span class="math display">\[eq:catchdist4\]</span></a> below:</p>
+<p>The sum of squares function calculates the likelihood component from equation <a href="#eq:catchdist4" reference-type="ref" reference="eq:catchdist4">eq:catchdist4</a> below:</p>
 <p><span class="math display">\[\label{eq:catchdist4}
 \ell = \sum_{\it time}\sum_{\it areas}\sum_{\it ages}\sum_{\it lengths} \Big( P_{tral} - \pi_{tral} \Big) ^2\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> P <span class="math inline">\(&gt;\)</span> is the proportion of the data sample for that time/area/age/length combination <span class="math inline">\(&lt;\pi&gt;\)</span> is the proportion of the model sample for that time/area/age/length combination</p>
 </div>
 <div id="stratified-sum-of-squares-function" class="section level3">
 <h3>Stratified Sum of Squares Function</h3>
-<p>The stratified function is a variant of the sum of squares function that calculates an age distribution for each length class, and then calculates the likelihood component from equation <a href="#eq:catchdist4" reference-type="ref" reference="eq:catchdist4"><span class="math display">\[eq:catchdist4\]</span></a> above. The difference between this function and the sum of squares function above is in the way the proportions of the samples are calculated - for this function the proportion is calculated for each length group in turn, whereas for the sum of squares function the proportion is taken over all the length groups. If there is only one length group then these two functions are identical.</p>
+<p>The stratified function is a variant of the sum of squares function that calculates an age distribution for each length class, and then calculates the likelihood component from equation <a href="#eq:catchdist4" reference-type="ref" reference="eq:catchdist4">eq:catchdist4</a> above. The difference between this function and the sum of squares function above is in the way the proportions of the samples are calculated - for this function the proportion is calculated for each length group in turn, whereas for the sum of squares function the proportion is taken over all the length groups. If there is only one length group then these two functions are identical.</p>
 </div>
 <div id="multinomial-function" class="section level3">
 <h3>Multinomial Function</h3>
-<p>The multinomial function calculates the likelihood component from equation <a href="#eq:catchdist1" reference-type="ref" reference="eq:catchdist1"><span class="math display">\[eq:catchdist1\]</span></a> below:</p>
+<p>The multinomial function calculates the likelihood component from equation <a href="#eq:catchdist1" reference-type="ref" reference="eq:catchdist1">eq:catchdist1</a> below:</p>
 <p><span class="math display">\[\label{eq:catchdist1}
 \ell = 2 \sum_{\it time}\sum_{\it areas}\sum_{\it ages} \Bigg( \log N_{tra}! - \sum_{\it lengths} \log N_{tral}! + \sum_{\it lengths} \Big( N_{tral} \log {\frac{\nu_{tral}}{\sum \nu_{tral}}} \Big) \Bigg)\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the data sample size for that time/area/age/length combination <span class="math inline">\(&lt;\nu&gt;\)</span> is the model sample size for that time/area/age/length combination</p>
 </div>
 <div id="pearson-function" class="section level3">
 <h3>Pearson Function</h3>
-<p>The Pearson function calculates the likelihood component from equation <a href="#eq:catchdist2" reference-type="ref" reference="eq:catchdist2"><span class="math display">\[eq:catchdist2\]</span></a> below:</p>
+<p>The Pearson function calculates the likelihood component from equation <a href="#eq:catchdist2" reference-type="ref" reference="eq:catchdist2">eq:catchdist2</a> below:</p>
 <p><span class="math display">\[\label{eq:catchdist2}
 \ell = \sum_{\it time}\sum_{\it areas}\sum_{\it ages}\sum_{\it lengths} \Big( {\frac{ ( N_{tral} - \nu_{tral} ) ^2} {\nu_{tral} + \epsilon}} \Big)\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the data sample size for that time/area/age/length combination <span class="math inline">\(&lt;\nu&gt;\)</span> is the model sample size for that time/area/age/length combination</p>
 </div>
 <div id="gamma-function" class="section level3">
 <h3>Gamma Function</h3>
-<p>The gamma function calculates the likelihood component from equation <a href="#eq:catchdist3" reference-type="ref" reference="eq:catchdist3"><span class="math display">\[eq:catchdist3\]</span></a> below:</p>
+<p>The gamma function calculates the likelihood component from equation <a href="#eq:catchdist3" reference-type="ref" reference="eq:catchdist3">eq:catchdist3</a> below:</p>
 <p><span class="math display">\[\label{eq:catchdist3}
 \ell = \sum_{\it time}\sum_{\it areas}\sum_{\it ages}\sum_{\it lengths} \Big( {\frac{ N_{tral}} { (\nu_{tral} + \epsilon )} + \log ({\nu_{tral} + \epsilon}}) \Big)\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the data sample size for that time/area/age/length combination <span class="math inline">\(&lt;\nu&gt;\)</span> is the model sample size for that time/area/age/length combination</p>
 </div>
 <div id="log-function" class="section level3">
 <h3>Log Function</h3>
-<p>The log function calculates the likelihood component from equation <a href="#eq:catchdist7" reference-type="ref" reference="eq:catchdist7"><span class="math display">\[eq:catchdist7\]</span></a> below:</p>
+<p>The log function calculates the likelihood component from equation <a href="#eq:catchdist7" reference-type="ref" reference="eq:catchdist7">eq:catchdist7</a> below:</p>
 <p><span class="math display">\[\label{eq:catchdist7}
 \ell = \sum_{\it time}\sum_{\it areas} \Big( \log \Big( {\frac{ \displaystyle \sum_{\it ages}\sum_{\it lengths} \nu_{tral}} { \displaystyle \sum_{\it ages}\sum_{\it lengths} N_{tral}}} \Big) \Big) ^2\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the data sample size for that time/area/age/length combination <span class="math inline">\(&lt;\nu&gt;\)</span> is the model sample size for that time/area/age/length combination</p>
 </div>
 <div id="multivariate-normal-function" class="section level3">
 <h3>Multivariate Normal Function</h3>
-<p>The multivariate normal function calculates the likelihood component from equation <a href="#eq:catchdist5" reference-type="ref" reference="eq:catchdist5"><span class="math display">\[eq:catchdist5\]</span></a> below:</p>
+<p>The multivariate normal function calculates the likelihood component from equation <a href="#eq:catchdist5" reference-type="ref" reference="eq:catchdist5">eq:catchdist5</a> below:</p>
 <p><span class="math display">\[\label{eq:catchdist5}
 \ell = \sum_{\it time}\sum_{\it areas}\sum_{\it ages} \Big( log|\Sigma| + (P_{tra} - \pi_{tra})^T \Sigma^{-1}(P_{tra} - \pi_{tra}) \Big)\]</span></p>
 <p>where: <span class="math inline">\(&lt;\Sigma&gt;\)</span> is the variance-covariance matrix for the multivariate normal distribution <span class="math inline">\(&lt;\)</span> P <span class="math inline">\(&gt;\)</span> is the proportion of the data sample for that time/area/age combination <span class="math inline">\(&lt;\pi&gt;\)</span> is the proportion of the model sample for that time/area/age combination</p>
 
-<p>For the formulation of the variance-covariance matrix, <span class="math inline">\(&lt;\Sigma&gt;\)</span> is calculated from equations <a href="#eq:cdsigma1" reference-type="ref" reference="eq:cdsigma1"><span class="math display">\[eq:cdsigma1\]</span></a> and <a href="#eq:cdsigma2" reference-type="ref" reference="eq:cdsigma2"><span class="math display">\[eq:cdsigma2\]</span></a> below:</p>
+<p>For the formulation of the variance-covariance matrix, <span class="math inline">\(&lt;\Sigma&gt;\)</span> is calculated from equations <a href="#eq:cdsigma1" reference-type="ref" reference="eq:cdsigma1">eq:cdsigma1</a> and <a href="#eq:cdsigma2" reference-type="ref" reference="eq:cdsigma2">eq:cdsigma2</a> below:</p>
 <p><span class="math display">\[\label{eq:cdsigma1}
 \Sigma = (\sigma_{ij})_{ij}\]</span></p>
 <p><span class="math display">\[\label{eq:cdsigma2}
@@ -2890,7 +2890,7 @@ stocknames           &lt;vector of the names of the stocks&gt;</code></pre>
 \displaystyle \sum^{lag}_{l=1} c_l \sigma_{i-l,j} + \delta^i_{j} \sigma^2 &amp; \textrm{if $i \geq j$} \\
 \displaystyle \sum^{lag}_{l=1} c_l \sigma_{j,i-l} &amp; \textrm{otherwise}
 \end{cases}\]</span></p>
-<p>In equation <a href="#eq:cdsigma2" reference-type="ref" reference="eq:cdsigma2"><span class="math display">\[eq:cdsigma2\]</span></a> it is assumed that the number in each length group is autocorrelated with lag <span class="math inline">\(&lt;\)</span> lag <span class="math inline">\(&gt;\)</span>. Note that setting the lag to be zero simplifies the multivariate normal distribution to a univariate one.</p>
+<p>In equation <a href="#eq:cdsigma2" reference-type="ref" reference="eq:cdsigma2">eq:cdsigma2</a> it is assumed that the number in each length group is autocorrelated with lag <span class="math inline">\(&lt;\)</span> lag <span class="math inline">\(&gt;\)</span>. Note that setting the lag to be zero simplifies the multivariate normal distribution to a univariate one.</p>
 
 <p>To specify this likelihood function, it is necessary to specify the parameters <span class="math inline">\(&lt;\sigma&gt;\)</span> and <span class="math inline">\(&lt;\)</span> lag <span class="math inline">\(&gt;\)</span> and a list of <span class="math inline">\(&lt;\)</span> lag <span class="math inline">\(&gt;\)</span> correlation parameters. This is done in the likelihood file, as shown below:</p>
 <pre><code>...
@@ -2905,7 +2905,7 @@ aggregationlevel     &lt;0 or 1&gt; ; 1 to aggregate data over the whole year
 </div>
 <div id="multivariate-logistic-function" class="section level3">
 <h3>Multivariate Logistic Function</h3>
-<p>The multivariate logistic function calculates the likelihood component from equations <a href="#eq:catchdist6a" reference-type="ref" reference="eq:catchdist6a"><span class="math display">\[eq:catchdist6a\]</span></a> and <a href="#eq:catchdist6b" reference-type="ref" reference="eq:catchdist6b"><span class="math display">\[eq:catchdist6b\]</span></a> below:</p>
+<p>The multivariate logistic function calculates the likelihood component from equations <a href="#eq:catchdist6a" reference-type="ref" reference="eq:catchdist6a">eq:catchdist6a</a> and <a href="#eq:catchdist6b" reference-type="ref" reference="eq:catchdist6b">eq:catchdist6b</a> below:</p>
 <p><span class="math display">\[\label{eq:catchdist6a}
 \ell = \frac{1}{2\sigma^2} \sum_{\it time} \Big((L - 1) log(\sigma)+\sum_{\it areas}\sum_{\it ages}\sum_{\it lengths} \tau_{tral}^2 \Big)\]</span></p>
 <p><span class="math display">\[\label{eq:catchdist6b}
@@ -2954,7 +2954,7 @@ stocknames           &lt;vector of the names of the stocks&gt;</code></pre>
 </ul>
 <div id="weighted-sum-of-squares-of-mean-length" class="section level3">
 <h3>Weighted Sum of Squares of Mean Length</h3>
-<p>This likelihood function calculates the likelihood score based on a weighted sum of squares of the mean length, with the weighting given by calculating the variance of length of the modelled population, as shown in equation <a href="#eq:catchstat1" reference-type="ref" reference="eq:catchstat1"><span class="math display">\[eq:catchstat1\]</span></a> below:</p>
+<p>This likelihood function calculates the likelihood score based on a weighted sum of squares of the mean length, with the weighting given by calculating the variance of length of the modelled population, as shown in equation <a href="#eq:catchstat1" reference-type="ref" reference="eq:catchstat1">eq:catchstat1</a> below:</p>
 <p><span class="math display">\[\label{eq:catchstat1}
 \ell = \sum_{\it time}\sum_{\it areas}\sum_{\it ages} \Big(\frac{(x_{tra}-\mu_{tra})^2} {\sigma_{tra}^2} N_{tra}\Big)\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> x <span class="math inline">\(&gt;\)</span> is the sample mean length from the data <span class="math inline">\(&lt;\mu&gt;\)</span> is the mean length calculated from the model <span class="math inline">\(&lt;\sigma&gt;\)</span> is the standard deviation of the length, calculated from the model <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the sample size</p>
@@ -2965,7 +2965,7 @@ stocknames           &lt;vector of the names of the stocks&gt;</code></pre>
 </div>
 <div id="weighted-sum-of-squares-of-mean-lengthwith-given-standard-deviation" class="section level3">
 <h3>Weighted Sum of Squares of Mean LengthWith Given Standard Deviation</h3>
-<p>This likelihood function calculates the likelihood score based on a weighted sum of squares of the mean length, with the weighting given the variance of length of the input population, as shown in equation <a href="#eq:catchstat2" reference-type="ref" reference="eq:catchstat2"><span class="math display">\[eq:catchstat2\]</span></a> below:</p>
+<p>This likelihood function calculates the likelihood score based on a weighted sum of squares of the mean length, with the weighting given the variance of length of the input population, as shown in equation <a href="#eq:catchstat2" reference-type="ref" reference="eq:catchstat2">eq:catchstat2</a> below:</p>
 <p><span class="math display">\[\label{eq:catchstat2}
 \ell = \sum_{\it time}\sum_{\it areas}\sum_{\it ages} \Big(\frac{(x_{tra}-\mu_{tra})^2} {s_{tra}^2} N_{tra}\Big)\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> x <span class="math inline">\(&gt;\)</span> is the sample mean length from the data <span class="math inline">\(&lt;\mu&gt;\)</span> is the mean length calculated from the model <span class="math inline">\(&lt;\)</span> s <span class="math inline">\(&gt;\)</span> is the standard deviation of the length from the data <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the sample size</p>
@@ -2976,7 +2976,7 @@ stocknames           &lt;vector of the names of the stocks&gt;</code></pre>
 </div>
 <div id="weighted-sum-of-squares-of-mean-weightwith-given-standard-deviation" class="section level3">
 <h3>Weighted Sum of Squares of Mean WeightWith Given Standard Deviation</h3>
-<p>This likelihood function calculates the likelihood score based on a weighted sum of squares of the mean weight, with the weighting given the variance of weight of the input population, as shown in equation <a href="#eq:catchstat3" reference-type="ref" reference="eq:catchstat3"><span class="math display">\[eq:catchstat3\]</span></a> below:</p>
+<p>This likelihood function calculates the likelihood score based on a weighted sum of squares of the mean weight, with the weighting given the variance of weight of the input population, as shown in equation <a href="#eq:catchstat3" reference-type="ref" reference="eq:catchstat3">eq:catchstat3</a> below:</p>
 <p><span class="math display">\[\label{eq:catchstat3}
 \ell = \sum_{\it time}\sum_{\it areas}\sum_{\it ages} \Big(\frac{(x_{tra}-\mu_{tra})^2} {s_{tra}^2} N_{tra}\Big)\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> x <span class="math inline">\(&gt;\)</span> is the sample mean weight from the data <span class="math inline">\(&lt;\mu&gt;\)</span> is the mean weight calculated from the model <span class="math inline">\(&lt;\)</span> s <span class="math inline">\(&gt;\)</span> is the standard deviation of the weight from the data <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the sample size</p>
@@ -2987,7 +2987,7 @@ stocknames           &lt;vector of the names of the stocks&gt;</code></pre>
 </div>
 <div id="unweighted-sum-of-squares-of-mean-weight" class="section level3">
 <h3>Unweighted Sum of Squares of Mean Weight</h3>
-<p>This likelihood function calculates the likelihood score based on a unweighted sum of squares of the mean weight, with the variance of the weight of the population assumed to be 1, as shown in equation <a href="#eq:catchstat4" reference-type="ref" reference="eq:catchstat4"><span class="math display">\[eq:catchstat4\]</span></a> below:</p>
+<p>This likelihood function calculates the likelihood score based on a unweighted sum of squares of the mean weight, with the variance of the weight of the population assumed to be 1, as shown in equation <a href="#eq:catchstat4" reference-type="ref" reference="eq:catchstat4">eq:catchstat4</a> below:</p>
 <p><span class="math display">\[\label{eq:catchstat4}
 \ell = \sum_{\it time}\sum_{\it areas}\sum_{\it ages} \Big((x_{tra}-\mu_{tra})^2 N_{tra}\Big)\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> x <span class="math inline">\(&gt;\)</span> is the sample mean weight from the data <span class="math inline">\(&lt;\mu&gt;\)</span> is the mean weight calculated from the model <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the sample size</p>
@@ -2998,7 +2998,7 @@ stocknames           &lt;vector of the names of the stocks&gt;</code></pre>
 </div>
 <div id="unweighted-sum-of-squares-of-mean-length" class="section level3">
 <h3>Unweighted Sum of Squares of Mean Length</h3>
-<p>This likelihood function calculates the likelihood score based on a unweighted sum of squares of the mean length, with the variance of the length of the population assumed to be 1, as shown in equation <a href="#eq:catchstat5" reference-type="ref" reference="eq:catchstat5"><span class="math display">\[eq:catchstat5\]</span></a> below:</p>
+<p>This likelihood function calculates the likelihood score based on a unweighted sum of squares of the mean length, with the variance of the length of the population assumed to be 1, as shown in equation <a href="#eq:catchstat5" reference-type="ref" reference="eq:catchstat5">eq:catchstat5</a> below:</p>
 <p><span class="math display">\[\label{eq:catchstat5}
 \ell = \sum_{\it time}\sum_{\it areas}\sum_{\it ages} \Big((x_{tra}-\mu_{tra})^2 N_{tra}\Big)\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> x <span class="math inline">\(&gt;\)</span> is the sample mean length from the data <span class="math inline">\(&lt;\mu&gt;\)</span> is the mean length calculated from the model <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the sample size</p>
@@ -3046,14 +3046,14 @@ stocknames           &lt;vector of the names of the stocks&gt;</code></pre>
 <p>where <span class="math inline">\(&lt;\)</span>number<span class="math inline">\(&gt;\)</span> is the number of samples for the timestep/area/stock/age/length combination.</p>
 <div id="sum-of-squares-function-1" class="section level3">
 <h3>Sum of Squares Function</h3>
-<p>The sum of squares function calculates the likelihood component from equation <a href="#eq:stockdist2" reference-type="ref" reference="eq:stockdist2"><span class="math display">\[eq:stockdist2\]</span></a> below:</p>
+<p>The sum of squares function calculates the likelihood component from equation <a href="#eq:stockdist2" reference-type="ref" reference="eq:stockdist2">eq:stockdist2</a> below:</p>
 <p><span class="math display">\[\label{eq:stockdist2}
 \ell = \sum_{\it time}\sum_{\it areas}\sum_{\it ages}\sum_{\it lengths}\sum_{\it stocks} ( P_{trals} - \pi_{trals} ) ^2\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> P <span class="math inline">\(&gt;\)</span> is the proportion of the data sample for that time/area/age/length/stock combination <span class="math inline">\(&lt;\pi&gt;\)</span> is the proportion of the model sample for that time/area/age/length/stock combination</p>
 </div>
 <div id="multinomial-function-1" class="section level3">
 <h3>Multinomial Function</h3>
-<p>The multinomial function calculates the likelihood component from equation <a href="#eq:stockdist1" reference-type="ref" reference="eq:stockdist1"><span class="math display">\[eq:stockdist1\]</span></a> below:</p>
+<p>The multinomial function calculates the likelihood component from equation <a href="#eq:stockdist1" reference-type="ref" reference="eq:stockdist1">eq:stockdist1</a> below:</p>
 <p><span class="math display">\[\label{eq:stockdist1}
 \ell = 2 \sum_{\it time}\sum_{\it areas}\sum_{\it ages}\sum_{\it lengths} \Bigg( \log N_{tral}! - \sum_{\it stocks} \log N_{trals}! + \sum_{\it stocks} \Big( N_{trals} \log {\frac{\nu_{tral}}{\sum \nu_{trals}}} \Big)\Bigg)\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the data sample size for that time/area/age/length/stock combination <span class="math inline">\(&lt;\nu&gt;\)</span> is the model sample size for that time/area/age/length/stock combination</p>
@@ -3061,7 +3061,7 @@ stocknames           &lt;vector of the names of the stocks&gt;</code></pre>
 </div>
 <div id="sec:surveyindices" class="section level2">
 <h2>SurveyIndices</h2>
-<p>The SurveyIndices likelihood component is used to compare the development of a stock in the Gadget model to indices calculated from a standardized survey for that stock. These indices can be aggregated into length groups or age groups. The likelihood component that is used is the sum of squares of a linear regression fitted to the difference between the modelled data and the specified index, given by equation <a href="#eq:surveyindex" reference-type="ref" reference="eq:surveyindex"><span class="math display">\[eq:surveyindex\]</span></a> below:</p>
+<p>The SurveyIndices likelihood component is used to compare the development of a stock in the Gadget model to indices calculated from a standardized survey for that stock. These indices can be aggregated into length groups or age groups. The likelihood component that is used is the sum of squares of a linear regression fitted to the difference between the modelled data and the specified index, given by equation <a href="#eq:surveyindex" reference-type="ref" reference="eq:surveyindex">eq:surveyindex</a> below:</p>
 <p><span class="math display">\[\label{eq:surveyindex}
 \ell = \sum_{\it time}\Big(I_{t} - (\alpha + \beta N_{t})\Big)^2\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> I <span class="math inline">\(&gt;\)</span> is the observed survey index <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the corresponding index calculated in the Gadget model</p>
@@ -3298,42 +3298,42 @@ likelihoodtype       &lt;likelihood type&gt;</code></pre>
 <p>where <span class="math inline">\(&lt;\)</span>number<span class="math inline">\(&gt;\)</span> is the survey index for the timestep/area/age/length combination.</p>
 <div id="linear-fit" class="section level3">
 <h3>Linear Fit</h3>
-<p>The linear fit function calculates the survey index for the modelled population from equation <a href="#eq:surveydistfit1" reference-type="ref" reference="eq:surveydistfit1"><span class="math display">\[eq:surveydistfit1\]</span></a> below:</p>
+<p>The linear fit function calculates the survey index for the modelled population from equation <a href="#eq:surveydistfit1" reference-type="ref" reference="eq:surveydistfit1">eq:surveydistfit1</a> below:</p>
 <p><span class="math display">\[\label{eq:surveydistfit1}
 \widehat{I}_{tral} = q_{0} S_{l} \big( N_{tral} + q_{1} \big)\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> S <span class="math inline">\(&gt;\)</span> is the calculated suitability value for that length group <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the model population for that time/area/age/length combination</p>
 </div>
 <div id="power-fit" class="section level3">
 <h3>Power Fit</h3>
-<p>The power fit function calculates the survey index for the modelled population from equation <a href="#eq:surveydistfit1" reference-type="ref" reference="eq:surveydistfit1"><span class="math display">\[eq:surveydistfit1\]</span></a> below:</p>
+<p>The power fit function calculates the survey index for the modelled population from equation <a href="#eq:surveydistfit1" reference-type="ref" reference="eq:surveydistfit1">eq:surveydistfit1</a> below:</p>
 <p><span class="math display">\[\label{eq:surveydistfit2}
 \widehat{I}_{tral} = q_{0} S_{l} N_{tral} ^{q_{1}}\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> S <span class="math inline">\(&gt;\)</span> is the calculated suitability value for that length group <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the model population for that time/area/age/length combination</p>
 </div>
 <div id="multinomial-function-2" class="section level3">
 <h3>Multinomial Function</h3>
-<p>The multinomial function calculates the likelihood component from equation <a href="#eq:surveydist1" reference-type="ref" reference="eq:surveydist1"><span class="math display">\[eq:surveydist1\]</span></a> below:</p>
+<p>The multinomial function calculates the likelihood component from equation <a href="#eq:surveydist1" reference-type="ref" reference="eq:surveydist1">eq:surveydist1</a> below:</p>
 <p><span class="math display">\[\label{eq:surveydist1}
 \ell = \sum_{\it time}\sum_{\it areas} \bigg( \log \big(\sum_{\it ages}\sum_{\it lengths} \widehat{I}_{tral} \big) - {\frac { \displaystyle \sum_{\it ages}\sum_{\it lengths} \big(\widehat{I}_{tral} \log (I_{tral} + \epsilon) \big)} { \displaystyle \sum_{\it ages}\sum_{\it lengths} I_{tral}} } \bigg)\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> I <span class="math inline">\(&gt;\)</span> is the data survey index for that time/area/age/length combination <span class="math inline">\(&lt;\widehat{I}&gt;\)</span> is the model survey index for that time/area/age/length combination</p>
 </div>
 <div id="pearson-function-1" class="section level3">
 <h3>Pearson Function</h3>
-<p>The Pearson function calculates the likelihood component from equation <a href="#eq:surveydist2" reference-type="ref" reference="eq:surveydist2"><span class="math display">\[eq:surveydist2\]</span></a> below:</p>
+<p>The Pearson function calculates the likelihood component from equation <a href="#eq:surveydist2" reference-type="ref" reference="eq:surveydist2">eq:surveydist2</a> below:</p>
 <p><span class="math display">\[\label{eq:surveydist2}
 \ell = \sum_{\it time}\sum_{\it areas}\sum_{\it ages}\sum_{\it lengths} \Big( {\frac{ ( I_{tral} - \widehat{I}_{tral} ) ^2} {\widehat{I}_{tral} + \epsilon}} \Big)\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> I <span class="math inline">\(&gt;\)</span> is the data survey index for that time/area/age/length combination <span class="math inline">\(&lt;\widehat{I}&gt;\)</span> is the model survey index for that time/area/age/length combination</p>
 </div>
 <div id="gamma-function-1" class="section level3">
 <h3>Gamma Function</h3>
-<p>The gamma function calculates the likelihood component from equation <a href="#eq:surveydist3" reference-type="ref" reference="eq:surveydist3"><span class="math display">\[eq:surveydist3\]</span></a> below:</p>
+<p>The gamma function calculates the likelihood component from equation <a href="#eq:surveydist3" reference-type="ref" reference="eq:surveydist3">eq:surveydist3</a> below:</p>
 <p><span class="math display">\[\label{eq:surveydist3}
 \ell = \sum_{\it time}\sum_{\it areas}\sum_{\it ages}\sum_{\it lengths} \Big( {\frac{ I_{tral}} { (\widehat{I}_{tral} + \epsilon )} + \log ({\widehat{I}_{tral} + \epsilon}}) \Big)\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> I <span class="math inline">\(&gt;\)</span> is the data survey index for that time/area/age/length combination <span class="math inline">\(&lt;\widehat{I}&gt;\)</span> is the model survey index for that time/area/age/length combination</p>
 </div>
 <div id="log-function-1" class="section level3">
 <h3>Log Function</h3>
-<p>The log function calculates the likelihood component from equation <a href="#eq:surveydist4" reference-type="ref" reference="eq:surveydist4"><span class="math display">\[eq:surveydist4\]</span></a> below:</p>
+<p>The log function calculates the likelihood component from equation <a href="#eq:surveydist4" reference-type="ref" reference="eq:surveydist4">eq:surveydist4</a> below:</p>
 <p><span class="math display">\[\label{eq:surveydist4}
 \ell = \sum_{\it time}\sum_{\it areas} \Big(  \log \Big( {\frac{ \displaystyle \sum_{\it ages}\sum_{\it lengths}  \widehat{I}_{tral}} { \displaystyle \sum_{\it ages}\sum_{\it lengths} I_{tral}}} \Big) \Big) ^2\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> I <span class="math inline">\(&gt;\)</span> is the data survey index for that time/area/age/length combination <span class="math inline">\(&lt;\widehat{I}&gt;\)</span> is the model survey index for that time/area/age/length combination</p>
@@ -3371,7 +3371,7 @@ preyaggfile          &lt;prey aggregation file specifying preys&gt;</code></pre>
 <p>where <span class="math inline">\(&lt;\)</span>ratio<span class="math inline">\(&gt;\)</span> is the ratio of prey <span class="math inline">\(&lt;\)</span>prey<span class="math inline">\(&gt;\)</span> in the stomachs of predator <span class="math inline">\(&lt;\)</span>predator<span class="math inline">\(&gt;\)</span> for the timestep/area combination, where <span class="math inline">\(&lt;\)</span>prey<span class="math inline">\(&gt;\)</span> is defined in the prey aggregation file, and <span class="math inline">\(&lt;\)</span>predator<span class="math inline">\(&gt;\)</span> is defined in the predator length aggregation file.</p>
 <div id="scsimple-function" class="section level3">
 <h3>SCSimple Function</h3>
-<p>The scsimple function calculates the likelihood component by comparing the ratio of the consumption of different preys by a predator in the model to the ratio of the preys found in the stomach contents data specified in the input file, as shown in equation <a href="#eq:stomach1" reference-type="ref" reference="eq:stomach1"><span class="math display">\[eq:stomach1\]</span></a> below:</p>
+<p>The scsimple function calculates the likelihood component by comparing the ratio of the consumption of different preys by a predator in the model to the ratio of the preys found in the stomach contents data specified in the input file, as shown in equation <a href="#eq:stomach1" reference-type="ref" reference="eq:stomach1">eq:stomach1</a> below:</p>
 <p><span class="math display">\[\label{eq:stomach1}
 \ell = \sum_{\it time}\sum_{\it areas}\sum_{\it predators}\sum_{\it preys} \Big( P_{trpp} - \pi_{trpp} \Big) ^2\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> P <span class="math inline">\(&gt;\)</span> is the ratio of the stomach content data for that time/area/predator/prey combination <span class="math inline">\(&lt;\pi&gt;\)</span> is the ratio of the modelled consumption for that time/area/predator/prey combination</p>
@@ -3404,7 +3404,7 @@ fleetnames           &lt;vector of the names of the fleets&gt;</code></pre>
 <p>where <span class="math inline">\(&lt;\)</span>number<span class="math inline">\(&gt;\)</span> is the number of recaptures for the tag/timestep/area/length combination.</p>
 <div id="poisson-function" class="section level3">
 <h3>Poisson Function</h3>
-<p>The Poisson function calculates the likelihood component from equation <a href="#eq:recap1" reference-type="ref" reference="eq:recap1"><span class="math display">\[eq:recap1\]</span></a> below:</p>
+<p>The Poisson function calculates the likelihood component from equation <a href="#eq:recap1" reference-type="ref" reference="eq:recap1">eq:recap1</a> below:</p>
 <p><span class="math display">\[\label{eq:recap1}
 \ell = \sum_{\it time}\sum_{\it areas}\sum_{\it lengths} \Big( N_{trl} + \log \nu_{trl}! - N_{trl} \log \nu_{trl} \Big)\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the number of observed recaptures for that time/area/length combination <span class="math inline">\(&lt;\nu&gt;\)</span> is the number of modelled recaptures for that time/area/length combination</p>
@@ -3434,7 +3434,7 @@ fleetnames           &lt;vector of the names of the fleets&gt;</code></pre>
 </ul>
 <div id="weighted-sum-of-squares-of-mean-length-1" class="section level3">
 <h3>Weighted Sum of Squares of Mean Length</h3>
-<p>This likelihood function calculates the likelihood score based on a weighted sum of squares of the mean length, with the weighting given by calculating the variance of length of the modelled population, as shown in equation <a href="#eq:recstat1" reference-type="ref" reference="eq:recstat1"><span class="math display">\[eq:recstat1\]</span></a> below:</p>
+<p>This likelihood function calculates the likelihood score based on a weighted sum of squares of the mean length, with the weighting given by calculating the variance of length of the modelled population, as shown in equation <a href="#eq:recstat1" reference-type="ref" reference="eq:recstat1">eq:recstat1</a> below:</p>
 <p><span class="math display">\[\label{eq:recstat1}
 \ell = \sum_{\it tags}\sum_{\it time}\sum_{\it areas} \Big(\frac{(x-\mu)^2} {\sigma^2} N\Big)\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> x <span class="math inline">\(&gt;\)</span> is the sample mean length from the data <span class="math inline">\(&lt;\mu&gt;\)</span> is the mean length calculated from the model <span class="math inline">\(&lt;\sigma&gt;\)</span> is the standard deviation of the length, calculated from the model <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the sample size</p>
@@ -3445,7 +3445,7 @@ fleetnames           &lt;vector of the names of the fleets&gt;</code></pre>
 </div>
 <div id="weighted-sum-of-squares-of-mean-lengthwith-given-standard-deviation-1" class="section level3">
 <h3>Weighted Sum of Squares of Mean LengthWith Given Standard Deviation</h3>
-<p>This likelihood function calculates the likelihood score based on a weighted sum of squares of the mean length, with the weighting given the variance of length of the input population, as shown in equation <a href="#eq:recstat2" reference-type="ref" reference="eq:recstat2"><span class="math display">\[eq:recstat2\]</span></a> below:</p>
+<p>This likelihood function calculates the likelihood score based on a weighted sum of squares of the mean length, with the weighting given the variance of length of the input population, as shown in equation <a href="#eq:recstat2" reference-type="ref" reference="eq:recstat2">eq:recstat2</a> below:</p>
 <p><span class="math display">\[\label{eq:recstat2}
 \ell = \sum_{\it tags}\sum_{\it time}\sum_{\it areas} \Big(\frac{(x-\mu)^2} {s^2} N\Big)\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> x <span class="math inline">\(&gt;\)</span> is the sample mean length from the data <span class="math inline">\(&lt;\mu&gt;\)</span> is the mean length calculated from the model <span class="math inline">\(&lt;\)</span> s <span class="math inline">\(&gt;\)</span> is the standard deviation of the length from the data <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the sample size</p>
@@ -3456,7 +3456,7 @@ fleetnames           &lt;vector of the names of the fleets&gt;</code></pre>
 </div>
 <div id="unweighted-sum-of-squares-of-mean-length-1" class="section level3">
 <h3>Unweighted Sum of Squares of Mean Length</h3>
-<p>This likelihood function calculates the likelihood score based on a unweighted sum of squares of the mean length, with the variance of the length of the population assumed to be 1, as shown in equation <a href="#eq:recstat3" reference-type="ref" reference="eq:recstat3"><span class="math display">\[eq:recstat3\]</span></a> below:</p>
+<p>This likelihood function calculates the likelihood score based on a unweighted sum of squares of the mean length, with the variance of the length of the population assumed to be 1, as shown in equation <a href="#eq:recstat3" reference-type="ref" reference="eq:recstat3">eq:recstat3</a> below:</p>
 <p><span class="math display">\[\label{eq:recstat3}
 \ell = \sum_{\it tags}\sum_{\it time}\sum_{\it areas} \Big((x-\mu)^2 N\Big)\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> x <span class="math inline">\(&gt;\)</span> is the sample mean length from the data <span class="math inline">\(&lt;\mu&gt;\)</span> is the mean length calculated from the model <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the sample size</p>
@@ -3512,7 +3512,7 @@ stocknames           &lt;vector of the names of the stocks&gt;</code></pre>
 <p>where <span class="math inline">\(&lt;\)</span>ratio<span class="math inline">\(&gt;\)</span> is the proportion of stock that is in area <span class="math inline">\(&lt;\)</span>area<span class="math inline">\(&gt;\)</span> for that timestep.</p>
 <div id="sum-of-squares-function-2" class="section level3">
 <h3>Sum of Squares Function</h3>
-<p>The sum of squares function calculates the likelihood component from equation <a href="#eq:migpro1" reference-type="ref" reference="eq:migpro1"><span class="math display">\[eq:migpro1\]</span></a> below:</p>
+<p>The sum of squares function calculates the likelihood component from equation <a href="#eq:migpro1" reference-type="ref" reference="eq:migpro1">eq:migpro1</a> below:</p>
 <p><span class="math display">\[\label{eq:migpro1}
 \ell = \sum_{\it time}\sum_{\it areas} \Big( P_{tr} - \pi_{tr} \Big) ^2\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> P <span class="math inline">\(&gt;\)</span> is the proportion of the data sample for that time/area combination <span class="math inline">\(&lt;\pi&gt;\)</span> is the proportion of the model sample for that time/area combination</p>
@@ -3552,7 +3552,7 @@ stocknames           &lt;vector of the names of the stocks&gt;</code></pre>
 <pre><code>&lt;year&gt;  &lt;area&gt;  &lt;fleet&gt;  &lt;biomass&gt;</code></pre>
 <div id="sum-of-squares-function-3" class="section level3">
 <h3>Sum of Squares Function</h3>
-<p>The sum of squares function calculates the likelihood component from equation <a href="#eq:catchtons" reference-type="ref" reference="eq:catchtons"><span class="math display">\[eq:catchtons\]</span></a> below:</p>
+<p>The sum of squares function calculates the likelihood component from equation <a href="#eq:catchtons" reference-type="ref" reference="eq:catchtons">eq:catchtons</a> below:</p>
 <p><span class="math display">\[\label{eq:catchtons}
 \ell = \sum_{\it time}\sum_{\it areas}\sum_{\it fleets} (\log(N_{trf} + \epsilon) - \log(\nu_{trf} + \epsilon))^2\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the catch biomass for that time/area/fleet combination <span class="math inline">\(&lt;\nu&gt;\)</span> is the modelled catch biomass for that time/area/fleet combination</p>
@@ -3849,7 +3849,7 @@ lambda     0     ; initial value for the step length</code></pre>
 <h3>Overview</h3>
 <p>Simulated Annealing is a global optimisation method that distinguishes between different local minimum. From the initial starting point the algorithm takes a random step in various directions, and conducts a new model run. If the new likelihood score is better than the old one then the algorithm uses the new point as it’s best guess. If it is worse then the algorithm may accept this point, based on the probabilistic “Metropolis Criteria”, and thus the algorithm can escape from a local minimum. The search proceeds in series of these steps, with the point that gives the overall lowest likelihood score is stored as a “best point”. The algorithm exits when a stable point is found which cannot be improved on with a small step in any direction, and the Metropolis Criteria rejects all the steps away from the current best point. The best point is then accepted as being the ‘solution’.</p>
 
-<p>The Metropolis Criteria will accept a move in an uphill direction (ie. a point with a worse likelihood score) based on a function of both the size of the move and a parameter termed “temperature”, and is given in equation <a href="#eq:metropolis" reference-type="ref" reference="eq:metropolis"><span class="math display">\[eq:metropolis\]</span></a> below:</p>
+<p>The Metropolis Criteria will accept a move in an uphill direction (ie. a point with a worse likelihood score) based on a function of both the size of the move and a parameter termed “temperature”, and is given in equation <a href="#eq:metropolis" reference-type="ref" reference="eq:metropolis">eq:metropolis</a> below:</p>
 <p><span class="math display">\[\begin{aligned}
 \label{eq:metropolis}
 M &amp; = &amp; e^{\displaystyle \frac{-\Delta F} {t}} \nonumber \\
@@ -3896,7 +3896,7 @@ check      4     ; number of temperature loops to check</code></pre>
 </div>
 <div id="t" class="section level4">
 <h4>t</h4>
-<p>This is the initial value for the “temperature” of the Simulated Annealing algorithm, used to control the speed of the convergence of the algorithm, using the Metropolis Criteria given in equation <a href="#eq:metropolis" reference-type="ref" reference="eq:metropolis"><span class="math display">\[eq:metropolis\]</span></a> above. High values for the temperature (t <span class="math inline">\(\gg \Delta F\)</span>) will mean that most of the uphill moves are accepted, and the algorithm will be performing a random search, which is computationally very intensive. Low values for the temperature (t <span class="math inline">\(\ll \Delta F\)</span>) will mean that most of the uphill moves are rejected and the algorithm will be performing an inefficient local search.</p>
+<p>This is the initial value for the “temperature” of the Simulated Annealing algorithm, used to control the speed of the convergence of the algorithm, using the Metropolis Criteria given in equation <a href="#eq:metropolis" reference-type="ref" reference="eq:metropolis">eq:metropolis</a> above. High values for the temperature (t <span class="math inline">\(\gg \Delta F\)</span>) will mean that most of the uphill moves are accepted, and the algorithm will be performing a random search, which is computationally very intensive. Low values for the temperature (t <span class="math inline">\(\ll \Delta F\)</span>) will mean that most of the uphill moves are rejected and the algorithm will be performing an inefficient local search.</p>
 </div>
 <div id="rt" class="section level4">
 <h4>rt</h4>
@@ -3920,7 +3920,7 @@ check      4     ; number of temperature loops to check</code></pre>
 </div>
 <div id="cstep-lratio-and-uratio" class="section level4">
 <h4>cstep, lratio and uratio</h4>
-<p>These parameters control how the maximum step length for the Simulated Annealing algorithm is adjusted, at the end of each of the “ns” step loops. The algorithm keeps track of the number of moves that are accepted and rejected for each direction, and then adjusts the value of the maximum step length for each direction so that the ratio of accepted to rejected moves is approximately 50:50. The maximum step length for each direction is adjusted according to equation <a href="#eq:vm" reference-type="ref" reference="eq:vm"><span class="math display">\[eq:vm\]</span></a> below:</p>
+<p>These parameters control how the maximum step length for the Simulated Annealing algorithm is adjusted, at the end of each of the “ns” step loops. The algorithm keeps track of the number of moves that are accepted and rejected for each direction, and then adjusts the value of the maximum step length for each direction so that the ratio of accepted to rejected moves is approximately 50:50. The maximum step length for each direction is adjusted according to equation <a href="#eq:vm" reference-type="ref" reference="eq:vm">eq:vm</a> below:</p>
 <p><span class="math display">\[\label{eq:vm}
 vm_{i} =
 \begin{cases}
@@ -3946,7 +3946,7 @@ vm_{i} &amp; \textrm{otherwise}
 
 <p>For a point at a stable minimum, the magnitude of the gradient vector will be zero, since there is no direction that the algorithm can move in to find a better local point. However, finding such a point using an iterative process can take an infinite number of steps, so the algorithm exits when the magnitude of the gradient vector is less than a small number. The current point is then accepted as being the ‘solution’.</p>
 
-<p>The “Armijo” linesearch calculates the stepsize that is to be used to move to a point that is “sufficiently better”, along the search direction vector calculated from the gradient, to be <span class="math inline">\(\beta^n\)</span>, where n is the first integer that satisfies the Armijo rule given by inequality <a href="#eq:armijo" reference-type="ref" reference="eq:armijo"><span class="math display">\[eq:armijo\]</span></a> below:</p>
+<p>The “Armijo” linesearch calculates the stepsize that is to be used to move to a point that is “sufficiently better”, along the search direction vector calculated from the gradient, to be <span class="math inline">\(\beta^n\)</span>, where n is the first integer that satisfies the Armijo rule given by inequality <a href="#eq:armijo" reference-type="ref" reference="eq:armijo">eq:armijo</a> below:</p>
 <p><span class="math display">\[\label{eq:armijo}
 f(x) - f(x + \beta^{n}d) \geq - \sigma \beta^{n}d \nabla f(x) ^{T}\]</span></p>
 <p>where: <span class="math inline">\(&lt;\nabla f(x)&gt;\)</span> is the gradient of the function at the current point <span class="math inline">\(&lt;\)</span> d <span class="math inline">\(&gt;\)</span> is the search direction vector</p>
@@ -3979,7 +3979,7 @@ gradeps    1e-10 ; minimum value for gradient accuracy</code></pre>
 </div>
 <div id="sigma" class="section level4">
 <h4>sigma</h4>
-<p>This is the criteria for stopping the Armijo linesearch at a point that is “sufficiently better”, and recalculating the gradient of the function at this new point. Lower values of sigma will increase the size of the acceptance region of the Armijo linesearch (by relaxing the condition for the inequality, see equation <a href="#eq:armijo" reference-type="ref" reference="eq:armijo"><span class="math display">\[eq:armijo\]</span></a> above), which will mean that the linesearch will stop earlier, leading to larger steps by the BFGS algorithm. Conversely, higher values of sigma will decrease the size of the acceptance region, which will mean that the BFGS algorithm will take smaller steps. The value of sigma must be between 0 and 1, and should be close to zero.</p>
+<p>This is the criteria for stopping the Armijo linesearch at a point that is “sufficiently better”, and recalculating the gradient of the function at this new point. Lower values of sigma will increase the size of the acceptance region of the Armijo linesearch (by relaxing the condition for the inequality, see equation <a href="#eq:armijo" reference-type="ref" reference="eq:armijo">eq:armijo</a> above), which will mean that the linesearch will stop earlier, leading to larger steps by the BFGS algorithm. Conversely, higher values of sigma will decrease the size of the acceptance region, which will mean that the BFGS algorithm will take smaller steps. The value of sigma must be between 0 and 1, and should be close to zero.</p>
 </div>
 <div id="beta" class="section level4">
 <h4>beta</h4>
@@ -3987,7 +3987,7 @@ gradeps    1e-10 ; minimum value for gradient accuracy</code></pre>
 </div>
 <div id="gradacc-gradstep-and-gradeps" class="section level4">
 <h4>gradacc, gradstep and gradeps</h4>
-<p>These parameters control the accuracy that is used for the gradient calculations. The gradient of the function is calculated numerically by Gadget using a forward difference algorithm, as shown in equation <a href="#eq:grad" reference-type="ref" reference="eq:grad"><span class="math display">\[eq:grad\]</span></a> below:</p>
+<p>These parameters control the accuracy that is used for the gradient calculations. The gradient of the function is calculated numerically by Gadget using a forward difference algorithm, as shown in equation <a href="#eq:grad" reference-type="ref" reference="eq:grad">eq:grad</a> below:</p>
 <p><span class="math display">\[\label{eq:grad}
 \nabla f(x) \approx \frac{f(x + \delta x) - f(x)} {\delta x}\]</span></p>
 <p>where: <span class="math inline">\(&lt;\delta&gt;\)</span> is the value of the “gradacc” parameter</p>
@@ -4268,7 +4268,7 @@ comp3.quadcore slots=4 max-slots=4</code></pre>
 <div id="sec:v2200" class="section level2">
 <h2>Gadget version 2.2.00</h2>
 <ul>
-<li><p>removed the hard-coded factor of 4 from various maturation and suitability functions (see equations <a href="#eq:l50suit" reference-type="ref" reference="eq:l50suit"><span class="math display">\[eq:l50suit\]</span></a>, <a href="#eq:mat3" reference-type="ref" reference="eq:mat3"><span class="math display">\[eq:mat3\]</span></a> and <a href="#eq:mat4" reference-type="ref" reference="eq:mat4"><span class="math display">\[eq:mat4\]</span></a>) <strong>note</strong> that these functions have been re-named, so using one of these functions will currently generate an error to alert the user of this change</p></li>
+<li><p>removed the hard-coded factor of 4 from various maturation and suitability functions (see equations <a href="#eq:l50suit" reference-type="ref" reference="eq:l50suit">eq:l50suit</a>, <a href="#eq:mat3" reference-type="ref" reference="eq:mat3">eq:mat3</a> and <a href="#eq:mat4" reference-type="ref" reference="eq:mat4">eq:mat4</a>) <strong>note</strong> that these functions have been re-named, so using one of these functions will currently generate an error to alert the user of this change</p></li>
 <li><p>extended the options for a fleet that implements a harvest control rule (see section <a href="#sec:quotafleet" reference-type="ref" reference="sec:quotafleet">7.5</a>)</p></li>
 <li><p>added an option to aggregate the StockDistribution data (see section <a href="#sec:stockdist" reference-type="ref" reference="sec:stockdist">8.5</a>)</p></li>
 <li><p>added the MigrationProportion likelihood component (see section <a href="#sec:migpro" reference-type="ref" reference="sec:migpro">8.12</a>)</p></li>

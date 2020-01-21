@@ -988,10 +988,10 @@ functions defined, so valid function names are:
 
 This growth function is a simplified "MULTSPEC" growth equation, with
 the increase in length for each length group of the stock given by
-equation [\[eq:growth1l\]](#eq:growth1l){reference-type="ref"
+equation [eq:growth1l](#eq:growth1l){reference-type="ref"
 reference="eq:growth1l"}, and the corresponding increase in weight of
 the stock given by
-equation [\[eq:growth1w\]](#eq:growth1w){reference-type="ref"
+equation [eq:growth1w](#eq:growth1w){reference-type="ref"
 reference="eq:growth1w"} below:
 
 $$\label{eq:growth1l}
@@ -1019,10 +1019,10 @@ followed by the 5 weight parameters. This is shown below:
 This growth function is a form of the Von Bertalanffy growth equation,
 extended to introduce the concept of starvation to the growth function.
 The increase in the weight for each length group the stock is given by
-equation [\[eq:growth3w\]](#eq:growth3w){reference-type="ref"
+equation [eq:growth3w](#eq:growth3w){reference-type="ref"
 reference="eq:growth3w"}, and the corresponding increase in the length
 of the stock is given by
-equation [\[eq:growth3lc\]](#eq:growth3lc){reference-type="ref"
+equation [eq:growth3lc](#eq:growth3lc){reference-type="ref"
 reference="eq:growth3lc"} below:
 
 $$\label{eq:growth3w}
@@ -1047,9 +1047,9 @@ temperature $<W_{ref}>$ is the reference weight
 
 \bigskip
 Comparing the weight to the reference weight (by using
-equations [\[eq:growth3la\]](#eq:growth3la){reference-type="ref"
+equations [eq:growth3la](#eq:growth3la){reference-type="ref"
 reference="eq:growth3la"} and
-[\[eq:growth3lb\]](#eq:growth3lb){reference-type="ref"
+[eq:growth3lb](#eq:growth3lb){reference-type="ref"
 reference="eq:growth3lb"}) introduces the concept of starvation to the
 Gadget model. When the weight of the population is less than a function
 of the reference weight, there is no length increase (ensuring that the
@@ -1068,10 +1068,10 @@ a further 9 parameters for the increase in length. These are declared in
 This growth function is a form of the Jones growth equation, extended to
 introduce the concept of starvation to the growth function. The increase
 in the weight for each length group the stock is given by
-equation [\[eq:growth4w\]](#eq:growth4w){reference-type="ref"
+equation [eq:growth4w](#eq:growth4w){reference-type="ref"
 reference="eq:growth4w"}, and the corresponding increase in the length
 of the stock is given by
-equation [\[eq:growth4lc\]](#eq:growth4lc){reference-type="ref"
+equation [eq:growth4lc](#eq:growth4lc){reference-type="ref"
 reference="eq:growth4lc"} below:
 
 $$\label{eq:growth4w}
@@ -1112,12 +1112,12 @@ This growth function is an expanded form of the Von Bertalanffy growth
 equation, with additional information to allow for differing growth
 depending on the year, timestep and area. The increase in the weight of
 the stock is given by
-equation [\[eq:growth5w\]](#eq:growth5w){reference-type="ref"
+equation [eq:growth5w](#eq:growth5w){reference-type="ref"
 reference="eq:growth5w"} below, and the corresponding increase in the
 length of the stock is identical to that for WeightVB growth function
 (see section [4.3.2](#subsec:growth3){reference-type="ref"
 reference="subsec:growth3"}) given by
-equation [\[eq:growth3lc\]](#eq:growth3lc){reference-type="ref"
+equation [eq:growth3lc](#eq:growth3lc){reference-type="ref"
 reference="eq:growth3lc"}:
 
 $$\label{eq:growth5w}
@@ -1147,7 +1147,7 @@ $<$area effect$>$ vector requires one entry for each area.
 
 This growth function is a simplified form of the Von Bertalanffy growth
 equation. The increase in the length for each length group the stock is
-given by equation [\[eq:growth6\]](#eq:growth6){reference-type="ref"
+given by equation [eq:growth6](#eq:growth6){reference-type="ref"
 reference="eq:growth6"}, with the corresponding increase in the weight
 of the stock read in from a data file:
 
@@ -1165,7 +1165,7 @@ length. These are declared in a single vector, as shown below:
 
 It is important to note that if the value of $L_{\infty}$ is less than
 the mean length of a length group, then the length increase calculated
-by equation [\[eq:growth6\]](#eq:growth6){reference-type="ref"
+by equation [eq:growth6](#eq:growth6){reference-type="ref"
 reference="eq:growth6"} would be negative for that length group, which
 will result in Gadget printing a warning message. To avoid this, the
 user should ensure that the value of $L_{\infty}$ is always greater than
@@ -1185,7 +1185,7 @@ format of this file is shown below:
 This growth function uses a simple power-based growth equation to
 calculate the increase in length. The increase in the length for each
 length group the stock is given by
-equation [\[eq:growth7\]](#eq:growth7){reference-type="ref"
+equation [eq:growth7](#eq:growth7){reference-type="ref"
 reference="eq:growth7"}, with the corresponding increase in the weight
 of the stock read in from a data file:
 
@@ -1213,10 +1213,10 @@ format of this file is shown below:
 
 This growth function is a simplified form of the Von Bertalanffy growth
 equation. The increase in the length for each length group the stock is
-given by equation [\[eq:growth8l\]](#eq:growth8l){reference-type="ref"
+given by equation [eq:growth8l](#eq:growth8l){reference-type="ref"
 reference="eq:growth8l"}, and the corresponding increase in the weight
 of the stock is given by
-equation [\[eq:growth8w\]](#eq:growth8w){reference-type="ref"
+equation [eq:growth8w](#eq:growth8w){reference-type="ref"
 reference="eq:growth8w"} below:
 
 $$\label{eq:growth8l}
@@ -1236,7 +1236,7 @@ below:
 
 It is important to note that if the value of $L_{\infty}$ is less than
 the mean length of a length group, then the length increase calculated
-by equation [\[eq:growth8l\]](#eq:growth8l){reference-type="ref"
+by equation [eq:growth8l](#eq:growth8l){reference-type="ref"
 reference="eq:growth8l"} would be negative for that length group, which
 will result in Gadget printing a warning message. To avoid this, the
 user should ensure that the value of $L_{\infty}$ is always greater than
@@ -1272,7 +1272,7 @@ $$\label{eq:betabin1}
 
 For more flexibility, this can be re-arranged by calculating the
 parameter $<$p$>$ from a second beta-binomial distribution, leading to
-equation [\[eq:betabin2\]](#eq:betabin2){reference-type="ref"
+equation [eq:betabin2](#eq:betabin2){reference-type="ref"
 reference="eq:betabin2"} shown below, which is defined for 0 $\le$ p
 $\le$ 1:
 
@@ -1299,7 +1299,7 @@ the data. High values of beta produce a narrow distribution, whilst
 lower values produce a more dispersed distribution with a larger
 right-hand tail. Note that very low values of beta (which lead to
 $\alpha$ \< 1 in
-equation [\[eq:betabin3\]](#eq:betabin3){reference-type="ref"
+equation [eq:betabin3](#eq:betabin3){reference-type="ref"
 reference="eq:betabin3"}) can lead to unexpected results and should be
 avoided.
 
@@ -1320,7 +1320,7 @@ modelled as part of other processes (for example predation). In Gadget,
 this is simply modelled as the proportion of the stock that is removed
 due to these additional causes (the residual mortality) from each age
 group, on each timestep, as shown in
-equation [\[eq:natmort\]](#eq:natmort){reference-type="ref"
+equation [eq:natmort](#eq:natmort){reference-type="ref"
 reference="eq:natmort"} below:
 
 $$\label{eq:natmort}
@@ -1402,7 +1402,7 @@ function selected. The consumption of a prey is dependant on the length
 of both the predator and the prey, and the amount of the prey available,
 as a proportion of the total amount of food available. The consumption
 of prey $p$ is given by
-equation [\[eq:totalcons\]](#eq:totalcons){reference-type="ref"
+equation [eq:totalcons](#eq:totalcons){reference-type="ref"
 reference="eq:totalcons"} below:
 
 $$\label{eq:totalcons}
@@ -1429,13 +1429,13 @@ reference="sec:suitability"}) $<\Delta t>$ is the length of the timestep
 $<$ T $>$ is the temperature of the area that the feeding takes place on
 
 \bigskip
-In equation [\[eq:totalcons\]](#eq:totalcons){reference-type="ref"
+In equation [eq:totalcons](#eq:totalcons){reference-type="ref"
 reference="eq:totalcons"}, the parameter $<$ F $>$ gives the amount of a
 given prey that is consumed by the predator, given by multiplying the
 biomass of the prey by the suitability (see
 section [4.9](#sec:suitability){reference-type="ref"
 reference="sec:suitability"}), as shown in
-equation [\[eq:preycons\]](#eq:preycons){reference-type="ref"
+equation [eq:preycons](#eq:preycons){reference-type="ref"
 reference="eq:preycons"}. The summation over preys is over all preys
 that the predator consumes, including non-modelled prey, given as
 "otherfood" in section [6](#chap:other){reference-type="ref"
@@ -1444,7 +1444,7 @@ the growth of the predator when the growth function has been set to
 "WeightJones".
 
 \bigskip
-In equation [\[eq:preycons\]](#eq:preycons){reference-type="ref"
+In equation [eq:preycons](#eq:preycons){reference-type="ref"
 reference="eq:preycons"}, the parameter $<$ d $>$ gives the preference
 of the predator for the prey, controlling the form of the functional
 response that is used to model the predation. Setting this parameter to
@@ -1462,7 +1462,7 @@ prey and the associated preference value, as shown in the example below:
     maxconsumption         <maximum consumption vector>
     ...
 
-In equation [\[eq:maxcons\]](#eq:maxcons){reference-type="ref"
+In equation [eq:maxcons](#eq:maxcons){reference-type="ref"
 reference="eq:maxcons"}, the parameter $<$ M $>$ gives the maximum
 possible consumption for the predator on the current timestep. This is a
 function of temperature and the length of the predator, using the 4
@@ -1471,7 +1471,7 @@ input file. Note that the maximum consumption should be specified in
 kilojoules per month.
 
 \bigskip
-In equation [\[eq:feedlevel\]](#eq:feedlevel){reference-type="ref"
+In equation [eq:feedlevel](#eq:feedlevel){reference-type="ref"
 reference="eq:feedlevel"}, the parameter $<\psi>$ gives the "feeding
 level" which denotes the fraction of the available food that the
 predator is consuming. This is governed by the total amount of prey
@@ -1748,7 +1748,7 @@ these age groups having a Normal distribution about a specified mean
 length with a specified standard deviation. The mean weight for this
 initial population is then calculated from the standard weight-length
 relationship, as given in
-equation [\[eq:wlen\]](#eq:wlen){reference-type="ref"
+equation [eq:wlen](#eq:wlen){reference-type="ref"
 reference="eq:wlen"} below:
 
 $$\label{eq:wlen}
@@ -1966,7 +1966,7 @@ in the immature stock.
 
 This maturity function calculates the proportion of an age-length group
 of an immature stock that becomes mature according to the maturity
-equation [\[eq:mat3\]](#eq:mat3){reference-type="ref"
+equation [eq:mat3](#eq:mat3){reference-type="ref"
 reference="eq:mat3"} given below:
 
 $$\label{eq:mat3}
@@ -1990,7 +1990,7 @@ maturation process will take place on.
 
 This maturity function is an extension to the Constant maturity
 function, with the maturity proportion being calculated according to the
-maturity equation [\[eq:mat4\]](#eq:mat4){reference-type="ref"
+maturity equation [eq:mat4](#eq:mat4){reference-type="ref"
 reference="eq:mat4"} given below:
 
 $$\label{eq:mat4}
@@ -2014,7 +2014,7 @@ proportion of the immature stock that matures on the length of the
 immature stock, as the length varies through the year. This is approach
 assumes that the maturation process is the same for each year. The
 proportion of the immature stock that matures is given by the
-equation [\[eq:mat2\]](#eq:mat2){reference-type="ref"
+equation [eq:mat2](#eq:mat2){reference-type="ref"
 reference="eq:mat2"} below:
 
 $$\label{eq:mat2}
@@ -2040,8 +2040,8 @@ need to be the same size.
 
 This maturity function calculates the proportion of an age-length group
 of an immature stock that becomes mature according to the maturity
-equations [\[eq:mat1a\]](#eq:mat1a){reference-type="ref"
-reference="eq:mat1a"} and [\[eq:mat1b\]](#eq:mat1b){reference-type="ref"
+equations [eq:mat1a](#eq:mat1a){reference-type="ref"
+reference="eq:mat1a"} and [eq:mat1b](#eq:mat1b){reference-type="ref"
 reference="eq:mat1b"} given below:
 
 $$\label{eq:mat1a}
@@ -2232,9 +2232,9 @@ file, is given below:
 The spawning data file defines what happens to the stock as it spawns.
 The spawning is length-dependent, and the affect that spawning has on
 each length group of the mature stock is given by the spawning
-equations [\[eq:spawn1\]](#eq:spawn1){reference-type="ref"
+equations [eq:spawn1](#eq:spawn1){reference-type="ref"
 reference="eq:spawn1"} and
-[\[eq:spawn2\]](#eq:spawn2){reference-type="ref" reference="eq:spawn2"}
+[eq:spawn2](#eq:spawn2){reference-type="ref" reference="eq:spawn2"}
 below:
 
 $$\label{eq:spawn1}
@@ -2250,10 +2250,10 @@ mortality for that length group $<w>$ is the spawning weight loss for
 that length group
 
 \bigskip
-In equation [\[eq:spawn1\]](#eq:spawn1){reference-type="ref"
+In equation [eq:spawn1](#eq:spawn1){reference-type="ref"
 reference="eq:spawn1"}, the population of the age-length cell of the
 mature stock is reduced due to the spawning mortality of the fish that
-spawn. In equation [\[eq:spawn2\]](#eq:spawn2){reference-type="ref"
+spawn. In equation [eq:spawn2](#eq:spawn2){reference-type="ref"
 reference="eq:spawn2"}, the mean weight of the population in the
 age-length cell is adjusted to take the reduction in weight of the fish
 that spawn, and the change in population, into account.
@@ -2299,7 +2299,7 @@ spawned stock at the start of the following timestep. The lengths of the
 spawned stock are distributed with a Normal distribution about a
 specified mean length $<$mean$>$ with a standard deviation $<$stddev$>$.
 The mean weight of the fish in these age length cells is given from
-equation [\[eq:wlen\]](#eq:wlen){reference-type="ref"
+equation [eq:wlen](#eq:wlen){reference-type="ref"
 reference="eq:wlen"}, with $\alpha$ and $\beta$ specified in the
 spawning data file. Hence, if the spawning process is to calculate a
 number of recruits to the model, the format for the spawning data file
@@ -2362,7 +2362,7 @@ is:
 
 This recruitment function calculates the number of recruits to be added
 to the spawned stock, as a function of the spawning stock biomass (see
-equation [\[eq:ssb\]](#eq:ssb){reference-type="ref"
+equation [eq:ssb](#eq:ssb){reference-type="ref"
 reference="eq:ssb"}), based on the Ricker recruitment relationship given
 by the following equation:
 
@@ -2378,7 +2378,7 @@ is:
 
 This recruitment function calculates the number of recruits to be added
 to the spawned stock, as a function of the spawning stock biomass (see
-equation [\[eq:ssb\]](#eq:ssb){reference-type="ref"
+equation [eq:ssb](#eq:ssb){reference-type="ref"
 reference="eq:ssb"}), based on the Beverton Holt recruitment
 relationship given by the following equation:
 
@@ -2394,7 +2394,7 @@ is:
 
 This recruitment function calculates the number of recruits to be added
 to the spawned stock, as a function of the spawning stock biomass (see
-equation [\[eq:ssb\]](#eq:ssb){reference-type="ref"
+equation [eq:ssb](#eq:ssb){reference-type="ref"
 reference="eq:ssb"}), based on the Hockey stick recruitment relationship
 given by the following equation:
 
@@ -2574,7 +2574,7 @@ The $<$tagloss$>$ value is used to remove tagged fish from the model.
 For each time step, a number of tags can be lost from the tagging
 experiment. The number of tagged fish that remain in the tagging
 experiment is given by the
-equation [\[eq:tagloss\]](#eq:tagloss){reference-type="ref"
+equation [eq:tagloss](#eq:tagloss){reference-type="ref"
 reference="eq:tagloss"} below:
 
 $$\label{eq:tagloss}
@@ -2696,7 +2696,7 @@ The fleet type used that creates a predator based on the landings data
 (by biomass) for the fleet is called "TotalFleet". This total amount
 landed is then split between the various stocks, and length groups of
 the stocks, according to
-equation [\[eq:tcons\]](#eq:tcons){reference-type="ref"
+equation [eq:tcons](#eq:tcons){reference-type="ref"
 reference="eq:tcons"} below:
 
 $$\label{eq:tcons}
@@ -2739,7 +2739,7 @@ The fleet type used that creates a predator based on the number of the
 stock landed (not the biomass) is called "NumberFleet". This total
 number caught is then split between the various stocks, and length
 groups of the stocks, according to
-equation [\[eq:ncons\]](#eq:ncons){reference-type="ref"
+equation [eq:ncons](#eq:ncons){reference-type="ref"
 reference="eq:ncons"} below:
 
 $$\label{eq:ncons}
@@ -2781,7 +2781,7 @@ The fleet type used that creates a predator that removes the caught fish
 based on the available biomass of the stock multiplied by a scaling
 factor is called "LinearFleet". The biomass caught is then split between
 the various stocks, and length groups of the stocks, according to
-equation [\[eq:lcons\]](#eq:lcons){reference-type="ref"
+equation [eq:lcons](#eq:lcons){reference-type="ref"
 reference="eq:lcons"} below:
 
 $$\label{eq:lcons}
@@ -2830,7 +2830,7 @@ based on the available biomass of the stock multiplied by a scaling
 factor and a 'catchability' parameter for that stock is called
 "EffortFleet". The biomass caught is then split between the various
 stocks, and length groups of the stocks, according to
-equation [\[eq:econs\]](#eq:econs){reference-type="ref"
+equation [eq:econs](#eq:econs){reference-type="ref"
 reference="eq:econs"} below:
 
 $$\label{eq:econs}
@@ -2894,7 +2894,7 @@ based on the available biomass of the stock multiplied by a scaling
 factor set according to a simple harvest control rule is called
 "QuotaFleet". The biomass caught is then split between the various
 stocks, and length groups of the stocks, according to
-equation [\[eq:lcons\]](#eq:lcons){reference-type="ref"
+equation [eq:lcons](#eq:lcons){reference-type="ref"
 reference="eq:lcons"} (see
 section [7.3](#sec:linearfleet){reference-type="ref"
 reference="sec:linearfleet"} above). The scaling factor (the parameter
@@ -3105,7 +3105,7 @@ datafile             <name for the datafile>
 
 The datafile defines the penalty that is to be applied to the parameter
 when it exceeds the bounds, as given by
-equation [\[eq:bound\]](#eq:bound){reference-type="ref"
+equation [eq:bound](#eq:bound){reference-type="ref"
 reference="eq:bound"} below:
 
 $$\label{eq:bound}
@@ -3293,7 +3293,7 @@ timestep/area/age/length combination.
 ### Sum of Squares Function
 
 The sum of squares function calculates the likelihood component from
-equation [\[eq:catchdist4\]](#eq:catchdist4){reference-type="ref"
+equation [eq:catchdist4](#eq:catchdist4){reference-type="ref"
 reference="eq:catchdist4"} below:
 
 $$\label{eq:catchdist4}
@@ -3308,7 +3308,7 @@ sample for that time/area/age/length combination
 The stratified function is a variant of the sum of squares function that
 calculates an age distribution for each length class, and then
 calculates the likelihood component from
-equation [\[eq:catchdist4\]](#eq:catchdist4){reference-type="ref"
+equation [eq:catchdist4](#eq:catchdist4){reference-type="ref"
 reference="eq:catchdist4"} above. The difference between this function
 and the sum of squares function above is in the way the proportions of
 the samples are calculated - for this function the proportion is
@@ -3319,7 +3319,7 @@ only one length group then these two functions are identical.
 ### Multinomial Function
 
 The multinomial function calculates the likelihood component from
-equation [\[eq:catchdist1\]](#eq:catchdist1){reference-type="ref"
+equation [eq:catchdist1](#eq:catchdist1){reference-type="ref"
 reference="eq:catchdist1"} below:
 
 $$\label{eq:catchdist1}
@@ -3332,7 +3332,7 @@ time/area/age/length combination
 ### Pearson Function
 
 The Pearson function calculates the likelihood component from
-equation [\[eq:catchdist2\]](#eq:catchdist2){reference-type="ref"
+equation [eq:catchdist2](#eq:catchdist2){reference-type="ref"
 reference="eq:catchdist2"} below:
 
 $$\label{eq:catchdist2}
@@ -3345,7 +3345,7 @@ time/area/age/length combination
 ### Gamma Function
 
 The gamma function calculates the likelihood component from
-equation [\[eq:catchdist3\]](#eq:catchdist3){reference-type="ref"
+equation [eq:catchdist3](#eq:catchdist3){reference-type="ref"
 reference="eq:catchdist3"} below:
 
 $$\label{eq:catchdist3}
@@ -3358,7 +3358,7 @@ time/area/age/length combination
 ### Log Function
 
 The log function calculates the likelihood component from
-equation [\[eq:catchdist7\]](#eq:catchdist7){reference-type="ref"
+equation [eq:catchdist7](#eq:catchdist7){reference-type="ref"
 reference="eq:catchdist7"} below:
 
 $$\label{eq:catchdist7}
@@ -3371,7 +3371,7 @@ time/area/age/length combination
 ### Multivariate Normal Function
 
 The multivariate normal function calculates the likelihood component
-from equation [\[eq:catchdist5\]](#eq:catchdist5){reference-type="ref"
+from equation [eq:catchdist5](#eq:catchdist5){reference-type="ref"
 reference="eq:catchdist5"} below:
 
 $$\label{eq:catchdist5}
@@ -3385,9 +3385,9 @@ sample for that time/area/age combination
 \bigskip
 For the formulation of the variance-covariance matrix, $<\Sigma>$ is
 calculated from equations
-[\[eq:cdsigma1\]](#eq:cdsigma1){reference-type="ref"
+[eq:cdsigma1](#eq:cdsigma1){reference-type="ref"
 reference="eq:cdsigma1"} and
-[\[eq:cdsigma2\]](#eq:cdsigma2){reference-type="ref"
+[eq:cdsigma2](#eq:cdsigma2){reference-type="ref"
 reference="eq:cdsigma2"} below:
 
 $$\label{eq:cdsigma1}
@@ -3400,7 +3400,7 @@ $$\label{eq:cdsigma2}
 \displaystyle \sum^{lag}_{l=1} c_l \sigma_{j,i-l} & \textrm{otherwise}
 \end{cases}$$
 
-In equation [\[eq:cdsigma2\]](#eq:cdsigma2){reference-type="ref"
+In equation [eq:cdsigma2](#eq:cdsigma2){reference-type="ref"
 reference="eq:cdsigma2"} it is assumed that the number in each length
 group is autocorrelated with lag $<$ lag $>$. Note that setting the lag
 to be zero simplifies the multivariate normal distribution to a
@@ -3428,9 +3428,9 @@ aggregationlevel     <0 or 1> ; 1 to aggregate data over the whole year
 
 The multivariate logistic function calculates the likelihood component
 from equations
-[\[eq:catchdist6a\]](#eq:catchdist6a){reference-type="ref"
+[eq:catchdist6a](#eq:catchdist6a){reference-type="ref"
 reference="eq:catchdist6a"} and
-[\[eq:catchdist6b\]](#eq:catchdist6b){reference-type="ref"
+[eq:catchdist6b](#eq:catchdist6b){reference-type="ref"
 reference="eq:catchdist6b"} below:
 
 $$\label{eq:catchdist6a}
@@ -3523,7 +3523,7 @@ depends on the likelihood function used. The valid functions are:
 This likelihood function calculates the likelihood score based on a
 weighted sum of squares of the mean length, with the weighting given by
 calculating the variance of length of the modelled population, as shown
-in equation [\[eq:catchstat1\]](#eq:catchstat1){reference-type="ref"
+in equation [eq:catchstat1](#eq:catchstat1){reference-type="ref"
 reference="eq:catchstat1"} below:
 
 $$\label{eq:catchstat1}
@@ -3550,7 +3550,7 @@ combination, and $<$mean$>$ is the mean length of these samples.
 This likelihood function calculates the likelihood score based on a
 weighted sum of squares of the mean length, with the weighting given the
 variance of length of the input population, as shown in
-equation [\[eq:catchstat2\]](#eq:catchstat2){reference-type="ref"
+equation [eq:catchstat2](#eq:catchstat2){reference-type="ref"
 reference="eq:catchstat2"} below:
 
 $$\label{eq:catchstat2}
@@ -3577,7 +3577,7 @@ $<$stddev$>$ is the standard deviation of the length of these samples.
 This likelihood function calculates the likelihood score based on a
 weighted sum of squares of the mean weight, with the weighting given the
 variance of weight of the input population, as shown in
-equation [\[eq:catchstat3\]](#eq:catchstat3){reference-type="ref"
+equation [eq:catchstat3](#eq:catchstat3){reference-type="ref"
 reference="eq:catchstat3"} below:
 
 $$\label{eq:catchstat3}
@@ -3604,7 +3604,7 @@ $<$stddev$>$ is the standard deviation of the weight of these samples.
 This likelihood function calculates the likelihood score based on a
 unweighted sum of squares of the mean weight, with the variance of the
 weight of the population assumed to be 1, as shown in
-equation [\[eq:catchstat4\]](#eq:catchstat4){reference-type="ref"
+equation [eq:catchstat4](#eq:catchstat4){reference-type="ref"
 reference="eq:catchstat4"} below:
 
 $$\label{eq:catchstat4}
@@ -3629,7 +3629,7 @@ combination, and $<$mean$>$ is the mean weight of these samples.
 This likelihood function calculates the likelihood score based on a
 unweighted sum of squares of the mean length, with the variance of the
 length of the population assumed to be 1, as shown in
-equation [\[eq:catchstat5\]](#eq:catchstat5){reference-type="ref"
+equation [eq:catchstat5](#eq:catchstat5){reference-type="ref"
 reference="eq:catchstat5"} below:
 
 $$\label{eq:catchstat5}
@@ -3747,7 +3747,7 @@ timestep/area/stock/age/length combination.
 ### Sum of Squares Function
 
 The sum of squares function calculates the likelihood component from
-equation [\[eq:stockdist2\]](#eq:stockdist2){reference-type="ref"
+equation [eq:stockdist2](#eq:stockdist2){reference-type="ref"
 reference="eq:stockdist2"} below:
 
 $$\label{eq:stockdist2}
@@ -3760,7 +3760,7 @@ model sample for that time/area/age/length/stock combination
 ### Multinomial Function
 
 The multinomial function calculates the likelihood component from
-equation [\[eq:stockdist1\]](#eq:stockdist1){reference-type="ref"
+equation [eq:stockdist1](#eq:stockdist1){reference-type="ref"
 reference="eq:stockdist1"} below:
 
 $$\label{eq:stockdist1}
@@ -3779,7 +3779,7 @@ standardized survey for that stock. These indices can be aggregated into
 length groups or age groups. The likelihood component that is used is
 the sum of squares of a linear regression fitted to the difference
 between the modelled data and the specified index, given by
-equation [\[eq:surveyindex\]](#eq:surveyindex){reference-type="ref"
+equation [eq:surveyindex](#eq:surveyindex){reference-type="ref"
 reference="eq:surveyindex"} below:
 
 $$\label{eq:surveyindex}
@@ -4223,7 +4223,7 @@ combination.
 
 The linear fit function calculates the survey index for the modelled
 population from
-equation [\[eq:surveydistfit1\]](#eq:surveydistfit1){reference-type="ref"
+equation [eq:surveydistfit1](#eq:surveydistfit1){reference-type="ref"
 reference="eq:surveydistfit1"} below:
 
 $$\label{eq:surveydistfit1}
@@ -4237,7 +4237,7 @@ combination
 
 The power fit function calculates the survey index for the modelled
 population from
-equation [\[eq:surveydistfit1\]](#eq:surveydistfit1){reference-type="ref"
+equation [eq:surveydistfit1](#eq:surveydistfit1){reference-type="ref"
 reference="eq:surveydistfit1"} below:
 
 $$\label{eq:surveydistfit2}
@@ -4250,7 +4250,7 @@ combination
 ### Multinomial Function
 
 The multinomial function calculates the likelihood component from
-equation [\[eq:surveydist1\]](#eq:surveydist1){reference-type="ref"
+equation [eq:surveydist1](#eq:surveydist1){reference-type="ref"
 reference="eq:surveydist1"} below:
 
 $$\label{eq:surveydist1}
@@ -4263,7 +4263,7 @@ time/area/age/length combination
 ### Pearson Function
 
 The Pearson function calculates the likelihood component from
-equation [\[eq:surveydist2\]](#eq:surveydist2){reference-type="ref"
+equation [eq:surveydist2](#eq:surveydist2){reference-type="ref"
 reference="eq:surveydist2"} below:
 
 $$\label{eq:surveydist2}
@@ -4276,7 +4276,7 @@ time/area/age/length combination
 ### Gamma Function
 
 The gamma function calculates the likelihood component from
-equation [\[eq:surveydist3\]](#eq:surveydist3){reference-type="ref"
+equation [eq:surveydist3](#eq:surveydist3){reference-type="ref"
 reference="eq:surveydist3"} below:
 
 $$\label{eq:surveydist3}
@@ -4289,7 +4289,7 @@ time/area/age/length combination
 ### Log Function
 
 The log function calculates the likelihood component from
-equation [\[eq:surveydist4\]](#eq:surveydist4){reference-type="ref"
+equation [eq:surveydist4](#eq:surveydist4){reference-type="ref"
 reference="eq:surveydist4"} below:
 
 $$\label{eq:surveydist4}
@@ -4376,7 +4376,7 @@ The scsimple function calculates the likelihood component by comparing
 the ratio of the consumption of different preys by a predator in the
 model to the ratio of the preys found in the stomach contents data
 specified in the input file, as shown in
-equation [\[eq:stomach1\]](#eq:stomach1){reference-type="ref"
+equation [eq:stomach1](#eq:stomach1){reference-type="ref"
 reference="eq:stomach1"} below:
 
 $$\label{eq:stomach1}
@@ -4440,7 +4440,7 @@ tag/timestep/area/length combination.
 ### Poisson Function
 
 The Poisson function calculates the likelihood component from
-equation [\[eq:recap1\]](#eq:recap1){reference-type="ref"
+equation [eq:recap1](#eq:recap1){reference-type="ref"
 reference="eq:recap1"} below:
 
 $$\label{eq:recap1}
@@ -4499,7 +4499,7 @@ depends on the likelihood function used. The valid functions are:
 This likelihood function calculates the likelihood score based on a
 weighted sum of squares of the mean length, with the weighting given by
 calculating the variance of length of the modelled population, as shown
-in equation [\[eq:recstat1\]](#eq:recstat1){reference-type="ref"
+in equation [eq:recstat1](#eq:recstat1){reference-type="ref"
 reference="eq:recstat1"} below:
 
 $$\label{eq:recstat1}
@@ -4526,7 +4526,7 @@ combination, and $<$mean$>$ is the mean length of these samples.
 This likelihood function calculates the likelihood score based on a
 weighted sum of squares of the mean length, with the weighting given the
 variance of length of the input population, as shown in
-equation [\[eq:recstat2\]](#eq:recstat2){reference-type="ref"
+equation [eq:recstat2](#eq:recstat2){reference-type="ref"
 reference="eq:recstat2"} below:
 
 $$\label{eq:recstat2}
@@ -4553,7 +4553,7 @@ $<$stddev$>$ is the standard deviation of the length of these samples.
 This likelihood function calculates the likelihood score based on a
 unweighted sum of squares of the mean length, with the variance of the
 length of the population assumed to be 1, as shown in
-equation [\[eq:recstat3\]](#eq:recstat3){reference-type="ref"
+equation [eq:recstat3](#eq:recstat3){reference-type="ref"
 reference="eq:recstat3"} below:
 
 $$\label{eq:recstat3}
@@ -4680,7 +4680,7 @@ for that timestep.
 ### Sum of Squares Function
 
 The sum of squares function calculates the likelihood component from
-equation [\[eq:migpro1\]](#eq:migpro1){reference-type="ref"
+equation [eq:migpro1](#eq:migpro1){reference-type="ref"
 reference="eq:migpro1"} below:
 
 $$\label{eq:migpro1}
@@ -4772,7 +4772,7 @@ the landings data in the following format:
 ### Sum of Squares Function
 
 The sum of squares function calculates the likelihood component from
-equation [\[eq:catchtons\]](#eq:catchtons){reference-type="ref"
+equation [eq:catchtons](#eq:catchtons){reference-type="ref"
 reference="eq:catchtons"} below:
 
 $$\label{eq:catchtons}
@@ -5496,7 +5496,7 @@ best point is then accepted as being the 'solution'.
 The Metropolis Criteria will accept a move in an uphill direction (ie. a
 point with a worse likelihood score) based on a function of both the
 size of the move and a parameter termed "temperature", and is given in
-equation [\[eq:metropolis\]](#eq:metropolis){reference-type="ref"
+equation [eq:metropolis](#eq:metropolis){reference-type="ref"
 reference="eq:metropolis"} below:
 
 $$\begin{aligned}
@@ -5603,7 +5603,7 @@ only checked at the end of each temperature loop.
 This is the initial value for the "temperature" of the Simulated
 Annealing algorithm, used to control the speed of the convergence of the
 algorithm, using the Metropolis Criteria given in
-equation [\[eq:metropolis\]](#eq:metropolis){reference-type="ref"
+equation [eq:metropolis](#eq:metropolis){reference-type="ref"
 reference="eq:metropolis"} above. High values for the temperature (t
 $\gg \Delta F$) will mean that most of the uphill moves are accepted,
 and the algorithm will be performing a random search, which is
@@ -5677,7 +5677,7 @@ accepted and rejected for each direction, and then adjusts the value of
 the maximum step length for each direction so that the ratio of accepted
 to rejected moves is approximately 50:50. The maximum step length for
 each direction is adjusted according to
-equation [\[eq:vm\]](#eq:vm){reference-type="ref" reference="eq:vm"}
+equation [eq:vm](#eq:vm){reference-type="ref" reference="eq:vm"}
 below:
 
 $$\label{eq:vm}
@@ -5735,7 +5735,7 @@ The "Armijo" linesearch calculates the stepsize that is to be used to
 move to a point that is "sufficiently better", along the search
 direction vector calculated from the gradient, to be $\beta^n$, where n
 is the first integer that satisfies the Armijo rule given by
-inequality [\[eq:armijo\]](#eq:armijo){reference-type="ref"
+inequality [eq:armijo](#eq:armijo){reference-type="ref"
 reference="eq:armijo"} below:
 
 $$\label{eq:armijo}
@@ -5812,7 +5812,7 @@ is "sufficiently better", and recalculating the gradient of the function
 at this new point. Lower values of sigma will increase the size of the
 acceptance region of the Armijo linesearch (by relaxing the condition
 for the inequality, see
-equation [\[eq:armijo\]](#eq:armijo){reference-type="ref"
+equation [eq:armijo](#eq:armijo){reference-type="ref"
 reference="eq:armijo"} above), which will mean that the linesearch will
 stop earlier, leading to larger steps by the BFGS algorithm. Conversely,
 higher values of sigma will decrease the size of the acceptance region,
@@ -5836,7 +5836,7 @@ outside the acceptance region. The value of beta must be between 0 and
 These parameters control the accuracy that is used for the gradient
 calculations. The gradient of the function is calculated numerically by
 Gadget using a forward difference algorithm, as shown in
-equation [\[eq:grad\]](#eq:grad){reference-type="ref"
+equation [eq:grad](#eq:grad){reference-type="ref"
 reference="eq:grad"} below:
 
 $$\label{eq:grad}
@@ -6504,10 +6504,10 @@ Gadget version 2.2.00 {#sec:v2200}
 
 -   removed the hard-coded factor of 4 from various maturation and
     suitability functions (see equations
-    [\[eq:l50suit\]](#eq:l50suit){reference-type="ref"
+    [eq:l50suit](#eq:l50suit){reference-type="ref"
     reference="eq:l50suit"},
-    [\[eq:mat3\]](#eq:mat3){reference-type="ref" reference="eq:mat3"}
-    and [\[eq:mat4\]](#eq:mat4){reference-type="ref"
+    [eq:mat3](#eq:mat3){reference-type="ref" reference="eq:mat3"}
+    and [eq:mat4](#eq:mat4){reference-type="ref"
     reference="eq:mat4"}) **note** that these functions have been
     re-named, so using one of these functions will currently generate an
     error to alert the user of this change
