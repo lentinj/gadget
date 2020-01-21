@@ -2268,7 +2268,6 @@ functions to determine proportion of each length group that will spawn,
 and the spawning mortality and weight loss of those that spawn. This is
 done in the spawning data file, as shown below:
 
-\small
     spawnsteps             <vector of timesteps>
     spawnareas             <vector of areas>
     firstspawnyear         <first year that the spawning occurs>
@@ -2306,7 +2305,6 @@ spawning data file. Hence, if the spawning process is to calculate a
 number of recruits to the model, the format for the spawning data file
 is shown below:
 
-\small
     spawnsteps             <vector of timesteps>
     spawnareas             <vector of areas>
     firstspawnyear         <first year that the spawning occurs>
@@ -2340,7 +2338,6 @@ R = p_{0} \sum_{\it ages}\sum_{\it lengths} l ^{p_{1}} a ^{p_{2}} N_{al} ^{p_{3}
 Hence, to specify this recruitment function, the file format required
 is:
 
-\small
     recruitment            fecundity  <vector of 5 parameters>
 
 \newpage 
@@ -2359,7 +2356,6 @@ R = \mu S$$
 Hence, to specify this recruitment function, the file format required
 is:
 
-\small
     recruitment            simplessb  <mu>
 
 ### Ricker Recruitment Function
@@ -2376,7 +2372,6 @@ R = \mu S e ^{-\lambda S}$$
 Hence, to specify this recruitment function, the file format required
 is:
 
-\small
     recruitment            ricker  <mu>  <lambda>
 
 ### BevertonHolt Recruitment Function
@@ -2393,7 +2388,6 @@ R = \frac{\mu S}{\lambda + S}$$
 Hence, to specify this recruitment function, the file format required
 is:
 
-\small
     recruitment            bevertonholt  <mu>  <lambda>
 
 ### Hockey stick Recruitment Function
@@ -2413,7 +2407,6 @@ R_0,&\text{If } B_{lim} \leq S \\
 Hence, to specify this recruitment function, the file format required
 is:
 
-\small
     recruitment            hockeystick  <R_0>  <B_lim>
 
 Note that to be in-line with definition of renewals and initial
@@ -2429,7 +2422,6 @@ reference="sec:suitability"} above). To define a length selection
 function, it is necessary to specify the function, the name of the
 function ans the parameters for the function, as shown below:
 
-\small
     <function>    <functionname> <parameters>
 
 The $<$function$>$ defines how the length selection function will be
@@ -2456,7 +2448,6 @@ S(l) = \alpha$$
 Hence, to specify a constant selection function, the file format
 required is:
 
-\small
     <function>    constant  <alpha>
 
 ### StraightLine Selection Function
@@ -2471,7 +2462,6 @@ S(l) = \alpha l + \beta$$
 Hence, to specify a straight line selection function, the file format
 required is:
 
-\small
     <function>    straightline  <alpha>  <beta>
 
 ### Exponential Selection Function
@@ -2488,7 +2478,6 @@ difference between the length of the stock and $l_{50}$, which is the
 length of the stock with a 50% probability of selection. Hence, to
 specify this selection function, the file format required is:
 
-\small
     <function>    exponential  <alpha>  <l50>
 
 Straying {#sec:stockstray}
@@ -2499,7 +2488,6 @@ will stray from one substock to another substock in the Gadget model.
 The format for the first part of the straying section of the stock file
 is given below:
 
-\small
     doesstray              <0 or 1> ; 0 for no straying, 1 for straying
 
 If the stock does not stray, then the following section doesn't apply,
@@ -2508,7 +2496,6 @@ information is required about the straying data. This is given in a
 separate file, so the format for the straying data, in the main stock
 file, is given below:
 
-\small
     doesstray              1
     strayfile              <name of the straying data file>
 
@@ -2531,7 +2518,6 @@ the transition process) and the length selection function to determine
 the proportion of the length group that will stray. This is done in the
 straying data file, as shown below:
 
-\small
     straysteps             <vector of timesteps>
     strayareas             <vector of areas>
     straystocksandratios   <stockname i> <ratio i> ; for each stock i
@@ -2554,7 +2540,6 @@ To define tagged populations in the Gadget model, the "main" file must
 contain a list of the data files that contain the description of the
 tagging experiments, and the format for this is shown below:
 
-\small
     [tagging]
     tagfiles               <names of the tag files>
 
@@ -2564,7 +2549,6 @@ contains information about the number of fish tagged for the tagging
 experiment. The format for this file shown below, with each new tagging
 experiment starting with the keyword \[component\]:
 
-\small
     [component]
     tagid                  <name of the tagging experiment>
     stock                  <name of the tagged stock>
@@ -2608,14 +2592,12 @@ the tagging experiment. This is given in a column format in a separate
 file, so the main tag file simply gives the name of this tag data file,
 as shown in the example below:
 
-\small
     numbers                <name of data file>
 
 For the tag datafile, this is a simple list of tag identifier, timestep,
 length and then the number of fish tagged, for that tag/timestep/length
 combination. This format is shown below:
 
-\small
     <tagid>  <year>  <step>  <length>  <number>
 
 Note that the $<$length$>$ value refers to the minimum length of the
@@ -2635,7 +2617,6 @@ To define otherfood in the Gadget model, the "main" file must contain a
 list of the data files that contain the description of the otherfood,
 and the format for this is shown below:
 
-\small
     [otherfood]
     otherfoodfiles         <names of the otherfood files>
 
@@ -2645,7 +2626,6 @@ information about the amount of food that is available for the predators
 to eat. The format for this file shown below, with each new otherfood
 starting with the keyword \[component\]:
 
-\small
     [component]
     foodname               <food name>
     livesonareas           <areas>
@@ -2667,7 +2647,6 @@ column format in a separate file, so the main otherfood file simply
 gives the name of this otherfood data file, as shown in the example
 below:
 
-\small
     amount                 <name of data file>
 
 For the otherfood datafile, this is a simple list of year, timestep,
@@ -2675,7 +2654,6 @@ area, food name and then the biomass of the food available for the
 predators to eat, for that timestep/area combination. This format is
 shown below:
 
-\small
     <year>  <step>  <area>  <food name>  <amount>
 
 Fleet Files {#chap:fleet}
@@ -2691,7 +2669,6 @@ To define fleets in the Gadget model, the "main" file must contain a
 list of the data files that contain the description of the fleets, and
 the format for this is shown below:
 
-\small
     [fleet]
     fleetfiles             <names of the fleet files>
 
@@ -2701,7 +2678,6 @@ fleet and the name of the datafile that contains information about the
 landings. The format for this file shown below, with each new fleet
 starting with the keyword \[component\]:
 
-\small
     [component]
     <type>                 <fleetname>
     <fleet data>
@@ -2738,7 +2714,6 @@ operates on, along with a suitability function for each stock that the
 fleet will catch and a data file listing the biomass that the fleet will
 catch. The file format for the TotalFleet is given below:
 
-\small
     [component]
     totalfleet             <fleetname>
     livesonareas           <areas>
@@ -2781,7 +2756,6 @@ operates on, along with a suitability function for each stock that the
 fleet will catch and a data file listing the numbers that the fleet will
 catch. The file format for the NumberFleet is given below:
 
-\small
     [component]
     numberfleet            <fleetname>
     livesonareas           <areas>
@@ -2826,7 +2800,6 @@ operates on, along with a suitability function for each stock that the
 fleet will catch and a data file listing the fishing level for the
 fleet. The file format for the LinearFleet is given below:
 
-\small
     [component]
     linearfleet            <fleetname>
     livesonareas           <areas>
@@ -2878,7 +2851,6 @@ parameter for each stock that the fleet will catch and a data file
 listing the proportion of each stock that the fleet will catch. The file
 format for the EffortFleet is given below:
 
-\small
     [component]
     effortfleet            <fleetname>
     livesonareas           <areas>
@@ -2907,7 +2879,6 @@ different catchability for these species can be taken into account. This
 catchability parameter is specified by listing the names of the prey and
 the associated preference value, as shown in the example below:
 
-\small
     ...
     catchability
     <name of stock 1>      <catchability for stock 1>
@@ -2937,7 +2908,6 @@ fleet will catch, a simple harvest control rule and a data file listing
 the proportion of each stock that the fleet will catch. The file format
 for the QuotaFleet is given below:
 
-\small
     [component]
     quotafleet             <fleetname>
     livesonareas           <areas>
@@ -2985,7 +2955,6 @@ determine the fishing level. This is done be additionally specifying a
 $<$selectstocks$>$ vector which is a list of the stocks to use, as given
 in the list below:
 
-\small
     ...
     biomasslevel           <vector of biomass levels>
     quotalevel             <vector of quota levels>
@@ -3002,7 +2971,6 @@ quotalevel vector must have one more entry than the biomasslevel vector.
 \bigskip
 An example of valid biomasslevel and quotalevel vectors is given below:
 
-\small
     biomasslevel           10000  250000
     quotalevel             0.1  0.4  0.9
 
@@ -3033,7 +3001,6 @@ fleets. This data is listed in a column format in a separate file, so
 the main fleet file simply gives the name of this fleet data file, as
 shown in the example below:
 
-\small
     amount                 <name of data file>
 
 For fleets of type TotalFleet or NumberFleet, the data file is a list of
@@ -3041,7 +3008,6 @@ year, timestep, area, fleetname and then the amount of catch landed
 (either biomass or number), taken from landings data, for that
 timestep/area/fleet combination:
 
-\small
     <year>  <step>  <area>  <fleetname>  <amount>
 
 For fleets of type LinearFleet, EffortFleet or QuotaFleet, the data file
@@ -3049,7 +3015,6 @@ is a list of year, timestep, area, fleetname and then the scaling factor
 to be used when calculating the amount of the catch for that
 timestep/area/fleet combination:
 
-\small
     <year>  <step>  <area>  <fleetname>  <scaling factor>
 
 Likelihood Files {#chap:like}
@@ -4831,7 +4796,6 @@ To define print files in the Gadget model, the "main" file must contain
 a list of the data files that contain the description of the printer
 classes required, and the format for this is shown below:
 
-\small
     printfiles           <names of the print files>
 
 The print files contain a list of various type of printer classes,
@@ -4841,7 +4805,6 @@ information is to be written to. All the output is written as a plain
 ASCII text file that can be viewed in any text editor. The format of the
 print file is follows:
 
-\small
     [component]
     type                 <printer type>
     <printer data>
@@ -4866,7 +4829,6 @@ The printer type to output the standard details of a stock is called
 and timesteps of interest. The file format for this component is given
 below:
 
-\small
     [component]
     type                 stockstdprinter
     stockname            <name of the stock>
@@ -4902,7 +4864,6 @@ The output that is generated from this printer type is a file containing
 the following information for the stock specified on the $<$stockname$>$
 line:
 
-\small
     year-step-area-age-number-length-weight-stddev-consumed-biomass
 
 where: $<$number$>$ is the stock population for that timestep/area/age
@@ -4923,7 +4884,6 @@ is called "StockFullPrinter". This printer type is defined by specifying
 the stock and timesteps of interest. The file format for this component
 is given below:
 
-\small
     [component]
     type                 stockfullprinter
     stockname            <name of the stock>
@@ -4952,7 +4912,6 @@ The output that is generated from this printer type is a file containing
 the following information for the stock specified on the $<$stockname$>$
 line:
 
-\small
     year-step-area-age-length-number-weight
 
 where: $<$number$>$ is the population for that timestep/area/age/length
@@ -4968,7 +4927,6 @@ the information aggregated into a convenient grouping, is called
 areas, age groups, length groups and timesteps of interest. The file
 format for this component is given below:
 
-\small
     [component]
     type                 stockprinter
     stocknames           <vector of the names of the stocks>
@@ -5004,7 +4962,6 @@ The output that is generated from this printer type is a file containing
 the following information for all the stocks specified on the
 $<$stocknames$>$ line:
 
-\small
     year-step-area-age-length-number-weight
 
 where: $<$area$>$ is the label for the area from the area aggregation
@@ -5023,7 +4980,6 @@ information aggregated into a convenient grouping, is called
 predators, preys, areas, length groups and timesteps of interest. The
 file format for this component is given below:
 
-\small
     [component]
     type                 predatorprinter
     predatornames        <vector of the names of the predators>
@@ -5061,7 +5017,6 @@ the following predation information for all the predators specified on
 the $<$predatornames$>$ line, consuming all the preys specified on the
 $<$preynames$>$ line:
 
-\small
     year-step-area-pred-prey-amount
 
 where: $<$area$>$ is the label for the area from the area aggregation
@@ -5083,7 +5038,6 @@ is defined by specifying the predators, areas, length groups and
 timesteps of interest. The file format for this component is given
 below:
 
-\small
     [component]
     type                 predatoroverprinter
     predatornames        <vector of the names of the predators>
@@ -5106,7 +5060,6 @@ The output that is generated from this printer type is a file containing
 the following over-consumption information for all the predators
 specified on the $<$predatornames$>$ line:
 
-\small
     year-step-area-length-biomass
 
 where: $<$area$>$ is the label for the area from the area aggregation
@@ -5127,7 +5080,6 @@ type is defined by specifying the preys, areas, length groups and
 timesteps of interest. The file format for this component is given
 below:
 
-\small
     [component]
     type                 preyoverprinter
     preynames            <vector of the names of the preys>
@@ -5150,7 +5102,6 @@ The output that is generated from this printer type is a file containing
 the following over-consumption information for all the preys specified
 on the $<$preynames$>$ line:
 
-\small
     year-step-area-length-biomass
 
 where: $<$area$>$ is the label for the area from the area aggregation
@@ -5166,7 +5117,6 @@ The printer type to output detailed information about a prey is called
 prey and timesteps of interest. The file format for this component is
 given below:
 
-\small
     [component]
     type                 stockpreyfullprinter
     preyname             <name of the prey>
@@ -5183,7 +5133,6 @@ The output that is generated from this printer type is a file containing
 the following information for the prey specified on the $<$preyname$>$
 line:
 
-\small
     year-step-area-age-length-number-biomass
 
 where: $<$number$>$ is the total population consumed for that
@@ -5199,7 +5148,6 @@ the information aggregated into a convenient grouping, is called
 preys, areas, age groups, length groups and timesteps of interest. The
 file format for this component is given below:
 
-\small
     [component]
     type                 stockpreyprinter
     preynames            <vector of the names of the preys>
@@ -5223,7 +5171,6 @@ The output that is generated from this printer type is a file containing
 the following information for all the preys specified on the
 $<$preynames$>$ line:
 
-\small
     year-step-area-age-length-number-biomass
 
 where: $<$area$>$ is the label for the area from the area aggregation
@@ -5243,7 +5190,6 @@ by specifying the predators, preys, areas, age groups, length groups and
 timesteps of interest. The file format for this component is given
 below:
 
-\small
     [component]
     type                 predatorpreyprinter
     predatornames        <vector of the names of the predators>
@@ -5270,7 +5216,6 @@ the following predation information for all the predators specified on
 the $<$predatornames$>$ line, consuming all the preys specified on the
 $<$preynames$>$ line:
 
-\small
     year-step-area-age-length-number-biomass-mortality
 
 where: $<$age$>$ is the label for the prey age group from the age
@@ -5289,7 +5234,6 @@ component is called "LikelihoodPrinter". This printer type is defined by
 specifying the likelihood component and timesteps of interest. The file
 format for this component is given below:
 
-\small
     [component]
     type                 likelihoodprinter
     likelihood           <name of the likelihood component>
@@ -5332,7 +5276,6 @@ components that are in use for the current simulation is called
 "LikelihoodSummaryPrinter". The file format for this component is given
 below:
 
-\small
     [component]
     type                 likelihoodsummaryprinter
     printfile            <name for the output file to be created>
@@ -5341,7 +5284,6 @@ The output that is generated from this printer type is a file containing
 summary information for all the likelihood components that have been
 defined for the current simulation:
 
-\small
     year-step-area-component-weight-score
 
 where: $<$component$>$ is the name of the likelihood component
@@ -5360,7 +5302,6 @@ $<$filename$>$" command line option when Gadget is started, for example,
 this would take the parameter information from a file called
 "inputfile.txt":
 
-\small
     gadget -s -i inputfile.txt
 
 This file contains a list of all the switches, their initial value, the
@@ -5369,7 +5310,6 @@ optimise that switch or not. The first line of this file must contain
 the column headings, and then subsequent lines should list all switches
 that are used. An example of this file format is shown below:
 
-\small
     switch  value    lower    upper    optimise
     <name>  <value>  <lower>  <upper>  <0 or 1> ; 1 to optimise this parameter
 
@@ -5387,7 +5327,6 @@ parameter to a random point within the bounds. This is shown in the
 example below, where the initial value for the parameter "age2" will be
 set to a random point between 1 and 10:
 
-\small
     age2    random   1        10       1 ; random value between 1 and 10
 
 Optimisation File {#chap:optim}
@@ -5399,7 +5338,6 @@ algorithm. This file is specified by a "-opt $<$filename$>$" command
 line option when Gadget is started, for example, this would take the
 optimisation information from a file called "optinfo.txt":
 
-\small
     gadget -l -opt optinfo.txt
 
 There are three types of optimisation algorithms currently implemented
@@ -5477,7 +5415,6 @@ not specified in the file are given default values, which work
 reasonably well for simple Gadget models. The format for this file, and
 the default values for the optimisation parameters, are shown below:
 
-\small
     [hooke]
     hookeiter  1000  ; number of hooke & jeeves iterations
     hookeeps   1e-04 ; minimum epsilon, hooke & jeeves halt criteria
@@ -5623,7 +5560,6 @@ that are not specified in the file are given default values, which work
 reasonably well for simple Gadget models. The format for this file, and
 the default values for the optimisation parameters, are shown below:
 
-\small
     [simann]
     simanniter 2000  ; number of simulated annealing iterations
     simanneps  1e-04 ; minimum epsilon, simann halt criteria
@@ -5838,7 +5774,6 @@ specified in the file are given default values, which work reasonably
 well for simple Gadget models. The format for this file, and the default
 values for the optimisation parameters, are shown below:
 
-\small
     [bfgs]
     bfgsiter   10000 ; number of bfgs iterations
     bfgseps    0.01  ; minimum epsilon, bfgs halt criteria
@@ -5952,7 +5887,6 @@ reasonably well for simple Gadget models. As an example, the format for
 this file used to specify all three optimisation algorithms, and the
 default values for the optimisation parameters, is shown below:
 
-\small
     [simann]
     simanniter 2000  ; number of simulated annealing iterations
     simanneps  1e-04 ; minimum epsilon, simann halt criteria
@@ -6017,7 +5951,6 @@ random number generator with an integer to avoid this problem. To
 specify a seed for the random number generator, an extra line must be
 added to the optimisation file, as shown below:
 
-\small
     seed       n     ; seed the random number generator with n
 
 It is also possible to specify the value that is used to seed the random
@@ -6063,7 +5996,6 @@ The likelihood output file is generated when Gadget is started with the
 specified after that option, so, for example, this would write the
 output to a file called "likelihood.txt":
 
-\small
     gadget -l -o likelihood.txt
 
 The likelihood output file is split into three sections, separated by a
@@ -6093,7 +6025,6 @@ iteration, but this can be changed using the "-print $<$number$>$"
 option, which will only write out this line every $<$number$>$
 iterations, as shown in the example below:
 
-\small
     gadget -l -o likelihood.txt -print 10
 
 which will set Gadget to write this information, to the file
@@ -6107,7 +6038,6 @@ $<$filename$>$" option, and the output is written to the file specified
 after that option, so, for example, this would write the output to a
 file called "gadget.log":
 
-\small
     gadget -log gadget.log
 
 The log file contains a listing of the actions that Gadget is
@@ -6183,7 +6113,6 @@ executable, let's assume it's called gadget-PARA. Now paramin is
 dependent on some Gadget objects, so you now need to type the following
 in the console:
 
-\small
     make libgadgetinput.a
 
 Now you are ready to start compiling paramin. Download the newest
@@ -6202,7 +6131,6 @@ can also copy the executables to the directory of PATH, but you probably
 need root access to do that. Now you can call the functions from the
 console. Here is an example of a typical paramin run:
 
-\small
     mpirun paramin -i <filename> -opt <filename> -network <filename> 
         -o <filename> -function gadget-PARA -s -n -i <filename> > <filename>
 
@@ -6231,7 +6159,6 @@ but then one should have access to at least that many processing cores.
 A sample file which tells paramin to spawn 30 subprocesses looks like
 this:
 
-\small
     ;
     ;Sample network file
     ;
@@ -6303,7 +6230,6 @@ see the FAQ entries on the OPEN-MPI webpage, there are more things that
 need to be taken into consideration. Here is an example hostfile from
 the open-mpi FAQ:
 
-\small
     # This is an example hostfile.  Comments begin with #
     #
     # The following node is a single processor machine:

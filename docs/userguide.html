@@ -2402,13 +2402,27 @@ W = W \frac{\left(1 + P {((2 - w)e^{-m} - 1)}\right)}{\left(1 + P {(2e^{-m} - 1)
 <p>In equation <a href="#eq:spawn1" reference-type="ref" reference="eq:spawn1"><span class="math display">\[eq:spawn1\]</span></a>, the population of the age-length cell of the mature stock is reduced due to the spawning mortality of the fish that spawn. In equation <a href="#eq:spawn2" reference-type="ref" reference="eq:spawn2"><span class="math display">\[eq:spawn2\]</span></a>, the mean weight of the population in the age-length cell is adjusted to take the reduction in weight of the fish that spawn, and the change in population, into account.</p>
 
 <p>Spawning is considered to be an annual event, that takes place on the same timestep and the same area in each year that the spawning occurs. To model the spawning process as it affects the parent (without the creation of a child stock), it is necessary to specify the timestep and area that the spawning will take place on, and the length selection functions to determine proportion of each length group that will spawn, and the spawning mortality and weight loss of those that spawn. This is done in the spawning data file, as shown below:</p>
-
-<p>spawnsteps <vector of timesteps> spawnareas <vector of areas> firstspawnyear <first year that the spawning occurs> lastspawnyear <last year that the spawning occurs> onlyparent proportionfunction <see Length Selection> mortalityfunction <see Length Selection> weightlossfunction <see Length Selection></p>
+<pre><code>spawnsteps             &lt;vector of timesteps&gt;
+spawnareas             &lt;vector of areas&gt;
+firstspawnyear         &lt;first year that the spawning occurs&gt;
+lastspawnyear          &lt;last year that the spawning occurs&gt;
+onlyparent
+proportionfunction     &lt;see Length Selection&gt;
+mortalityfunction      &lt;see Length Selection&gt;
+weightlossfunction     &lt;see Length Selection&gt;</code></pre>
 <p>The optional &lt;firstspawnyear&gt; and &lt;lastspawnyear&gt; values define the first and last years on which the spawning process will take place. This means that it is possible to define recruits (see section <a href="#sec:stockrenew" reference-type="ref" reference="sec:stockrenew">4.14</a> above) for some years in the model and use a spawning process in other years in the model. If these are not specified in the input file, then it assumed that the spawning process will take place on all years in the simulation, and these will default to the first year and last year in the simulation.</p>
 
 <p>Alternatively, it is possible to consider the spawning process as part of a through life-cycle model, and so the spawning process can create recruits to be added to one or more stocks (in a similar manner to the renewal data, given in section <a href="#sec:stockrenew" reference-type="ref" reference="sec:stockrenew">4.14</a> above). The total number of recruits given by the spawning process is added to the youngest age group of the spawned stock at the start of the following timestep. The lengths of the spawned stock are distributed with a Normal distribution about a specified mean length <span class="math inline">\(&lt;\)</span>mean<span class="math inline">\(&gt;\)</span> with a standard deviation <span class="math inline">\(&lt;\)</span>stddev<span class="math inline">\(&gt;\)</span>. The mean weight of the fish in these age length cells is given from equation <a href="#eq:wlen" reference-type="ref" reference="eq:wlen"><span class="math display">\[eq:wlen\]</span></a>, with <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> specified in the spawning data file. Hence, if the spawning process is to calculate a number of recruits to the model, the format for the spawning data file is shown below:</p>
-
-<p>spawnsteps <vector of timesteps> spawnareas <vector of areas> firstspawnyear <first year that the spawning occurs> lastspawnyear <last year that the spawning occurs> spawnstocksandratios <stockname i> <ratio i> ; for each stock i proportionfunction <see Length Selection> mortalityfunction <see Length Selection> weightlossfunction <see Length Selection> recruitment <functionname> <parameters> stockparameters <mean> <stddev> <alpha> <beta></p>
+<pre><code>spawnsteps             &lt;vector of timesteps&gt;
+spawnareas             &lt;vector of areas&gt;
+firstspawnyear         &lt;first year that the spawning occurs&gt;
+lastspawnyear          &lt;last year that the spawning occurs&gt;
+spawnstocksandratios   &lt;stockname i&gt; &lt;ratio i&gt; ; for each stock i
+proportionfunction     &lt;see Length Selection&gt;
+mortalityfunction      &lt;see Length Selection&gt;
+weightlossfunction     &lt;see Length Selection&gt;
+recruitment            &lt;functionname&gt;  &lt;parameters&gt;
+stockparameters        &lt;mean&gt;  &lt;stddev&gt;  &lt;alpha&gt;  &lt;beta&gt;</code></pre>
 <p>The recruitment <span class="math inline">\(&lt;\)</span>functionname<span class="math inline">\(&gt;\)</span> defines which recruitment function to use to calculate the number of recruits to be added to the spawned stock. Currently there are 4 recruitment functions defined, and the valid recruitment function names are:</p>
 
 <p>fecundity - use the Fecundity recruitment function simplessb - use the SimpleSSB recruitment function ricker - use the Ricker recruitment function bevertonholt - use the BevertonHolt recruitment function</p>
@@ -2418,8 +2432,7 @@ W = W \frac{\left(1 + P {((2 - w)e^{-m} - 1)}\right)}{\left(1 + P {(2e^{-m} - 1)
 <p><span class="math display">\[\label{eq:rec1}
 R = p_{0} \sum_{\it ages}\sum_{\it lengths} l ^{p_{1}} a ^{p_{2}} N_{al} ^{p_{3}} W_{al} ^{p_{4}}\]</span></p>
 <p>Hence, to specify this recruitment function, the file format required is:</p>
-
-<p>recruitment fecundity &lt;vector of 5 parameters&gt;</p>
+<pre><code>recruitment            fecundity  &lt;vector of 5 parameters&gt;</code></pre>
 
 </div>
 <div id="simplessb-recruitment-function" class="section level3">
@@ -2430,8 +2443,7 @@ S = \sum_{\it ages}\sum_{\it lengths} N_{al} W_{al}\]</span></p>
 <p><span class="math display">\[\label{eq:rec2}
 R = \mu S\]</span></p>
 <p>Hence, to specify this recruitment function, the file format required is:</p>
-
-<p>recruitment simplessb <mu></p>
+<pre><code>recruitment            simplessb  &lt;mu&gt;</code></pre>
 </div>
 <div id="ricker-recruitment-function" class="section level3">
 <h3>Ricker Recruitment Function</h3>
@@ -2439,8 +2451,7 @@ R = \mu S\]</span></p>
 <p><span class="math display">\[\label{eq:rec3}
 R = \mu S e ^{-\lambda S}\]</span></p>
 <p>Hence, to specify this recruitment function, the file format required is:</p>
-
-<p>recruitment ricker <mu> <lambda></p>
+<pre><code>recruitment            ricker  &lt;mu&gt;  &lt;lambda&gt;</code></pre>
 </div>
 <div id="bevertonholt-recruitment-function" class="section level3">
 <h3>BevertonHolt Recruitment Function</h3>
@@ -2448,8 +2459,7 @@ R = \mu S e ^{-\lambda S}\]</span></p>
 <p><span class="math display">\[\label{eq:rec4}
 R = \frac{\mu S}{\lambda + S}\]</span></p>
 <p>Hence, to specify this recruitment function, the file format required is:</p>
-
-<p>recruitment bevertonholt <mu> <lambda></p>
+<pre><code>recruitment            bevertonholt  &lt;mu&gt;  &lt;lambda&gt;</code></pre>
 </div>
 <div id="hockey-stick-recruitment-function" class="section level3">
 <h3>Hockey stick Recruitment Function</h3>
@@ -2460,16 +2470,14 @@ R_0,&amp;\text{If } B_{lim} \leq S \\
 \frac{R_0S}{B_{lim}} &amp; \text{If } 0 \leq S \leq B_{lim}
 \end{cases}\]</span></p>
 <p>Hence, to specify this recruitment function, the file format required is:</p>
-
-<p>recruitment hockeystick <R_0> <B_lim></p>
+<pre><code>recruitment            hockeystick  &lt;R_0&gt;  &lt;B_lim&gt;</code></pre>
 <p>Note that to be in-line with definition of renewals and initial conditions <span class="math inline">\(R_0\)</span> is defined in terms multiples of 10 000 fish.</p>
 </div>
 </div>
 <div id="sec:lselection" class="section level2">
 <h2>Length Selection</h2>
 <p>The length selection function determines the proportion of the length group that will be selected, in a similar way to the suitability functions (see section <a href="#sec:suitability" reference-type="ref" reference="sec:suitability">4.9</a> above). To define a length selection function, it is necessary to specify the function, the name of the function ans the parameters for the function, as shown below:</p>
-
-<p><function> <functionname> <parameters></p>
+<pre><code>&lt;function&gt;    &lt;functionname&gt; &lt;parameters&gt;</code></pre>
 <p>The <span class="math inline">\(&lt;\)</span>function<span class="math inline">\(&gt;\)</span> defines how the length selection function will be used (for an example, see section <a href="#sec:stockspawn" reference-type="ref" reference="sec:stockspawn">4.15</a> above). The <span class="math inline">\(&lt;\)</span>functionname<span class="math inline">\(&gt;\)</span> defines which selection function is to be used to calculate the selection of the stock. Currently there are three selection functions defined, and the valid length selection function names are:</p>
 
 <p>constant - use the Constant selection function straightline - use the StraightLine selection function exponential - use the Exponential selection function</p>
@@ -2479,8 +2487,7 @@ R_0,&amp;\text{If } B_{lim} \leq S \\
 <p><span class="math display">\[\label{eq:constsel}
 S(l) = \alpha\]</span></p>
 <p>Hence, to specify a constant selection function, the file format required is:</p>
-
-<p><function> constant <alpha></p>
+<pre><code>&lt;function&gt;    constant  &lt;alpha&gt;</code></pre>
 </div>
 <div id="straightline-selection-function" class="section level3">
 <h3>StraightLine Selection Function</h3>
@@ -2489,8 +2496,7 @@ S(l) = \alpha\]</span></p>
 S(l) = \alpha l + \beta\]</span></p>
 
 <p>Hence, to specify a straight line selection function, the file format required is:</p>
-
-<p><function> straightline <alpha> <beta></p>
+<pre><code>&lt;function&gt;    straightline  &lt;alpha&gt;  &lt;beta&gt;</code></pre>
 </div>
 <div id="exponential-selection-function" class="section level3">
 <h3>Exponential Selection Function</h3>
@@ -2499,23 +2505,23 @@ S(l) = \alpha l + \beta\]</span></p>
 S(l) = \frac{1}{1 + e^{ \alpha (l - l_{50})}}\]</span></p>
 
 <p>Note that the stock length dependence is actually dependant on the difference between the length of the stock and <span class="math inline">\(l_{50}\)</span>, which is the length of the stock with a 50% probability of selection. Hence, to specify this selection function, the file format required is:</p>
-
-<p><function> exponential <alpha> <l50></p>
+<pre><code>&lt;function&gt;    exponential  &lt;alpha&gt;  &lt;l50&gt;</code></pre>
 </div>
 </div>
 <div id="sec:stockstray" class="section level2">
 <h2>Straying</h2>
 <p>The straying section of the stock file determines if, and how, the stock will stray from one substock to another substock in the Gadget model. The format for the first part of the straying section of the stock file is given below:</p>
-
-<p>doesstray &lt;0 or 1&gt; ; 0 for no straying, 1 for straying</p>
+<pre><code>doesstray              &lt;0 or 1&gt; ; 0 for no straying, 1 for straying</code></pre>
 <p>If the stock does not stray, then the following section doesn’t apply, and the stock file is complete. If the stock does stray, then further information is required about the straying data. This is given in a separate file, so the format for the straying data, in the main stock file, is given below:</p>
-
-<p>doesstray 1 strayfile <name of the straying data file></p>
+<pre><code>doesstray              1
+strayfile              &lt;name of the straying data file&gt;</code></pre>
 <p>The straying data file defines what happens to the stock as it strays from one substock to another. The straying is length-dependent, so that a proportion of each length group (over all age groups) will move to the corresponding length group in a different substock. This process can be thought of as an extension to the transition process (see section <a href="#sec:stockmove" reference-type="ref" reference="sec:stockmove">4.13</a>).</p>
 
 <p>Straying is considered to be an annual event, that takes place on the same timestep and the same area in each year. To model the straying process in Gadget, it is necessary to specify the timestep and the area that the straying will take place on, the the names of the stocks to move the straying fish into, along with the ratio of the fish that will move into that particular stock (in a similar manner to that used for the transition process) and the length selection function to determine the proportion of the length group that will stray. This is done in the straying data file, as shown below:</p>
-
-<p>straysteps <vector of timesteps> strayareas <vector of areas> straystocksandratios <stockname i> <ratio i> ; for each stock i proportionfunction <see Length Selection></p>
+<pre><code>straysteps             &lt;vector of timesteps&gt;
+strayareas             &lt;vector of areas&gt;
+straystocksandratios   &lt;stockname i&gt; &lt;ratio i&gt; ; for each stock i
+proportionfunction     &lt;see Length Selection&gt;</code></pre>
 </div>
 </div>
 <div id="chap:tag" class="section level1">
@@ -2523,11 +2529,16 @@ S(l) = \frac{1}{1 + e^{ \alpha (l - l_{50})}}\]</span></p>
 <p>The tag files contain the information about the tagging experiments that are to be included in the Gadget model. Gadget will keep track of the number, and proportion, of fish in an age-length cell that have been tagged for a tagging experiment. This information can then be compared to the recaptures from that tagging experiment when calculating a likelihood score (see Recaptures, section <a href="#sec:recaptures" reference-type="ref" reference="sec:recaptures">8.9</a>).</p>
 
 <p>To define tagged populations in the Gadget model, the “main” file must contain a list of the data files that contain the description of the tagging experiments, and the format for this is shown below:</p>
-
-<p>[tagging] tagfiles <names of the tag files></p>
+<pre><code>[tagging]
+tagfiles               &lt;names of the tag files&gt;</code></pre>
 <p>The main tag file lists the tagging experiments, along with basic information about the experiments and the name of the datafile that contains information about the number of fish tagged for the tagging experiment. The format for this file shown below, with each new tagging experiment starting with the keyword <span class="math display">\[component\]</span>:</p>
-
-<p>[component] tagid <name of the tagging experiment> stock <name of the tagged stock> tagarea <area that the tagging took place> endyear <year of last recapture> tagloss <proportion of tagged fish that are lost> numbers <see Tagging Numbers></p>
+<pre><code>[component]
+tagid                  &lt;name of the tagging experiment&gt;
+stock                  &lt;name of the tagged stock&gt;
+tagarea                &lt;area that the tagging took place&gt;
+endyear                &lt;year of last recapture&gt;
+tagloss                &lt;proportion of tagged fish that are lost&gt;
+numbers                &lt;see Tagging Numbers&gt;</code></pre>
 <p>Each tagging experiment is defined by specifying the name of the tagging experiment, the stock that is tagged for the tagging experiment, and the area that the tagging took place on. Note that it is currently possible to only tag one stock, on one area, for each tagging experiment.</p>
 
 <p>The optional <span class="math inline">\(&lt;\)</span>endyear<span class="math inline">\(&gt;\)</span> value is used to define the end of a tagging experiment, and should be set to the year of the last expected recapture from the tagging experiment. This can be used to reduce the calculation time. If this is not specified, then it is assumed that the tagging experiment will run until the end of the simulation.</p>
@@ -2539,11 +2550,9 @@ N = N (e^{-t})\]</span></p>
 <div id="sec:tagnumbers" class="section level2">
 <h2>Tagging Numbers</h2>
 <p>The numbers section of the tag file gives the number of fish tagged for the tagging experiment. This is given in a column format in a separate file, so the main tag file simply gives the name of this tag data file, as shown in the example below:</p>
-
-<p>numbers <name of data file></p>
+<pre><code>numbers                &lt;name of data file&gt;</code></pre>
 <p>For the tag datafile, this is a simple list of tag identifier, timestep, length and then the number of fish tagged, for that tag/timestep/length combination. This format is shown below:</p>
-
-<p><tagid> <year> <step> <length> <number></p>
+<pre><code>&lt;tagid&gt;  &lt;year&gt;  &lt;step&gt;  &lt;length&gt;  &lt;number&gt;</code></pre>
 <p>Note that the <span class="math inline">\(&lt;\)</span>length<span class="math inline">\(&gt;\)</span> value refers to the minimum length of the length cell that the tagged fish will be put into.</p>
 </div>
 </div>
@@ -2552,20 +2561,22 @@ N = N (e^{-t})\]</span></p>
 <p>The otherfood files contain the information about non-dynamic prey that is available for the predators to consume. The otherfood acts as a prey that is always available, and it is used to avoid the situation where the non-availability of a prey stock prevents the predators from growing as expected.</p>
 
 <p>To define otherfood in the Gadget model, the “main” file must contain a list of the data files that contain the description of the otherfood, and the format for this is shown below:</p>
-
-<p>[otherfood] otherfoodfiles <names of the otherfood files></p>
+<pre><code>[otherfood]
+otherfoodfiles         &lt;names of the otherfood files&gt;</code></pre>
 <p>The main otherfood file lists the otherfood, along with basic information about the food and the name of the datafile that contains information about the amount of food that is available for the predators to eat. The format for this file shown below, with each new otherfood starting with the keyword <span class="math display">\[component\]</span>:</p>
-
-<p>[component] foodname <food name> livesonareas <areas> lengths <min> <max> energycontent <energy value> amount <see Food Amounts></p>
+<pre><code>[component]
+foodname               &lt;food name&gt;
+livesonareas           &lt;areas&gt;
+lengths                &lt;min&gt;  &lt;max&gt;
+energycontent          &lt;energy value&gt;
+amount                 &lt;see Food Amounts&gt;</code></pre>
 <p>The otherfood is defined by specifying the otherfood name and areas it is available for consumption on and the minimum and maximum length of food (for compatibility with the dynamic stock predation and printer classes).</p>
 <div id="sec:foodamounts" class="section level2">
 <h2>Food Amounts</h2>
 <p>The amounts section of the otherfood file gives the biomass of otherfood that is available for the predators to eat. This data is listed in a column format in a separate file, so the main otherfood file simply gives the name of this otherfood data file, as shown in the example below:</p>
-
-<p>amount <name of data file></p>
+<pre><code>amount                 &lt;name of data file&gt;</code></pre>
 <p>For the otherfood datafile, this is a simple list of year, timestep, area, food name and then the biomass of the food available for the predators to eat, for that timestep/area combination. This format is shown below:</p>
-
-<p><year> <step> <area> <food name> <amount></p>
+<pre><code>&lt;year&gt;  &lt;step&gt;  &lt;area&gt;  &lt;food name&gt;  &lt;amount&gt;</code></pre>
 </div>
 </div>
 <div id="chap:fleet" class="section level1">
@@ -2573,11 +2584,12 @@ N = N (e^{-t})\]</span></p>
 <p>The fleet files contain the information about the fleets that are reducing the population of the stocks in the Gadget model. The fleets act as a simple predator in the model, with the landings data treated as the fleets “consumption” of the stock that is caught.</p>
 
 <p>To define fleets in the Gadget model, the “main” file must contain a list of the data files that contain the description of the fleets, and the format for this is shown below:</p>
-
-<p>[fleet] fleetfiles <names of the fleet files></p>
-<p>There are 5 types of fleets implemented in Gadget, and the main fleet file lists the fleets and their type, along with information about the fleet and the name of the datafile that contains information about the landings. The format for this file shown below, with each new fleet starting with the keyword <span class="math display">\[component\]</span>:</p>
-
-<p>[component] <type> <fleetname> <fleet data></p>
+<pre><code>[fleet]
+fleetfiles             &lt;names of the fleet files&gt;</code></pre>
+<p>There are 5 types of fleets implemented in Gadget, and the main fleet file lists the fleets and their type, along with information about the fleet and the name of the datafile that contains information about the landings. The format for this file shown below, with each new fleet starting with the keyword [component]:</p>
+<pre><code>[component]
+&lt;type&gt;                 &lt;fleetname&gt;
+&lt;fleet data&gt;</code></pre>
 <p>The fleet data for each fleet type is covered in the sub sections below. The <span class="math inline">\(&lt;\)</span>type<span class="math inline">\(&gt;\)</span> defines the type of fleet for the <span class="math inline">\(&lt;\)</span>fleetname<span class="math inline">\(&gt;\)</span> fleet, and the 5 valid fleet types that can used in Gadget are:</p>
 
 <p>TotalFleet NumberFleet LinearFleet EffortFleet QuotaFleet</p>
@@ -2589,8 +2601,12 @@ C_{s}(l) = \frac{E S_{s}(l) N_{sl} W_{sl}}{\displaystyle \sum_{\it stocks} \sum_
 <p>where: <span class="math inline">\(&lt;\)</span> E <span class="math inline">\(&gt;\)</span> is the biomass caught by the fleet <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the number of stock in the length cell <span class="math inline">\(&lt;\)</span> W <span class="math inline">\(&gt;\)</span> is the mean weight of the stock in the length cell <span class="math inline">\(&lt;\)</span> S <span class="math inline">\(&gt;\)</span> is the suitability function (see section <a href="#sec:fleetsuit" reference-type="ref" reference="sec:fleetsuit">7.6</a>)</p>
 
 <p>This fleet type is defined by specifying the fleet name and areas it operates on, along with a suitability function for each stock that the fleet will catch and a data file listing the biomass that the fleet will catch. The file format for the TotalFleet is given below:</p>
-
-<p>[component] totalfleet <fleetname> livesonareas <areas> multiplicative <multi> suitability <see Fleet Suitability> amount <see Fleet Amounts></p>
+<pre><code>[component]
+totalfleet             &lt;fleetname&gt;
+livesonareas           &lt;areas&gt;
+multiplicative         &lt;multi&gt;
+suitability            &lt;see Fleet Suitability&gt;
+amount                 &lt;see Fleet Amounts&gt;</code></pre>
 <p>The optional <span class="math inline">\(&lt;\)</span>multi<span class="math inline">\(&gt;\)</span> value is a multiplicative constant used to scale the data if required - the default value for this multiplier is 1 (ie. no scaling).</p>
 
 <p>The fleets act as a predator, so Gadget also requires a suitability function to be defined for the predation of the stocks in the model. The total amount that has been landed by the fleet is also required - this is taken from the landings data, based on timestep and area, and is specified in a separate file.</p>
@@ -2603,8 +2619,12 @@ C_{s}(l) = \frac{E S_{s}(l) N_{sl}}{\displaystyle \sum_{\it stocks} \sum_{\it le
 <p>where: <span class="math inline">\(&lt;\)</span> E <span class="math inline">\(&gt;\)</span> is the number caught by the fleet <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the number of stock in the length cell <span class="math inline">\(&lt;\)</span> S <span class="math inline">\(&gt;\)</span> is the suitability function (see section <a href="#sec:fleetsuit" reference-type="ref" reference="sec:fleetsuit">7.6</a>)</p>
 
 <p>This fleet type is defined by specifying the fleet name and areas it operates on, along with a suitability function for each stock that the fleet will catch and a data file listing the numbers that the fleet will catch. The file format for the NumberFleet is given below:</p>
-
-<p>[component] numberfleet <fleetname> livesonareas <areas> multiplicative <multi> suitability <see Fleet Suitability> amount <see Fleet Amounts></p>
+<pre><code>[component]
+numberfleet            &lt;fleetname&gt;
+livesonareas           &lt;areas&gt;
+multiplicative         &lt;multi&gt;
+suitability            &lt;see Fleet Suitability&gt;
+amount                 &lt;see Fleet Amounts&gt;</code></pre>
 <p>The optional <span class="math inline">\(&lt;\)</span>multi<span class="math inline">\(&gt;\)</span> value is a multiplicative constant used to scale the data if required - the default value for this multiplier is 1 (ie. no scaling).</p>
 
 <p>The fleets act as a predator, so Gadget also requires a suitability function to be defined for the predation of the stocks in the model. The total number of fish that has been caught by the fleet is also required - this is taken from the landings data, based on timestep and area, and is specified in a separate file.</p>
@@ -2617,8 +2637,12 @@ C_{s}(l) = E \Delta t S_{s}(l) N_{sl} W_{sl}\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> E <span class="math inline">\(&gt;\)</span> is the scaling factor for the stock that is to be caught, per month <span class="math inline">\(&lt;\Delta t&gt;\)</span> is the length of the timestep <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the number of stock in the length cell <span class="math inline">\(&lt;\)</span> W <span class="math inline">\(&gt;\)</span> is the mean weight of the stock in the length cell <span class="math inline">\(&lt;\)</span> S <span class="math inline">\(&gt;\)</span> is the suitability function (see section <a href="#sec:fleetsuit" reference-type="ref" reference="sec:fleetsuit">7.6</a>)</p>
 
 <p>This fleet type is defined by specifying the fleet name and areas it operates on, along with a suitability function for each stock that the fleet will catch and a data file listing the fishing level for the fleet. The file format for the LinearFleet is given below:</p>
-
-<p>[component] linearfleet <fleetname> livesonareas <areas> multiplicative <multi> suitability <see Fleet Suitability> amount <see Fleet Amounts></p>
+<pre><code>[component]
+linearfleet            &lt;fleetname&gt;
+livesonareas           &lt;areas&gt;
+multiplicative         &lt;multi&gt;
+suitability            &lt;see Fleet Suitability&gt;
+amount                 &lt;see Fleet Amounts&gt;</code></pre>
 <p>The optional <span class="math inline">\(&lt;\)</span>multi<span class="math inline">\(&gt;\)</span> value is a multiplicative constant used to scale the data if required - the default value for this multiplier is 1 (ie. no scaling).</p>
 
 <p>The fleets act as a predator, so Gadget also requires a suitability function to be defined for the predation of the stocks in the model. The scaling factor to be used when calculating the amount that the fleet will catch is also required, and this is specified in a separate file.</p>
@@ -2633,23 +2657,39 @@ C_{s}(l) = E q_{s} \Delta t S_{s}(l) N_{sl} W_{sl}\]</span></p>
 <p>where: <span class="math inline">\(&lt;\)</span> E <span class="math inline">\(&gt;\)</span> is the scaling factor for the stock that is to be caught, per month <span class="math inline">\(&lt;\)</span> q <span class="math inline">\(&gt;\)</span> is the catchability parameter for that stock <span class="math inline">\(&lt;\Delta t&gt;\)</span> is the length of the timestep <span class="math inline">\(&lt;\)</span> N <span class="math inline">\(&gt;\)</span> is the number of stock in the length cell <span class="math inline">\(&lt;\)</span> W <span class="math inline">\(&gt;\)</span> is the mean weight of the stock in the length cell <span class="math inline">\(&lt;\)</span> S <span class="math inline">\(&gt;\)</span> is the suitability function (see section <a href="#sec:fleetsuit" reference-type="ref" reference="sec:fleetsuit">7.6</a>)</p>
 
 <p>This fleet type is defined by specifying the fleet name and areas it operates on, along with a suitability function and catchability parameter for each stock that the fleet will catch and a data file listing the proportion of each stock that the fleet will catch. The file format for the EffortFleet is given below:</p>
-
-<p>[component] effortfleet <fleetname> livesonareas <areas> multiplicative <multi> suitability <see Fleet Suitability> catchability <stock catchability parameters> amount <see Fleet Amounts></p>
+<pre><code>[component]
+effortfleet            &lt;fleetname&gt;
+livesonareas           &lt;areas&gt;
+multiplicative         &lt;multi&gt;
+suitability            &lt;see Fleet Suitability&gt;
+catchability           &lt;stock catchability parameters&gt;
+amount                 &lt;see Fleet Amounts&gt;</code></pre>
 <p>The optional <span class="math inline">\(&lt;\)</span>multi<span class="math inline">\(&gt;\)</span> value is a multiplicative constant used to scale the data if required - the default value for this multiplier is 1 (ie. no scaling).</p>
 
 <p>The fleets act as a predator, so Gadget also requires a suitability function to be defined for the predation of the stocks in the model. The scaling factor to be used when calculating the amount that the fleet will catch is also required, and this is specified in a separate file.</p>
 
 <p>The fleet of type EffortFleet is a multi-species extension to the fleet of type LinearFleet (see section <a href="#sec:linearfleet" reference-type="ref" reference="sec:linearfleet">7.3</a> above). This means that when a fleet is used to catch more than one species (either directly or as bycatch) the different catchability for these species can be taken into account. This catchability parameter is specified by listing the names of the prey and the associated preference value, as shown in the example below:</p>
-
-<p>… catchability &lt;name of stock 1&gt; &lt;catchability for stock 1&gt; &lt;name of stock 2&gt; &lt;catchability for stock 2&gt; amount …</p>
+<pre><code>...
+catchability
+&lt;name of stock 1&gt;      &lt;catchability for stock 1&gt;
+&lt;name of stock 2&gt;      &lt;catchability for stock 2&gt;
+amount
+...</code></pre>
 </div>
 <div id="sec:quotafleet" class="section level2">
 <h2>QuotaFleet</h2>
 <p>The fleet type used that creates a predator that removes the caught fish based on the available biomass of the stock multiplied by a scaling factor set according to a simple harvest control rule is called “QuotaFleet”. The biomass caught is then split between the various stocks, and length groups of the stocks, according to equation <a href="#eq:lcons" reference-type="ref" reference="eq:lcons"><span class="math display">\[eq:lcons\]</span></a> (see section <a href="#sec:linearfleet" reference-type="ref" reference="sec:linearfleet">7.3</a> above). The scaling factor (the parameter “E” in the equation above) is set according to a simple harvest control rule.</p>
 
 <p>This fleet type is defined by specifying the fleet name and areas it operates on, along with a suitability function for each stock that the fleet will catch, a simple harvest control rule and a data file listing the proportion of each stock that the fleet will catch. The file format for the QuotaFleet is given below:</p>
-
-<p>[component] quotafleet <fleetname> livesonareas <areas> multiplicative <multi> suitability <see Fleet Suitability> quotafunction <function name> biomasslevel <vector of biomass levels> quotalevel <vector of quota levels> amount <see Fleet Amounts></p>
+<pre><code>[component]
+quotafleet             &lt;fleetname&gt;
+livesonareas           &lt;areas&gt;
+multiplicative         &lt;multi&gt;
+suitability            &lt;see Fleet Suitability&gt;
+quotafunction          &lt;function name&gt;
+biomasslevel           &lt;vector of biomass levels&gt;
+quotalevel             &lt;vector of quota levels&gt;
+amount                 &lt;see Fleet Amounts&gt;</code></pre>
 <p>The optional <span class="math inline">\(&lt;\)</span>multi<span class="math inline">\(&gt;\)</span> value is a multiplicative constant used to scale the data if required - the default value for this multiplier is 1 (ie. no scaling).</p>
 
 <p>The fleets act as a predator, so Gadget also requires a suitability function to be defined for the predation of the stocks in the model. A scaling factor that can be used when calculating the amount that the fleet will catch is also required, and this is specified in a separate file (although this is usually set to 1, since the scaling factor to be used is multiplied by that calculated using the simple harvest control rule below).</p>
@@ -2659,13 +2699,16 @@ C_{s}(l) = E q_{s} \Delta t S_{s}(l) N_{sl} W_{sl}\]</span></p>
 <p>simple - use a simple harvest control rule, based on the biomass of each stock annual - use a annual harvest control rule, based on the biomass of each stock simplesum - use a simple harvest control rule, based on the biomass of all the stocks annualsum - use a annual harvest control rule, based on the biomass of all the stocks simpleselect - use a simple harvest control rule, based on the biomass of selected stocks annualselect - use a annual harvest control rule, based on the biomass of selected stocks</p>
 
 <p>Note that if the <span class="math inline">\(&lt;\)</span>function name<span class="math inline">\(&gt;\)</span> value is set to either simpleselect or annualselect, then it is necessary to define which stocks to use to determine the fishing level. This is done be additionally specifying a <span class="math inline">\(&lt;\)</span>selectstocks<span class="math inline">\(&gt;\)</span> vector which is a list of the stocks to use, as given in the list below:</p>
-
-<p>… biomasslevel <vector of biomass levels> quotalevel <vector of quota levels> selectstocks <vector of stocks to base the quote on> amount <see Fleet Amounts></p>
+<pre><code>...
+biomasslevel           &lt;vector of biomass levels&gt;
+quotalevel             &lt;vector of quota levels&gt;
+selectstocks           &lt;vector of stocks to base the quote on&gt;
+amount                 &lt;see Fleet Amounts&gt;</code></pre>
 <p>The <span class="math inline">\(&lt;\)</span>biomasslevel<span class="math inline">\(&gt;\)</span> vector is a list of <span class="math inline">\(n\)</span> biomass points at which the fishing level will change, and the <span class="math inline">\(&lt;\)</span>quotalevel<span class="math inline">\(&gt;\)</span> vector is the corresponding list of <span class="math inline">\(n+1\)</span> fishing levels. Note that the first quotalevel value corresponds to the fishing level that will be used when the biomass is between 0 and the first biomasslevel value, so the quotalevel vector must have one more entry than the biomasslevel vector.</p>
 
 <p>An example of valid biomasslevel and quotalevel vectors is given below:</p>
-
-<p>biomasslevel 10000 250000 quotalevel 0.1 0.4 0.9</p>
+<pre><code>biomasslevel           10000  250000
+quotalevel             0.1  0.4  0.9</code></pre>
 <p>The fishing level for the stock in the example shown above would be set to 0.1 if the biomass of the stock is less than 10,000 kilogrammes, 0.4 if the biomass is between 10,000 and 250,000 kilogrammes and 0.9 if the biomass is above 250,000 kilogrammes. Note that the biomasslevel vector has 2 entries, and that the quotalevel vector has a third entry.</p>
 </div>
 <div id="sec:fleetsuit" class="section level2">
@@ -2675,14 +2718,11 @@ C_{s}(l) = E q_{s} \Delta t S_{s}(l) N_{sl} W_{sl}\]</span></p>
 <div id="sec:fleetamount" class="section level2">
 <h2>Fleet Amounts</h2>
 <p>The amounts section of the fleet file gives the landings data for the fleets. This data is listed in a column format in a separate file, so the main fleet file simply gives the name of this fleet data file, as shown in the example below:</p>
-
-<p>amount <name of data file></p>
+<pre><code>amount                 &lt;name of data file&gt;</code></pre>
 <p>For fleets of type TotalFleet or NumberFleet, the data file is a list of year, timestep, area, fleetname and then the amount of catch landed (either biomass or number), taken from landings data, for that timestep/area/fleet combination:</p>
-
-<p><year> <step> <area> <fleetname> <amount></p>
+<pre><code>&lt;year&gt;  &lt;step&gt;  &lt;area&gt;  &lt;fleetname&gt;  &lt;amount&gt;</code></pre>
 <p>For fleets of type LinearFleet, EffortFleet or QuotaFleet, the data file is a list of year, timestep, area, fleetname and then the scaling factor to be used when calculating the amount of the catch for that timestep/area/fleet combination:</p>
-
-<p><year> <step> <area> <fleetname> <scaling factor></p>
+<pre><code>&lt;year&gt;  &lt;step&gt;  &lt;area&gt;  &lt;fleetname&gt;  &lt;scaling factor&gt;</code></pre>
 </div>
 </div>
 <div id="chap:like" class="section level1">
@@ -3524,11 +3564,11 @@ stocknames           &lt;vector of the names of the stocks&gt;</code></pre>
 <p>The print files are used to control the output from the Gadget model (and not the output from the optimisation process). To avoid writing the model output from each iteration of a optimising process (and thus generating very large files), any printfile settings are ignored if Gadget is started with the -l switch.</p>
 
 <p>To define print files in the Gadget model, the “main” file must contain a list of the data files that contain the description of the printer classes required, and the format for this is shown below:</p>
-
-<p>printfiles <names of the print files></p>
+<pre><code>printfiles           &lt;names of the print files&gt;</code></pre>
 <p>The print files contain a list of various type of printer classes, separated by the keyword <span class="math display">\[component\]</span>, that output different information from the model, and the name of the file that the information is to be written to. All the output is written as a plain ASCII text file that can be viewed in any text editor. The format of the print file is follows:</p>
-
-<p>[component] type <printer type> <printer data></p>
+<pre><code>[component]
+type                 &lt;printer type&gt;
+&lt;printer data&gt;</code></pre>
 <p>The printer data for each printer type is covered in the sub sections below. The <span class="math inline">\(&lt;\)</span>printer type<span class="math inline">\(&gt;\)</span> defines the type of output that will be generated from the Gadget model, and there are currently 11 valid printer types defined in Gadget. These are:</p>
 
 <p>StockStdPrinter StockFullPrinter StockPrinter PredatorPrinter PredatorOverPrinter PreyOverPrinter StockPreyFullPrinter StockPreyPrinter PredatorPreyPrinter LikelihoodPrinter LikelihoodSummaryPrinter</p>
@@ -3536,8 +3576,14 @@ stocknames           &lt;vector of the names of the stocks&gt;</code></pre>
 <div id="sec:stockstdprinter" class="section level2">
 <h2>StockStdPrinter</h2>
 <p>The printer type to output the standard details of a stock is called “StockStdPrinter”. This printer type is defined by specifying the stock and timesteps of interest. The file format for this component is given below:</p>
-
-<p>[component] type stockstdprinter stockname <name of the stock> scale <scaling factor> printfile <name for the output file to be created> precision <precision to be used in the output file> printatstart &lt;0 or 1&gt; ; 1 to print at start of timestep yearsandsteps <ActionAtTime to determine when to print></p>
+<pre><code>[component]
+type                 stockstdprinter
+stockname            &lt;name of the stock&gt;
+scale                &lt;scaling factor&gt;
+printfile            &lt;name for the output file to be created&gt;
+precision            &lt;precision to be used in the output file&gt;
+printatstart         &lt;0 or 1&gt; ; 1 to print at start of timestep
+yearsandsteps        &lt;ActionAtTime to determine when to print&gt;</code></pre>
 <p>The optional <span class="math inline">\(&lt;\)</span>scale<span class="math inline">\(&gt;\)</span> factor is used to scale the size of the stock, which can be used to display the stock in terms of thousands of fish, for example. The default value for this parameter is 1, which will ensure that no scaling will take place.</p>
 
 <p>The optional <span class="math inline">\(&lt;\)</span>precision<span class="math inline">\(&gt;\)</span> value is used to specify the number of digits to be used when printing the information to the specified output file, overriding the default settings for this printer type.</p>
@@ -3545,29 +3591,40 @@ stocknames           &lt;vector of the names of the stocks&gt;</code></pre>
 <p>The optional flag <span class="math inline">\(&lt;\)</span>printatstart<span class="math inline">\(&gt;\)</span> is used to specify whether the information about the stock should be printed at the start or the end of the timestep. If this is set to 1, then the stock information as it is at the start of the timestep is printed, before any other calculation has taken place (see appendix <a href="#chap:order" reference-type="ref" reference="chap:order">15</a> for more information on the order of the calculations). The default value for <span class="math inline">\(&lt;\)</span>printatstart<span class="math inline">\(&gt;\)</span> is 0, which means that the information at the end of the timestep is printed, and is used whenever the flag is not specified in the input file.</p>
 
 <p>The output that is generated from this printer type is a file containing the following information for the stock specified on the <span class="math inline">\(&lt;\)</span>stockname<span class="math inline">\(&gt;\)</span> line:</p>
-
-<p>year-step-area-age-number-length-weight-stddev-consumed-biomass</p>
+<pre><code>year-step-area-age-number-length-weight-stddev-consumed-biomass</code></pre>
 <p>where: <span class="math inline">\(&lt;\)</span>number<span class="math inline">\(&gt;\)</span> is the stock population for that timestep/area/age combination <span class="math inline">\(&lt;\)</span>length<span class="math inline">\(&gt;\)</span> is the mean length for that timestep/area/age combination <span class="math inline">\(&lt;\)</span>weight<span class="math inline">\(&gt;\)</span> is the mean weight for that timestep/area/age combination <span class="math inline">\(&lt;\)</span>stddev<span class="math inline">\(&gt;\)</span> is the standard deviation for the length for that timestep/area/age combination <span class="math inline">\(&lt;\)</span>consumed<span class="math inline">\(&gt;\)</span> is the stock population that has been consumed by all the predators (including fleets) for that timestep/area/age combination <span class="math inline">\(&lt;\)</span>biomass<span class="math inline">\(&gt;\)</span> is the stock biomass that has been consumed by all the predators (including fleets) for that timestep/area/age combination</p>
 </div>
 <div id="sec:stockfullprinter" class="section level2">
 <h2>StockFullPrinter</h2>
 <p>The printer type to output some more detailed information about a stock is called “StockFullPrinter”. This printer type is defined by specifying the stock and timesteps of interest. The file format for this component is given below:</p>
-
-<p>[component] type stockfullprinter stockname <name of the stock> printfile <name for the output file to be created> precision <precision to be used in the output file> printatstart &lt;0 or 1&gt; ; 1 to print at start of timestep yearsandsteps <ActionAtTime to determine when to print></p>
+<pre><code>[component]
+type                 stockfullprinter
+stockname            &lt;name of the stock&gt;
+printfile            &lt;name for the output file to be created&gt;
+precision            &lt;precision to be used in the output file&gt;
+printatstart         &lt;0 or 1&gt; ; 1 to print at start of timestep
+yearsandsteps        &lt;ActionAtTime to determine when to print&gt;</code></pre>
 <p>The optional <span class="math inline">\(&lt;\)</span>precision<span class="math inline">\(&gt;\)</span> value is used to specify the number of digits to be used when printing the information to the specified output file, overriding the default settings for this printer type.</p>
 
 <p>The optional flag <span class="math inline">\(&lt;\)</span>printatstart<span class="math inline">\(&gt;\)</span> is used to specify whether the information about the stock should be printed at the start or the end of the timestep. If this is set to 1, then the stock information as it is at the start of the timestep is printed, before any other calculation has taken place (see appendix <a href="#chap:order" reference-type="ref" reference="chap:order">15</a> for more information on the order of the calculations). The default value for <span class="math inline">\(&lt;\)</span>printatstart<span class="math inline">\(&gt;\)</span> is 0, which means that the information at the end of the timestep is printed, and is used whenever the flag is not specified in the input file.</p>
 
 <p>The output that is generated from this printer type is a file containing the following information for the stock specified on the <span class="math inline">\(&lt;\)</span>stockname<span class="math inline">\(&gt;\)</span> line:</p>
-
-<p>year-step-area-age-length-number-weight</p>
+<pre><code>year-step-area-age-length-number-weight</code></pre>
 <p>where: <span class="math inline">\(&lt;\)</span>number<span class="math inline">\(&gt;\)</span> is the population for that timestep/area/age/length combination <span class="math inline">\(&lt;\)</span>weight<span class="math inline">\(&gt;\)</span> is the mean weight for that timestep/area/age/length combination</p>
 </div>
 <div id="sec:stockprinter" class="section level2">
 <h2>StockPrinter</h2>
 <p>The printer type to output information about (one or more) stocks, with the information aggregated into a convenient grouping, is called “StockPrinter”. This printer type is defined by specifying the stocks, areas, age groups, length groups and timesteps of interest. The file format for this component is given below:</p>
-
-<p>[component] type stockprinter stocknames <vector of the names of the stocks> areaaggfile <area aggregation file specifying areas> ageaggfile <age aggregation file specifying ages> lenaggfile <length aggregation file specifying lengths> printfile <name for the output file to be created> precision <precision to be used in the output file> printatstart &lt;0 or 1&gt; ; 1 to print at start of timestep yearsandsteps <ActionAtTime to determine when to print></p>
+<pre><code>[component]
+type                 stockprinter
+stocknames           &lt;vector of the names of the stocks&gt;
+areaaggfile          &lt;area aggregation file specifying areas&gt;
+ageaggfile           &lt;age aggregation file specifying ages&gt;
+lenaggfile           &lt;length aggregation file specifying lengths&gt;
+printfile            &lt;name for the output file to be created&gt;
+precision            &lt;precision to be used in the output file&gt;
+printatstart         &lt;0 or 1&gt; ; 1 to print at start of timestep
+yearsandsteps        &lt;ActionAtTime to determine when to print&gt;</code></pre>
 <p>Note that this printer type can aggregate more than one stock into a combined pseudo stock for the output file.</p>
 
 <p>The optional <span class="math inline">\(&lt;\)</span>precision<span class="math inline">\(&gt;\)</span> value is used to specify the number of digits to be used when printing the information to the specified output file, overriding the default settings for this printer type.</p>
@@ -3575,15 +3632,23 @@ stocknames           &lt;vector of the names of the stocks&gt;</code></pre>
 <p>The optional flag <span class="math inline">\(&lt;\)</span>printatstart<span class="math inline">\(&gt;\)</span> is used to specify whether the information about the stock should be printed at the start or the end of the timestep. If this is set to 1, then the stock information as it is at the start of the timestep is printed, before any other calculation has taken place (see appendix <a href="#chap:order" reference-type="ref" reference="chap:order">15</a> for more information on the order of the calculations). The default value for <span class="math inline">\(&lt;\)</span>printatstart<span class="math inline">\(&gt;\)</span> is 0, which means that the information at the end of the timestep is printed, and is used whenever the flag is not specified in the input file.</p>
 
 <p>The output that is generated from this printer type is a file containing the following information for all the stocks specified on the <span class="math inline">\(&lt;\)</span>stocknames<span class="math inline">\(&gt;\)</span> line:</p>
-
-<p>year-step-area-age-length-number-weight</p>
+<pre><code>year-step-area-age-length-number-weight</code></pre>
 <p>where: <span class="math inline">\(&lt;\)</span>area<span class="math inline">\(&gt;\)</span> is the label for the area from the area aggregation file <span class="math inline">\(&lt;\)</span>age<span class="math inline">\(&gt;\)</span> is the label for the age group from the age aggregation file <span class="math inline">\(&lt;\)</span>length<span class="math inline">\(&gt;\)</span> is the label for the length group from the length aggregation file <span class="math inline">\(&lt;\)</span>number<span class="math inline">\(&gt;\)</span> is the population for that timestep/area/age/length combination <span class="math inline">\(&lt;\)</span>weight<span class="math inline">\(&gt;\)</span> is the mean weight for that timestep/area/age/length combination</p>
 </div>
 <div id="sec:predatorprinter" class="section level2">
 <h2>PredatorPrinter</h2>
 <p>The printer type to output information about predation, with the information aggregated into a convenient grouping, is called “PredatorPrinter”. This printer type is defined by specifying the predators, preys, areas, length groups and timesteps of interest. The file format for this component is given below:</p>
-
-<p>[component] type predatorprinter predatornames <vector of the names of the predators> preynames <vector of the names of the preys> areaaggfile <area aggregation file specifying areas> predlenaggfile <length aggregation file specifying predator lengths> preylenaggfile <length aggregation file specifying prey lengths> biomass &lt;0 or 1&gt; ; 1 to print biomass consumed printfile <name for the output file to be created> precision <precision to be used in the output file> yearsandsteps <ActionAtTime to determine when to print></p>
+<pre><code>[component]
+type                 predatorprinter
+predatornames        &lt;vector of the names of the predators&gt;
+preynames            &lt;vector of the names of the preys&gt;
+areaaggfile          &lt;area aggregation file specifying areas&gt;
+predlenaggfile       &lt;length aggregation file specifying predator lengths&gt;
+preylenaggfile       &lt;length aggregation file specifying prey lengths&gt;
+biomass              &lt;0 or 1&gt; ; 1 to print biomass consumed
+printfile            &lt;name for the output file to be created&gt;
+precision            &lt;precision to be used in the output file&gt;
+yearsandsteps        &lt;ActionAtTime to determine when to print&gt;</code></pre>
 <p>Note that this printer type can aggregate more than one predator into a combined pseudo predator, and more than one prey into a pseudo prey, for the output file.</p>
 
 <p>The optional flag <span class="math inline">\(&lt;\)</span>biomass<span class="math inline">\(&gt;\)</span> is used to specify whether the information about the consumption of the preys by the predators is printed by biomass consumed or by number consumed. If this is set to 1 then information about the consumption is printed by biomass consumed. If this is set to 0 then this information is printed by number consumed. The default value for <span class="math inline">\(&lt;\)</span>biomass<span class="math inline">\(&gt;\)</span> is 1, which means that the consumption by biomass will be printed if this flag is not specified in the input file.</p>
@@ -3591,83 +3656,110 @@ stocknames           &lt;vector of the names of the stocks&gt;</code></pre>
 <p>The optional <span class="math inline">\(&lt;\)</span>precision<span class="math inline">\(&gt;\)</span> value is used to specify the number of digits to be used when printing the information to the specified output file, overriding the default settings for this printer type.</p>
 
 <p>The output that is generated from this printer type is a file containing the following predation information for all the predators specified on the <span class="math inline">\(&lt;\)</span>predatornames<span class="math inline">\(&gt;\)</span> line, consuming all the preys specified on the <span class="math inline">\(&lt;\)</span>preynames<span class="math inline">\(&gt;\)</span> line:</p>
-
-<p>year-step-area-pred-prey-amount</p>
+<pre><code>year-step-area-pred-prey-amount</code></pre>
 <p>where: <span class="math inline">\(&lt;\)</span>area<span class="math inline">\(&gt;\)</span> is the label for the area from the area aggregation file <span class="math inline">\(&lt;\)</span>pred<span class="math inline">\(&gt;\)</span> is the label for the predator length group from the length aggregation file <span class="math inline">\(&lt;\)</span>prey<span class="math inline">\(&gt;\)</span> is the label for the prey length group from the length aggregation file <span class="math inline">\(&lt;\)</span>amount<span class="math inline">\(&gt;\)</span> is the biomass (or number) consumed for that timestep/area/predator length/prey length combination, depending on the value of the <span class="math inline">\(&lt;\)</span>biomass<span class="math inline">\(&gt;\)</span> flag in the input file</p>
 </div>
 <div id="sec:predatoroverprinter" class="section level2">
 <h2>PredatorOverPrinter</h2>
 <p>The printer type to output information about predator over consumption (where a predator has failed to eat the required amount of prey since the prey is not available), with the information aggregated into a convenient grouping, is called “PredatorOverPrinter”. This printer type is defined by specifying the predators, areas, length groups and timesteps of interest. The file format for this component is given below:</p>
-
-<p>[component] type predatoroverprinter predatornames <vector of the names of the predators> areaaggfile <area aggregation file specifying areas> lenaggfile <length aggregation file specifying lengths> printfile <name for the output file to be created> precision <precision to be used in the output file> yearsandsteps <ActionAtTime to determine when to print></p>
+<pre><code>[component]
+type                 predatoroverprinter
+predatornames        &lt;vector of the names of the predators&gt;
+areaaggfile          &lt;area aggregation file specifying areas&gt;
+lenaggfile           &lt;length aggregation file specifying lengths&gt;
+printfile            &lt;name for the output file to be created&gt;
+precision            &lt;precision to be used in the output file&gt;
+yearsandsteps        &lt;ActionAtTime to determine when to print&gt;</code></pre>
 <p>Note that this printer type can aggregate more than one predator into a combined pseudo predator for the output file.</p>
 
 <p>The optional <span class="math inline">\(&lt;\)</span>precision<span class="math inline">\(&gt;\)</span> value is used to specify the number of digits to be used when printing the information to the specified output file, overriding the default settings for this printer type.</p>
 
 <p>The output that is generated from this printer type is a file containing the following over-consumption information for all the predators specified on the <span class="math inline">\(&lt;\)</span>predatornames<span class="math inline">\(&gt;\)</span> line:</p>
-
-<p>year-step-area-length-biomass</p>
+<pre><code>year-step-area-length-biomass</code></pre>
 <p>where: <span class="math inline">\(&lt;\)</span>area<span class="math inline">\(&gt;\)</span> is the label for the area from the area aggregation file <span class="math inline">\(&lt;\)</span>length<span class="math inline">\(&gt;\)</span> is the label for the length group from the length aggregation file <span class="math inline">\(&lt;\)</span>biomass<span class="math inline">\(&gt;\)</span> is the biomass that the predator failed to consume for that timestep/area/length combination</p>
 </div>
 <div id="sec:preyoverprinter" class="section level2">
 <h2>PreyOverPrinter</h2>
 <p>The printer type to output information about prey over consumption (where there has been insufficient prey for a predator to consume), with the information aggregated into a convenient grouping, is called “PreyOverPrinter”. This printer type is the inverse of the PredatorOverPrinter printer type, in that it gives the same information, but from the point of view of the preys, not the predators. This printer type is defined by specifying the preys, areas, length groups and timesteps of interest. The file format for this component is given below:</p>
-
-<p>[component] type preyoverprinter preynames <vector of the names of the preys> areaaggfile <area aggregation file specifying areas> lenaggfile <length aggregation file specifying lengths> printfile <name for the output file to be created> precision <precision to be used in the output file> yearsandsteps <ActionAtTime to determine when to print></p>
+<pre><code>[component]
+type                 preyoverprinter
+preynames            &lt;vector of the names of the preys&gt;
+areaaggfile          &lt;area aggregation file specifying areas&gt;
+lenaggfile           &lt;length aggregation file specifying lengths&gt;
+printfile            &lt;name for the output file to be created&gt;
+precision            &lt;precision to be used in the output file&gt;
+yearsandsteps        &lt;ActionAtTime to determine when to print&gt;</code></pre>
 <p>Note that this printer type can aggregate more than one prey into a combined pseudo prey for the output file.</p>
 
 <p>The optional <span class="math inline">\(&lt;\)</span>precision<span class="math inline">\(&gt;\)</span> value is used to specify the number of digits to be used when printing the information to the specified output file, overriding the default settings for this printer type.</p>
 
 <p>The output that is generated from this printer type is a file containing the following over-consumption information for all the preys specified on the <span class="math inline">\(&lt;\)</span>preynames<span class="math inline">\(&gt;\)</span> line:</p>
-
-<p>year-step-area-length-biomass</p>
+<pre><code>year-step-area-length-biomass</code></pre>
 <p>where: <span class="math inline">\(&lt;\)</span>area<span class="math inline">\(&gt;\)</span> is the label for the area from the area aggregation file <span class="math inline">\(&lt;\)</span>length<span class="math inline">\(&gt;\)</span> is the label for the length group from the length aggregation file <span class="math inline">\(&lt;\)</span>biomass<span class="math inline">\(&gt;\)</span> is the biomass of the prey that was unavailable, for that timestep/area/length combination</p>
 </div>
 <div id="sec:stockpreyfullprinter" class="section level2">
 <h2>StockPreyFullPrinter</h2>
 <p>The printer type to output detailed information about a prey is called “StockPreyFullPrinter”. This printer type is defined by specifying the prey and timesteps of interest. The file format for this component is given below:</p>
-
-<p>[component] type stockpreyfullprinter preyname <name of the prey> printfile <name for the output file to be created> precision <precision to be used in the output file> yearsandsteps <ActionAtTime to determine when to print></p>
+<pre><code>[component]
+type                 stockpreyfullprinter
+preyname             &lt;name of the prey&gt;
+printfile            &lt;name for the output file to be created&gt;
+precision            &lt;precision to be used in the output file&gt;
+yearsandsteps        &lt;ActionAtTime to determine when to print&gt;</code></pre>
 <p>The optional <span class="math inline">\(&lt;\)</span>precision<span class="math inline">\(&gt;\)</span> value is used to specify the number of digits to be used when printing the information to the specified output file, overriding the default settings for this printer type.</p>
 
 <p>The output that is generated from this printer type is a file containing the following information for the prey specified on the <span class="math inline">\(&lt;\)</span>preyname<span class="math inline">\(&gt;\)</span> line:</p>
-
-<p>year-step-area-age-length-number-biomass</p>
+<pre><code>year-step-area-age-length-number-biomass</code></pre>
 <p>where: <span class="math inline">\(&lt;\)</span>number<span class="math inline">\(&gt;\)</span> is the total population consumed for that timestep/area/age/length combination <span class="math inline">\(&lt;\)</span>biomass<span class="math inline">\(&gt;\)</span> is the total biomass consumed for that timestep/area/age/length combination</p>
 </div>
 <div id="sec:stockpreyprinter" class="section level2">
 <h2>StockPreyPrinter</h2>
 <p>The printer type to output information about (one or more) preys, with the information aggregated into a convenient grouping, is called “StockPreyPrinter”. This printer type is defined by specifying the preys, areas, age groups, length groups and timesteps of interest. The file format for this component is given below:</p>
-
-<p>[component] type stockpreyprinter preynames <vector of the names of the preys> printfile <name for the output file to be created> areaaggfile <area aggregation file specifying areas> ageaggfile <age aggregation file specifying ages> lenaggfile <length aggregation file specifying lengths> precision <precision to be used in the output file> yearsandsteps <ActionAtTime to determine when to print></p>
+<pre><code>[component]
+type                 stockpreyprinter
+preynames            &lt;vector of the names of the preys&gt;
+printfile            &lt;name for the output file to be created&gt;
+areaaggfile          &lt;area aggregation file specifying areas&gt;
+ageaggfile           &lt;age aggregation file specifying ages&gt;
+lenaggfile           &lt;length aggregation file specifying lengths&gt;
+precision            &lt;precision to be used in the output file&gt;
+yearsandsteps        &lt;ActionAtTime to determine when to print&gt;</code></pre>
 <p>Note that this printer type can aggregate more than one prey into a combined pseudo prey for the output file.</p>
 
 <p>The optional <span class="math inline">\(&lt;\)</span>precision<span class="math inline">\(&gt;\)</span> value is used to specify the number of digits to be used when printing the information to the specified output file, overriding the default settings for this printer type.</p>
 
 <p>The output that is generated from this printer type is a file containing the following information for all the preys specified on the <span class="math inline">\(&lt;\)</span>preynames<span class="math inline">\(&gt;\)</span> line:</p>
-
-<p>year-step-area-age-length-number-biomass</p>
+<pre><code>year-step-area-age-length-number-biomass</code></pre>
 <p>where: <span class="math inline">\(&lt;\)</span>area<span class="math inline">\(&gt;\)</span> is the label for the area from the area aggregation file <span class="math inline">\(&lt;\)</span>age<span class="math inline">\(&gt;\)</span> is the label for the age group from the age aggregation file <span class="math inline">\(&lt;\)</span>length<span class="math inline">\(&gt;\)</span> is the label for the length group from the length aggregation file <span class="math inline">\(&lt;\)</span>number<span class="math inline">\(&gt;\)</span> is the total population consumed for that timestep/area/age/length combination <span class="math inline">\(&lt;\)</span>biomass<span class="math inline">\(&gt;\)</span> is the total biomass consumed for that timestep/area/age/length combination</p>
 </div>
 <div id="sec:predatorpreyprinter" class="section level2">
 <h2>PredatorPreyPrinter</h2>
 <p>The printer type to output detailed information about predator-prey combinations, with the information aggregated into a convenient grouping, is called “PredatorPreyPrinter”. This printer type is defined by specifying the predators, preys, areas, age groups, length groups and timesteps of interest. The file format for this component is given below:</p>
-
-<p>[component] type predatorpreyprinter predatornames <vector of the names of the predators> preynames <vector of the names of the preys> areaaggfile <area aggregation file specifying areas> ageaggfile <age aggregation file specifying prey ages> lenaggfile <length aggregation file specifying prey lengths> printfile <name for the output file to be created> precision <precision to be used in the output file> yearsandsteps <ActionAtTime to determine when to print></p>
+<pre><code>[component]
+type                 predatorpreyprinter
+predatornames        &lt;vector of the names of the predators&gt;
+preynames            &lt;vector of the names of the preys&gt;
+areaaggfile          &lt;area aggregation file specifying areas&gt;
+ageaggfile           &lt;age aggregation file specifying prey ages&gt;
+lenaggfile           &lt;length aggregation file specifying prey lengths&gt;
+printfile            &lt;name for the output file to be created&gt;
+precision            &lt;precision to be used in the output file&gt;
+yearsandsteps        &lt;ActionAtTime to determine when to print&gt;</code></pre>
 <p>Note that this printer type can aggregate more than one predator into a combined pseudo predator, and more than one prey into a pseudo prey, for the output file.</p>
 
 <p>The optional <span class="math inline">\(&lt;\)</span>precision<span class="math inline">\(&gt;\)</span> value is used to specify the number of digits to be used when printing the information to the specified output file, overriding the default settings for this printer type.</p>
 
 <p>The output that is generated from this printer type is a file containing the following predation information for all the predators specified on the <span class="math inline">\(&lt;\)</span>predatornames<span class="math inline">\(&gt;\)</span> line, consuming all the preys specified on the <span class="math inline">\(&lt;\)</span>preynames<span class="math inline">\(&gt;\)</span> line:</p>
-
-<p>year-step-area-age-length-number-biomass-mortality</p>
+<pre><code>year-step-area-age-length-number-biomass-mortality</code></pre>
 <p>where: <span class="math inline">\(&lt;\)</span>age<span class="math inline">\(&gt;\)</span> is the label for the prey age group from the age aggregation file <span class="math inline">\(&lt;\)</span>length<span class="math inline">\(&gt;\)</span> is the label for the prey length group from the length aggregation file <span class="math inline">\(&lt;\)</span>number<span class="math inline">\(&gt;\)</span> is the number consumed for that timestep/area/age/length combination <span class="math inline">\(&lt;\)</span>biomass<span class="math inline">\(&gt;\)</span> is the biomass consumed for that timestep/area/age/length combination <span class="math inline">\(&lt;\)</span>mortality<span class="math inline">\(&gt;\)</span> is the effective annual mortality induced in the prey by the predation for that timestep/area/age/length combination</p>
 </div>
 <div id="sec:likelihoodprinter" class="section level2">
 <h2>LikelihoodPrinter</h2>
 <p>The printer type to output detailed information about a likelihood component is called “LikelihoodPrinter”. This printer type is defined by specifying the likelihood component and timesteps of interest. The file format for this component is given below:</p>
-
-<p>[component] type likelihoodprinter likelihood <name of the likelihood component> printfile <name for the output file to be created></p>
+<pre><code>[component]
+type                 likelihoodprinter
+likelihood           &lt;name of the likelihood component&gt;
+printfile            &lt;name for the output file to be created&gt;</code></pre>
 <p>The output that is generated from this printer type is a file containing the internal model information for the likelihood component specified on the <span class="math inline">\(&lt;\)</span>likelihood<span class="math inline">\(&gt;\)</span> line, in the same format as the data in the input file for that component, allowing the user to easily compare the modelled data to the input data. The exact format of this output file will vary according to the likelihood component chosen. Some examples of output are:</p>
 <ol style="list-style-type: decimal">
 <li><p>CatchDistribution likelihood component (see section <a href="#sec:catchdist" reference-type="ref" reference="sec:catchdist">8.3</a>)</p>
@@ -3681,33 +3773,30 @@ stocknames           &lt;vector of the names of the stocks&gt;</code></pre>
 <div id="sec:likelihoodsummaryprinter" class="section level2">
 <h2>LikelihoodSummaryPrinter</h2>
 <p>The printer type to output summary information about all the likelihood components that are in use for the current simulation is called “LikelihoodSummaryPrinter”. The file format for this component is given below:</p>
-
-<p>[component] type likelihoodsummaryprinter printfile <name for the output file to be created></p>
+<pre><code>[component]
+type                 likelihoodsummaryprinter
+printfile            &lt;name for the output file to be created&gt;</code></pre>
 <p>The output that is generated from this printer type is a file containing summary information for all the likelihood components that have been defined for the current simulation:</p>
-
-<p>year-step-area-component-weight-score</p>
+<pre><code>year-step-area-component-weight-score</code></pre>
 <p>where: <span class="math inline">\(&lt;\)</span>component<span class="math inline">\(&gt;\)</span> is the name of the likelihood component <span class="math inline">\(&lt;\)</span>weight<span class="math inline">\(&gt;\)</span> is the weight of the likelihood component <span class="math inline">\(&lt;\)</span>score<span class="math inline">\(&gt;\)</span> is the score from the likelihood component for that timestep/area combination</p>
 </div>
 </div>
 <div id="chap:param" class="section level1">
 <h1>Parameter File</h1>
 <p>The parameter file is used to specify the initial values for the switches that are to be used in the Gadget model (see What Does The # Mean?, section <a href="#sec:whatdoeshash" reference-type="ref" reference="sec:whatdoeshash">2.2</a>). This file is specified by a “-i <span class="math inline">\(&lt;\)</span>filename<span class="math inline">\(&gt;\)</span>” command line option when Gadget is started, for example, this would take the parameter information from a file called “inputfile.txt”:</p>
-
-<p>gadget -s -i inputfile.txt</p>
+<pre><code>gadget -s -i inputfile.txt</code></pre>
 <p>This file contains a list of all the switches, their initial value, the lower and upper bounds and a flag to note whether the optimiser should optimise that switch or not. The first line of this file must contain the column headings, and then subsequent lines should list all switches that are used. An example of this file format is shown below:</p>
-
-<p>switch value lower upper optimise <name> <value> <lower> <upper> &lt;0 or 1&gt; ; 1 to optimise this parameter</p>
+<pre><code>switch  value    lower    upper    optimise
+&lt;name&gt;  &lt;value&gt;  &lt;lower&gt;  &lt;upper&gt;  &lt;0 or 1&gt; ; 1 to optimise this parameter</code></pre>
 <p>Note that if Gadget is performing a simulation run, then the “optimise” column is still required, although the value of the optimise flag will have no affect on the outcome of the simulation.</p>
 
 <p>In some cases an initial value for a parameter is not known, or a random starting point is wanted (for example, to ensure that the value of the starting point has little affect on the outcome of the optimisation). This is done by specifying the keyword “random” instead of an initial value, which will ensure that Gadget will set the initial value for that parameter to a random point within the bounds. This is shown in the example below, where the initial value for the parameter “age2” will be set to a random point between 1 and 10:</p>
-
-<p>age2 random 1 10 1 ; random value between 1 and 10</p>
+<pre><code>age2    random   1        10       1 ; random value between 1 and 10</code></pre>
 </div>
 <div id="chap:optim" class="section level1">
 <h1>Optimisation File</h1>
 <p>The optimisation file is used to specify the type of optimisation to be used, along with any parameters that are needed for the optimisation algorithm. This file is specified by a “-opt <span class="math inline">\(&lt;\)</span>filename<span class="math inline">\(&gt;\)</span>” command line option when Gadget is started, for example, this would take the optimisation information from a file called “optinfo.txt”:</p>
-
-<p>gadget -l -opt optinfo.txt</p>
+<pre><code>gadget -l -opt optinfo.txt</code></pre>
 <p>There are three types of optimisation algorithms currently implemented in Gadget - these are one based on the Hooke &amp; Jeeves algorithm, one based on the Simulated Annealing algorithm and one based on the Broyden-Fletcher-Goldfarb-Shanno (“BFGS”) algorithm. These algorithms are described in more detail in the following sections. Gadget can also combine two or more of these algorithms into a single hybrid algorithm, that should result in a more efficient search for an optimum solution.</p>
 
 <p>All the optimisation techniques used by Gadget attempt to minimise the likelihood function. That is, they look for the best set of parameters to run the model with, in order to get the best fit according to the likelihood functions you have specified. Thus, the optimiser is attempting to minimize a single one-dimensional measure of fit between the model output and the data, which can lead to unexpected results.</p>
@@ -3726,8 +3815,11 @@ stocknames           &lt;vector of the names of the stocks&gt;</code></pre>
 <div id="subsec:hookefile" class="section level3">
 <h3>File Format</h3>
 <p>To specify the Hooke &amp; Jeeves algorithm, the optimisation file should start with the keyword “<span class="math display">\[hooke\]</span>”, followed by (up to) 4 lines giving the parameters for the optimisation algorithm. Any parameters that are not specified in the file are given default values, which work reasonably well for simple Gadget models. The format for this file, and the default values for the optimisation parameters, are shown below:</p>
-
-<p>[hooke] hookeiter 1000 ; number of hooke &amp; jeeves iterations hookeeps 1e-04 ; minimum epsilon, hooke &amp; jeeves halt criteria rho 0.5 ; step length adjustment factor lambda 0 ; initial value for the step length</p>
+<pre><code>[hooke]
+hookeiter  1000  ; number of hooke &amp; jeeves iterations
+hookeeps   1e-04 ; minimum epsilon, hooke &amp; jeeves halt criteria
+rho        0.5   ; step length adjustment factor
+lambda     0     ; initial value for the step length</code></pre>
 </div>
 <div id="subsec:hookepar" class="section level3">
 <h3>Parameters</h3>
@@ -3779,8 +3871,18 @@ P &amp; = &amp;
 <div id="subsec:simannfile" class="section level3">
 <h3>File Format</h3>
 <p>To specify the Simulated Annealing algorithm, the optimisation file should start with the keyword “<span class="math display">\[simann\]</span>”, followed by (up to) 11 lines giving the parameters for the optimisation algorithm. Any parameters that are not specified in the file are given default values, which work reasonably well for simple Gadget models. The format for this file, and the default values for the optimisation parameters, are shown below:</p>
-
-<p>[simann] simanniter 2000 ; number of simulated annealing iterations simanneps 1e-04 ; minimum epsilon, simann halt criteria t 100 ; simulated annealing initial temperature rt 0.85 ; temperature reduction factor nt 2 ; number of loops before temperature adjusted ns 5 ; number of loops before step length adjusted vm 1 ; initial value for the maximum step length cstep 2 ; step length adjustment factor lratio 0.3 ; lower limit for ratio when adjusting step length uratio 0.7 ; upper limit for ratio when adjusting step length check 4 ; number of temperature loops to check</p>
+<pre><code>[simann]
+simanniter 2000  ; number of simulated annealing iterations
+simanneps  1e-04 ; minimum epsilon, simann halt criteria
+t          100   ; simulated annealing initial temperature
+rt         0.85  ; temperature reduction factor
+nt         2     ; number of loops before temperature adjusted
+ns         5     ; number of loops before step length adjusted
+vm         1     ; initial value for the maximum step length
+cstep      2     ; step length adjustment factor
+lratio     0.3   ; lower limit for ratio when adjusting step length
+uratio     0.7   ; upper limit for ratio when adjusting step length
+check      4     ; number of temperature loops to check</code></pre>
 </div>
 <div id="subsec:simannpar" class="section level3">
 <h3>Parameters</h3>
@@ -3856,8 +3958,14 @@ f(x) - f(x + \beta^{n}d) \geq - \sigma \beta^{n}d \nabla f(x) ^{T}\]</span></p>
 <div id="subsec:bfgsfile" class="section level3">
 <h3>File Format</h3>
 <p>To specify the BFGS algorithm, the optimisation file should start with the keyword “<span class="math display">\[bfgs\]</span>”, followed by (up to) 7 lines giving the parameters for the optimisation algorithm. Any parameters that are not specified in the file are given default values, which work reasonably well for simple Gadget models. The format for this file, and the default values for the optimisation parameters, are shown below:</p>
-
-<p><a href="#sec:bfgs">bfgs</a> bfgsiter 10000 ; number of bfgs iterations bfgseps 0.01 ; minimum epsilon, bfgs halt criteria sigma 0.01 ; armijo convergence criteria beta 0.3 ; armijo adjustment factor gradacc 1e-06 ; initial value for gradient accuracy gradstep 0.5 ; gradient accuracy adjustment factor gradeps 1e-10 ; minimum value for gradient accuracy</p>
+<pre><code>[bfgs]
+bfgsiter   10000 ; number of bfgs iterations
+bfgseps    0.01  ; minimum epsilon, bfgs halt criteria
+sigma      0.01  ; armijo convergence criteria
+beta       0.3   ; armijo adjustment factor
+gradacc    1e-06 ; initial value for gradient accuracy
+gradstep   0.5   ; gradient accuracy adjustment factor
+gradeps    1e-10 ; minimum value for gradient accuracy</code></pre>
 </div>
 <div id="subsec:bfgspar" class="section level3">
 <h3>Parameters</h3>
@@ -3899,8 +4007,31 @@ f(x) - f(x + \beta^{n}d) \geq - \sigma \beta^{n}d \nabla f(x) ^{T}\]</span></p>
 <div id="subsec:combinefile" class="section level3">
 <h3>File Format</h3>
 <p>To specify a combination of optimisation algorithms, the optimisation file should simply list the algorithms that should be used, along with the parameters for each optimisation algorithm. Any parameters that are not specified in the file are given default values, which work reasonably well for simple Gadget models. As an example, the format for this file used to specify all three optimisation algorithms, and the default values for the optimisation parameters, is shown below:</p>
-
-<p>[simann] simanniter 2000 ; number of simulated annealing iterations simanneps 1e-04 ; minimum epsilon, simann halt criteria t 100 ; simulated annealing initial temperature rt 0.85 ; temperature reduction factor nt 2 ; number of loops before temperature adjusted ns 5 ; number of loops before step length adjusted vm 1 ; initial value for the maximum step length cstep 2 ; step length adjustment factor lratio 0.3 ; lower limit for ratio when adjusting step length uratio 0.7 ; upper limit for ratio when adjusting step length check 4 ; number of temperature loops to check [hooke] hookeiter 1000 ; number of hooke &amp; jeeves iterations hookeeps 1e-04 ; minimum epsilon, hooke &amp; jeeves halt criteria rho 0.5 ; step length adjustment factor lambda 0 ; initial value for the step length <a href="#sec:bfgs">bfgs</a> bfgsiter 10000 ; number of bfgs iterations bfgseps 0.01 ; minimum epsilon, bfgs halt criteria sigma 0.01 ; armijo convergence criteria beta 0.3 ; armijo adjustment factor gradacc 1e-06 ; initial value for gradient accuracy gradstep 0.5 ; gradient accuracy adjustment factor gradeps 1e-10 ; minimum value for gradient accuracy</p>
+<pre><code>[simann]
+simanniter 2000  ; number of simulated annealing iterations
+simanneps  1e-04 ; minimum epsilon, simann halt criteria
+t          100   ; simulated annealing initial temperature
+rt         0.85  ; temperature reduction factor
+nt         2     ; number of loops before temperature adjusted
+ns         5     ; number of loops before step length adjusted
+vm         1     ; initial value for the maximum step length
+cstep      2     ; step length adjustment factor
+lratio     0.3   ; lower limit for ratio when adjusting step length
+uratio     0.7   ; upper limit for ratio when adjusting step length
+check      4     ; number of temperature loops to check
+[hooke]
+hookeiter  1000  ; number of hooke &amp; jeeves iterations
+hookeeps   1e-04 ; minimum epsilon, hooke &amp; jeeves halt criteria
+rho        0.5   ; step length adjustment factor
+lambda     0     ; initial value for the step length
+[bfgs]
+bfgsiter   10000 ; number of bfgs iterations
+bfgseps    0.01  ; minimum epsilon, bfgs halt criteria
+sigma      0.01  ; armijo convergence criteria
+beta       0.3   ; armijo adjustment factor
+gradacc    1e-06 ; initial value for gradient accuracy
+gradstep   0.5   ; gradient accuracy adjustment factor
+gradeps    1e-10 ; minimum value for gradient accuracy</code></pre>
 <p>It should be noted that the optimisation algorithms will be performed in the order that they are specified in the input file, so for this example the order will be: first Simulated Annealing, second Hooke &amp; Jeeves and finally BFGS.</p>
 </div>
 <div id="subsec:combinepar" class="section level3">
@@ -3913,8 +4044,7 @@ f(x) - f(x + \beta^{n}d) \geq - \sigma \beta^{n}d \nabla f(x) ^{T}\]</span></p>
 <p>The optimisation algorithms used by Gadget contain a random number generator, used to randomise the order of the parameters (to ensure that the order of the parameters has no effect on the optimum found) and to generate the initial direction chosen by the algorithm to look for a solution. For the Simulated Annealing algorithm, this is also affects the Metropolis criteria used to accept any changes in an ‘uphill’ direction.</p>
 
 <p>The use of a random number generator means that it is unlikely that two optimising runs will produce exactly the same ‘optimum’, even if they start from the same point (although it is hoped that the optima would be very similar if a stable starting point was chosen). This causes a problem with repeatability, since there is no guarantee that an optimising run can be repeated. However, it is possible to ‘seed’ the random number generator with an integer to avoid this problem. To specify a seed for the random number generator, an extra line must be added to the optimisation file, as shown below:</p>
-
-<p>seed n ; seed the random number generator with n</p>
+<pre><code>seed       n     ; seed the random number generator with n</code></pre>
 <p>It is also possible to specify the value that is used to seed the random number generator from the command line, by starting Gadget with the “-seed &lt;number&gt;” switch. It should be noted that any value for the seed that is specified in the optimisation file will override the value that is specified as a command line option.</p>
 </div>
 </div>
@@ -3930,8 +4060,7 @@ f(x) - f(x + \beta^{n}d) \geq - \sigma \beta^{n}d \nabla f(x) ^{T}\]</span></p>
 <div id="sec:likelihoodoutput" class="section level2">
 <h2>Likelihood Output</h2>
 <p>The likelihood output file is generated when Gadget is started with the “-o <span class="math inline">\(&lt;\)</span>filename<span class="math inline">\(&gt;\)</span>” option, and the output is written to the file specified after that option, so, for example, this would write the output to a file called “likelihood.txt”:</p>
-
-<p>gadget -l -o likelihood.txt</p>
+<pre><code>gadget -l -o likelihood.txt</code></pre>
 <p>The likelihood output file is split into three sections, separated by a line containing a brief comment. The first section lists the names of the switches used in the model, together with some information about where that switch is used.</p>
 
 <p>The second part of the likelihood output file contains information about the likelihood components used in the optimisation of the model. The names of the components are listed, along with an identifier to the type and the weight assigned to the component.</p>
@@ -3939,15 +4068,13 @@ f(x) - f(x + \beta^{n}d) \geq - \sigma \beta^{n}d \nabla f(x) ^{T}\]</span></p>
 <p>The final part of the likelihood output file contains the output from the optimisation process. There is a single line for each iteration of the optimisation, containing the iteration number followed by a tab character, then the value of each switch, followed by a gap (2 tab characters), followed by the value of each of the likelihood components, followed by another gap (again, 2 tab characters) followed by the overall likelihood score for that iteration.</p>
 
 <p>For a long optimisation run, this can result in this file being quite large. The default option is for this line to be written for each iteration, but this can be changed using the “-print <span class="math inline">\(&lt;\)</span>number<span class="math inline">\(&gt;\)</span>” option, which will only write out this line every <span class="math inline">\(&lt;\)</span>number<span class="math inline">\(&gt;\)</span> iterations, as shown in the example below:</p>
-
-<p>gadget -l -o likelihood.txt -print 10</p>
+<pre><code>gadget -l -o likelihood.txt -print 10</code></pre>
 <p>which will set Gadget to write this information, to the file “likelihood.txt”, after every 10th iteration.</p>
 </div>
 <div id="sec:logoutput" class="section level2">
 <h2>Log Output</h2>
 <p>The log output file is generated when Gadget is started with the “-log <span class="math inline">\(&lt;\)</span>filename<span class="math inline">\(&gt;\)</span>” option, and the output is written to the file specified after that option, so, for example, this would write the output to a file called “gadget.log”:</p>
-
-<p>gadget -log gadget.log</p>
+<pre><code>gadget -log gadget.log</code></pre>
 <p>The log file contains a listing of the actions that Gadget is performing, as those actions are being performed - an entry can be made whenever data is read from a file, or a likelihood score is calculated, for example. The log file is of most use when initially setting up and debugging a Gadget model, since it makes it easy to trace what Gadget is doing, so, for example, the details of the last actions that were performed before displayed a warning message are recorded.</p>
 
 <p>This log file that is generated can be a large file if Gadget is performing an optimising run. It is possible to control the amount of information that is written to the log file using the “-loglevel <span class="math inline">\(&lt;\)</span>number<span class="math inline">\(&gt;\)</span>” command line option. The valid values for the loglevel number, and the associated meanings, are given in the list below:</p>
@@ -4005,20 +4132,21 @@ f(x) - f(x + \beta^{n}d) \geq - \sigma \beta^{n}d \nabla f(x) ^{T}\]</span></p>
 <div id="sec:paramininstall" class="section level2">
 <h2>Installation</h2>
 <p>In order to begin one must first download and install a version of MPI. This version of paramin is made with an implementation of MPI-2 called OPEN-MPI, one can download the MPI library and a wrapper compiler called mpic++ from their website www.open-mpi.org. Now before trying to run paramin make sure you have the newest version of Gadget downloaded. Now open the Makefile with a text-editor and uncomment the section referring to a Gadget Network version and comment out the lines which refer to an install without MPI. Now you should open a console window and navigate to the folder where you saved Gadget. Now you can simply type make in the console and the program should be compiled and you get an executable, let’s assume it’s called gadget-PARA. Now paramin is dependent on some Gadget objects, so you now need to type the following in the console:</p>
-
-<p>make libgadgetinput.a</p>
+<pre><code>make libgadgetinput.a</code></pre>
 <p>Now you are ready to start compiling paramin. Download the newest version of paramin and open the paramin folder in the console. You need to edit the Makefile and add the path to the directory where you installed Gadget as described above. Now you can run the make command to compile paramin and get an executable, let’s assume it’s called paramin.</p>
 </div>
 <div id="sec:runparamin" class="section level2">
 <h2>Running paramin</h2>
 <p>To be able to run paramin it’s ideal to add the path of the two executables, gadget-PARA and paramin to the global variable PATH. If you’re running a bash console you can edit the <code>.bashrc</code> to add it, you can also copy the executables to the directory of PATH, but you probably need root access to do that. Now you can call the functions from the console. Here is an example of a typical paramin run:</p>
-
-<p>mpirun paramin -i <filename> -opt <filename> -network <filename> -o <filename> -function gadget-PARA -s -n -i <filename> &gt; <filename></p>
+<pre><code>mpirun paramin -i &lt;filename&gt; -opt &lt;filename&gt; -network &lt;filename&gt; 
+    -o &lt;filename&gt; -function gadget-PARA -s -n -i &lt;filename&gt; &gt; &lt;filename&gt;</code></pre>
 <p>Now because paramin is implemented with MPI we need to call mpirun when we run it. Now there are several files we need to call and a few switches we need. The <code>-i &lt;filename&gt;</code> switch tells paramin which file holds the parameters and their initial values, this file is the same as the params.in file used in Gadget (see Parameter Files, chapter <a href="#chap:param" reference-type="ref" reference="chap:param">10</a>, for more information on the format of this file). The <code>-i</code> switch with the same <code>&lt;filename&gt;</code> has to be on Gadget as well.</p>
 <p>Next we need to specify the optimization parameters with the <code>-opt &lt;filename&gt;</code> switch, the preceding file contains the information of which type of optimization run to perform for more information see Parameter Files, chapter <a href="#chap:param" reference-type="ref" reference="chap:param">10</a>, it’s the same format as the optimization file for Gadget.</p>
 <p>The next switch tells paramin how many subprocesses paramin will spawn, this switch is not in Gadget. Note that having at least 8 subprocesses will greatly improve the time of the run, but there is no need to let the number of subprocesses exceed the number of parameters, optimally it should be best to have as many subprocesses as the number of parameters, but then one should have access to at least that many processing cores. A sample file which tells paramin to spawn 30 subprocesses looks like this:</p>
-
-<p>; ;Sample network file ; numproc 30</p>
+<pre><code>;
+;Sample network file
+;
+numproc    30</code></pre>
 <p>The <code>-o &lt;filename&gt;</code> switch specifies which file to output the optimized parameters. This file will also contain information about the optimization run, how much overall time was taken and how much time was taken for each optimizing algorithm. The format of this outputted file is the same as the one used as input, so the output can be used as a starting point for later runs.</p>
 <p>The <code>-function gadget-PARA</code> -switch tells paramin the name of the executable it will spawn as it’s subprocess, in this case it’s the gadget-PARA executable we made earlier. The user can also make his own function to optimize with paramin. Now Gadget also needs parameters, we pass to it the <code>-s</code> and <code>-n</code> switch to make it go to network mode, then Gadget knows it’s running with paramin. Finally we can add <code>&gt; &lt;filename&gt;</code> to specify a file for the output of the run, this is not necessary but recommended.</p>
 <div id="additional-information" class="section level3">
@@ -4030,13 +4158,8 @@ f(x) - f(x + \beta^{n}d) \geq - \sigma \beta^{n}d \nabla f(x) ^{T}\]</span></p>
 <div id="running-paramin-on-multiple-hostscluster" class="section level3">
 <h3>Running paramin on multiple hosts/cluster</h3>
 <p>As stated above when we run paramin in the console it has to be invoked with the <code>mpirun</code> command. The <code>mpirun</code> command can take some optional arguments. First of all it can take the argument <code>-np &lt;numproc&gt;</code> where numproc is the desired number of processes one wants to start. This argument is <strong>not</strong> necessary with paramin because we define the number of subprocesses in the network file and paramin spawns them dynamically. The next optional argument we will discuss is the <span class="math inline">\(-\)</span><span class="math inline">\(-\)</span><code>hostfile &lt;filename&gt;</code>. <code>&lt;filename&gt;</code> is a name of a file which holds the name of the hosts in the cluster and how many processors are available on each node. The authentication in the execution process is done via ssh, so public keys have to be shared to allow for remote login and execution between hosts. The programs desired to run in parallel have to be installed on each host for this to work. For more information see the FAQ entries on the OPEN-MPI webpage, there are more things that need to be taken into consideration. Here is an example hostfile from the open-mpi FAQ:</p>
-
-</div>
-</div>
-</div>
-<div id="this-is-an-example-hostfile.-comments-begin-with" class="section level1">
-<h1>This is an example hostfile. Comments begin with</h1>
-<pre><code>#
+<pre><code># This is an example hostfile.  Comments begin with #
+#
 # The following node is a single processor machine:
 comp1
 
@@ -4046,6 +4169,8 @@ comp2.dualcore slots=2
 # The following node is a quad-processor machine, and we absolutely
 # want to disallow over-subscribing it:
 comp3.quadcore slots=4 max-slots=4</code></pre>
+</div>
+</div>
 </div>
 <div id="chap:reference" class="section level1">
 <h1>References</h1>
