@@ -537,7 +537,7 @@ information the file will contain, and the name of the file is given by
 $<$filename$>$, relative to the directory in which the main file
 resides. Where zero or more files of a certain type could be used, the
 main file is divided into sections that are separated by a keyword in
-\[square brackets\]. The format for the main file is shown below:
+``[square brackets]``. The format for the main file is shown below:
 
     timefile            <name of the time file>
     areafile            <name of the area file>
@@ -1825,7 +1825,7 @@ matrix that is to be used on each timestep, as shown below:
 
 The migration matrix file contains the migration matrices to be used to
 move the stock between the various areas within the Gadget model. Each
-matrix is listed, starting with the keyword \[migrationmatrix\],
+matrix is listed, starting with the keyword ``[migrationmatrix]``,
 followed by the name of the migration matrix, and then the matrix to be
 used, as shown below:
 
@@ -1878,7 +1878,7 @@ the Migration Matrices, as shown above.
 The migration ratio file contains the ratios to be used by Gadget to
 construct the migration matrices to move the stock between the various
 areas within the Gadget model. Each matrix is listed, starting with the
-keyword \[migrationmatrix\], followed by the name of the migration
+keyword ``[migrationmatrix]``, followed by the name of the migration
 matrix, and then a list of the ratios to be used to construct the
 matrix, as shown below:
 
@@ -2547,7 +2547,7 @@ The main tag file lists the tagging experiments, along with basic
 information about the experiments and the name of the datafile that
 contains information about the number of fish tagged for the tagging
 experiment. The format for this file shown below, with each new tagging
-experiment starting with the keyword \[component\]:
+experiment starting with the keyword ``[component]``:
 
     [component]
     tagid                  <name of the tagging experiment>
@@ -2624,7 +2624,7 @@ The main otherfood file lists the otherfood, along with basic
 information about the food and the name of the datafile that contains
 information about the amount of food that is available for the predators
 to eat. The format for this file shown below, with each new otherfood
-starting with the keyword \[component\]:
+starting with the keyword ``[component]``:
 
     [component]
     foodname               <food name>
@@ -2676,7 +2676,7 @@ There are 5 types of fleets implemented in Gadget, and the main fleet
 file lists the fleets and their type, along with information about the
 fleet and the name of the datafile that contains information about the
 landings. The format for this file shown below, with each new fleet
-starting with the keyword \[component\]:
+starting with the keyword ``[component]``:
 
     [component]
     <type>                 <fleetname>
@@ -3039,7 +3039,7 @@ likelihoodfiles      <names of the likelihood files>
 ```
 
 The likelihood files contain a list of various type of likelihood
-classes, separated by the keyword \[component\] that control the
+classes, separated by the keyword ``[component]`` that control the
 different likelihood components in the model, the name and weight for
 that likelihood component and various likelihood data, depending in the
 likelihood component type. The format of the likelihood files is
@@ -4799,7 +4799,7 @@ classes required, and the format for this is shown below:
     printfiles           <names of the print files>
 
 The print files contain a list of various type of printer classes,
-separated by the keyword \[component\], that output different
+separated by the keyword ``[component]``, that output different
 information from the model, and the name of the file that the
 information is to be written to. All the output is written as a plain
 ASCII text file that can be viewed in any text editor. The format of the
@@ -5409,7 +5409,7 @@ will be used if no optimisation information file is specified.
 ### File Format {#subsec:hookefile}
 
 To specify the Hooke & Jeeves algorithm, the optimisation file should
-start with the keyword "\[hooke\]", followed by (up to) 4 lines giving
+start with the keyword ``[hooke]``, followed by (up to) 4 lines giving
 the parameters for the optimisation algorithm. Any parameters that are
 not specified in the file are given default values, which work
 reasonably well for simple Gadget models. The format for this file, and
@@ -5554,7 +5554,7 @@ Statistical Functions with Simulated Annealing" in the January/February
 ### File Format {#subsec:simannfile}
 
 To specify the Simulated Annealing algorithm, the optimisation file
-should start with the keyword "\[simann\]", followed by (up to) 11 lines
+should start with the keyword ``[simann]``, followed by (up to) 11 lines
 giving the parameters for the optimisation algorithm. Any parameters
 that are not specified in the file are given default values, which work
 reasonably well for simple Gadget models. The format for this file, and
@@ -5768,7 +5768,7 @@ SIAM).
 ### File Format {#subsec:bfgsfile}
 
 To specify the BFGS algorithm, the optimisation file should start with
-the keyword "\[bfgs\]", followed by (up to) 7 lines giving the
+the keyword ``[bfgs]``, followed by (up to) 7 lines giving the
 parameters for the optimisation algorithm. Any parameters that are not
 specified in the file are given default values, which work reasonably
 well for simple Gadget models. The format for this file, and the default

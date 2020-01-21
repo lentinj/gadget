@@ -1647,7 +1647,7 @@ gadget --help</code></pre>
 <h2>Main File</h2>
 <p>The main Gadget input file is usually called “main”, unless it is specified with the “-main <span class="math inline">\(&lt;\)</span>filename<span class="math inline">\(&gt;\)</span>” command line option. This file only contains links to other files which will make up the Gadget model. The format for this file is:</p>
 <pre><code>&lt;typeoffile&gt;        &lt;filename&gt;</code></pre>
-<p>where <span class="math inline">\(&lt;\)</span>typeoffile<span class="math inline">\(&gt;\)</span> is a keyword to tell Gadget what sort of information the file will contain, and the name of the file is given by <span class="math inline">\(&lt;\)</span>filename<span class="math inline">\(&gt;\)</span>, relative to the directory in which the main file resides. Where zero or more files of a certain type could be used, the main file is divided into sections that are separated by a keyword in <span class="math display">\[square brackets\]</span>. The format for the main file is shown below:</p>
+<p>where <span class="math inline">\(&lt;\)</span>typeoffile<span class="math inline">\(&gt;\)</span> is a keyword to tell Gadget what sort of information the file will contain, and the name of the file is given by <span class="math inline">\(&lt;\)</span>filename<span class="math inline">\(&gt;\)</span>, relative to the directory in which the main file resides. Where zero or more files of a certain type could be used, the main file is divided into sections that are separated by a keyword in <code>[square brackets]</code>. The format for the main file is shown below:</p>
 <pre><code>timefile            &lt;name of the time file&gt;
 areafile            &lt;name of the area file&gt;
 printfiles          &lt;names of the print files&gt;
@@ -2229,7 +2229,7 @@ yearstepfile           &lt;name of the migration timestep data file&gt;
 definematrices         &lt;name of the migration matrix data file&gt;</code></pre>
 <p>The migration timestep file contains a simple list of the timesteps that the migration will take place on, along with the name of the migration matrix that is to be used on each timestep, as shown below:</p>
 <pre><code>&lt;year&gt;  &lt;step&gt;  &lt;migration matrix&gt;</code></pre>
-<p>The migration matrix file contains the migration matrices to be used to move the stock between the various areas within the Gadget model. Each matrix is listed, starting with the keyword <span class="math display">\[migrationmatrix\]</span>, followed by the name of the migration matrix, and then the matrix to be used, as shown below:</p>
+<p>The migration matrix file contains the migration matrices to be used to move the stock between the various areas within the Gadget model. Each matrix is listed, starting with the keyword <code>[migrationmatrix]</code>, followed by the name of the migration matrix, and then the matrix to be used, as shown below:</p>
 <pre><code>[migrationmatrix]
 name   &lt;migration matrix&gt;
 &lt;migration matrix data&gt;</code></pre>
@@ -2250,7 +2250,7 @@ yearstepfile           &lt;name of the migration timestep data file&gt;
 defineratios           &lt;name of the migration ratio data file&gt;</code></pre>
 <p>The migration timestep file contains a list of the timesteps that the migration will take place on, along with the name of the migration matrix that is to be used on each timestep, in the same format as for the Migration Matrices, as shown above.</p>
 
-<p>The migration ratio file contains the ratios to be used by Gadget to construct the migration matrices to move the stock between the various areas within the Gadget model. Each matrix is listed, starting with the keyword <span class="math display">\[migrationmatrix\]</span>, followed by the name of the migration matrix, and then a list of the ratios to be used to construct the matrix, as shown below:</p>
+<p>The migration ratio file contains the ratios to be used by Gadget to construct the migration matrices to move the stock between the various areas within the Gadget model. Each matrix is listed, starting with the keyword <code>[migrationmatrix]</code>, followed by the name of the migration matrix, and then a list of the ratios to be used to construct the matrix, as shown below:</p>
 <pre><code>[migrationmatrix]
 name    &lt;migration matrix&gt;
 &lt;from&gt;  &lt;to&gt;    &lt;ratio&gt;</code></pre>
@@ -2531,7 +2531,7 @@ proportionfunction     &lt;see Length Selection&gt;</code></pre>
 <p>To define tagged populations in the Gadget model, the “main” file must contain a list of the data files that contain the description of the tagging experiments, and the format for this is shown below:</p>
 <pre><code>[tagging]
 tagfiles               &lt;names of the tag files&gt;</code></pre>
-<p>The main tag file lists the tagging experiments, along with basic information about the experiments and the name of the datafile that contains information about the number of fish tagged for the tagging experiment. The format for this file shown below, with each new tagging experiment starting with the keyword <span class="math display">\[component\]</span>:</p>
+<p>The main tag file lists the tagging experiments, along with basic information about the experiments and the name of the datafile that contains information about the number of fish tagged for the tagging experiment. The format for this file shown below, with each new tagging experiment starting with the keyword <code>[component]</code>:</p>
 <pre><code>[component]
 tagid                  &lt;name of the tagging experiment&gt;
 stock                  &lt;name of the tagged stock&gt;
@@ -2563,7 +2563,7 @@ N = N (e^{-t})\]</span></p>
 <p>To define otherfood in the Gadget model, the “main” file must contain a list of the data files that contain the description of the otherfood, and the format for this is shown below:</p>
 <pre><code>[otherfood]
 otherfoodfiles         &lt;names of the otherfood files&gt;</code></pre>
-<p>The main otherfood file lists the otherfood, along with basic information about the food and the name of the datafile that contains information about the amount of food that is available for the predators to eat. The format for this file shown below, with each new otherfood starting with the keyword <span class="math display">\[component\]</span>:</p>
+<p>The main otherfood file lists the otherfood, along with basic information about the food and the name of the datafile that contains information about the amount of food that is available for the predators to eat. The format for this file shown below, with each new otherfood starting with the keyword <code>[component]</code>:</p>
 <pre><code>[component]
 foodname               &lt;food name&gt;
 livesonareas           &lt;areas&gt;
@@ -2586,7 +2586,7 @@ amount                 &lt;see Food Amounts&gt;</code></pre>
 <p>To define fleets in the Gadget model, the “main” file must contain a list of the data files that contain the description of the fleets, and the format for this is shown below:</p>
 <pre><code>[fleet]
 fleetfiles             &lt;names of the fleet files&gt;</code></pre>
-<p>There are 5 types of fleets implemented in Gadget, and the main fleet file lists the fleets and their type, along with information about the fleet and the name of the datafile that contains information about the landings. The format for this file shown below, with each new fleet starting with the keyword [component]:</p>
+<p>There are 5 types of fleets implemented in Gadget, and the main fleet file lists the fleets and their type, along with information about the fleet and the name of the datafile that contains information about the landings. The format for this file shown below, with each new fleet starting with the keyword <code>[component]</code>:</p>
 <pre><code>[component]
 &lt;type&gt;                 &lt;fleetname&gt;
 &lt;fleet data&gt;</code></pre>
@@ -2732,7 +2732,7 @@ quotalevel             0.1  0.4  0.9</code></pre>
 <p>To define likelihood files in the Gadget model, the “main” file must contain a list of the data files that contain the description of the likelihood classes required, and the format for this is shown below:</p>
 <pre><code>[likelihood]
 likelihoodfiles      &lt;names of the likelihood files&gt;</code></pre>
-<p>The likelihood files contain a list of various type of likelihood classes, separated by the keyword <span class="math display">\[component\]</span> that control the different likelihood components in the model, the name and weight for that likelihood component and various likelihood data, depending in the likelihood component type. The format of the likelihood files is follows:</p>
+<p>The likelihood files contain a list of various type of likelihood classes, separated by the keyword <code>[component]</code> that control the different likelihood components in the model, the name and weight for that likelihood component and various likelihood data, depending in the likelihood component type. The format of the likelihood files is follows:</p>
 <pre><code>[component]
 name                 &lt;name for the likelihood component&gt;
 weight               &lt;weight for the likelihood component&gt;
@@ -3565,7 +3565,7 @@ stocknames           &lt;vector of the names of the stocks&gt;</code></pre>
 
 <p>To define print files in the Gadget model, the “main” file must contain a list of the data files that contain the description of the printer classes required, and the format for this is shown below:</p>
 <pre><code>printfiles           &lt;names of the print files&gt;</code></pre>
-<p>The print files contain a list of various type of printer classes, separated by the keyword <span class="math display">\[component\]</span>, that output different information from the model, and the name of the file that the information is to be written to. All the output is written as a plain ASCII text file that can be viewed in any text editor. The format of the print file is follows:</p>
+<p>The print files contain a list of various type of printer classes, separated by the keyword <code>[component]</code>, that output different information from the model, and the name of the file that the information is to be written to. All the output is written as a plain ASCII text file that can be viewed in any text editor. The format of the print file is follows:</p>
 <pre><code>[component]
 type                 &lt;printer type&gt;
 &lt;printer data&gt;</code></pre>
@@ -3814,7 +3814,7 @@ printfile            &lt;name for the output file to be created&gt;</code></pre>
 </div>
 <div id="subsec:hookefile" class="section level3">
 <h3>File Format</h3>
-<p>To specify the Hooke &amp; Jeeves algorithm, the optimisation file should start with the keyword “<span class="math display">\[hooke\]</span>”, followed by (up to) 4 lines giving the parameters for the optimisation algorithm. Any parameters that are not specified in the file are given default values, which work reasonably well for simple Gadget models. The format for this file, and the default values for the optimisation parameters, are shown below:</p>
+<p>To specify the Hooke &amp; Jeeves algorithm, the optimisation file should start with the keyword <code>[hooke]</code>, followed by (up to) 4 lines giving the parameters for the optimisation algorithm. Any parameters that are not specified in the file are given default values, which work reasonably well for simple Gadget models. The format for this file, and the default values for the optimisation parameters, are shown below:</p>
 <pre><code>[hooke]
 hookeiter  1000  ; number of hooke &amp; jeeves iterations
 hookeeps   1e-04 ; minimum epsilon, hooke &amp; jeeves halt criteria
@@ -3870,7 +3870,7 @@ P &amp; = &amp;
 </div>
 <div id="subsec:simannfile" class="section level3">
 <h3>File Format</h3>
-<p>To specify the Simulated Annealing algorithm, the optimisation file should start with the keyword “<span class="math display">\[simann\]</span>”, followed by (up to) 11 lines giving the parameters for the optimisation algorithm. Any parameters that are not specified in the file are given default values, which work reasonably well for simple Gadget models. The format for this file, and the default values for the optimisation parameters, are shown below:</p>
+<p>To specify the Simulated Annealing algorithm, the optimisation file should start with the keyword <code>[simann]</code>, followed by (up to) 11 lines giving the parameters for the optimisation algorithm. Any parameters that are not specified in the file are given default values, which work reasonably well for simple Gadget models. The format for this file, and the default values for the optimisation parameters, are shown below:</p>
 <pre><code>[simann]
 simanniter 2000  ; number of simulated annealing iterations
 simanneps  1e-04 ; minimum epsilon, simann halt criteria
@@ -3957,7 +3957,7 @@ f(x) - f(x + \beta^{n}d) \geq - \sigma \beta^{n}d \nabla f(x) ^{T}\]</span></p>
 </div>
 <div id="subsec:bfgsfile" class="section level3">
 <h3>File Format</h3>
-<p>To specify the BFGS algorithm, the optimisation file should start with the keyword “<span class="math display">\[bfgs\]</span>”, followed by (up to) 7 lines giving the parameters for the optimisation algorithm. Any parameters that are not specified in the file are given default values, which work reasonably well for simple Gadget models. The format for this file, and the default values for the optimisation parameters, are shown below:</p>
+<p>To specify the BFGS algorithm, the optimisation file should start with the keyword <code>[bfgs]</code>, followed by (up to) 7 lines giving the parameters for the optimisation algorithm. Any parameters that are not specified in the file are given default values, which work reasonably well for simple Gadget models. The format for this file, and the default values for the optimisation parameters, are shown below:</p>
 <pre><code>[bfgs]
 bfgsiter   10000 ; number of bfgs iterations
 bfgseps    0.01  ; minimum epsilon, bfgs halt criteria
